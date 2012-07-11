@@ -1,5 +1,8 @@
-PayPal Adaptive Accounts C# SDK - 0.7.88
-----------------------------------------
+
+Version 0.7.86 - July 11, 2012
+    - Nant script added for SDK automation.
+    
+-------------------------------------------    
 Release Date - 11-Apr-2012
   
    - Wsdl update version 88
