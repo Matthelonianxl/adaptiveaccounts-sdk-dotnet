@@ -137,8 +137,7 @@ namespace AdaptiveAccountsSampleApp
             if (!(resp.responseEnvelope.ack == AckCode.FAILURE) &&
                 !(resp.responseEnvelope.ack == AckCode.FAILUREWITHWARNING))
             {
-                redirectUrl = ConfigurationManager.AppSettings["PAYPAL_REDIRECT_URL"]
-                    + resp.redirectURL;
+                redirectUrl =  resp.redirectURL;
                 keyResponseParams.Add("Account Id", resp.accountId);
                 keyResponseParams.Add("Create account key", resp.createAccountKey);
                 keyResponseParams.Add("Execution status", resp.execStatus.ToString());                
@@ -239,8 +238,7 @@ namespace AdaptiveAccountsSampleApp
             if (!(resp.responseEnvelope.ack == AckCode.FAILURE) &&
                 !(resp.responseEnvelope.ack == AckCode.FAILUREWITHWARNING))
             {
-                redirectUrl = ConfigurationManager.AppSettings["PAYPAL_REDIRECT_URL"] 
-                    + resp.redirectURL;
+                redirectUrl =  resp.redirectURL;
                 keyResponseParams.Add("Execution status", resp.execStatus.ToString());
                 keyResponseParams.Add("Funding source key", resp.fundingSourceKey);
             }
@@ -302,7 +300,7 @@ namespace AdaptiveAccountsSampleApp
                 req.cardVerificationNumber = parameters["cardVerificationNumber"];
             if (parameters["startMonth"] != "" && parameters["startYear"] != "")
             {
-                req.expirationDate = new CardDateType(
+                req.startDate = new CardDateType(
                     Int32.Parse(parameters["startMonth"]),
                     Int32.Parse(parameters["startYear"]));
             }            
@@ -342,6 +340,7 @@ namespace AdaptiveAccountsSampleApp
             if (!(resp.responseEnvelope.ack == AckCode.FAILURE) &&
                 !(resp.responseEnvelope.ack == AckCode.FAILUREWITHWARNING))
             {
+                redirectUrl = resp.redirectURL;
                 keyResponseParams.Add("Execution status", resp.execStatus.ToString());
                 keyResponseParams.Add("Funding source key", resp.fundingSourceKey);                
             }

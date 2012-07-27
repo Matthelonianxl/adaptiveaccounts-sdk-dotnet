@@ -15,7 +15,7 @@
 			<div id="apidetails">Set up credit cards as funding sources for
 				PayPal accounts.</div>
 		</div>
-		<form method="post" action="adaptiveaccountshandler.ashx">
+		<form method="post" action="adaptiveaccountshandler.ashx" runat="server">
 			<div id="request_form">
 				<div class="input_header">Account ID or email Address of your paypal
 					account *</div>
@@ -70,18 +70,18 @@
 						</td>
 						<td class="param_value">
 						    <select name="cardType">								
-								<option value="Visa" selected="selected">Visa</option>
-								<option value="MasterCard">MasterCard</option>
-								<option value="AmericanExpress">AmericanExpress</option>
-								<option value="Discover">Discover</option>
-								<option value="SwitchMaestro">SwitchMaestro</option>
-								<option value="Solo">Solo</option>
-								<option value="CarteAurore">CarteAurore</option>
-								<option value="CarteBleue">CarteBleue</option>
-								<option value="Cofinoga">Cofinoga</option>
-								<option value="4etoiles">4etoiles</option>
-								<option value="CartaAura">CartaAura</option>
-								<option value="TarjetaAurora">TarjetaAurora</option>
+								<option value="VISA" selected="selected">Visa</option>
+								<option value="MASTERCARD">MasterCard</option>
+								<option value="AMERICANEXPRESS">AmericanExpress</option>
+								<option value="DISCOVER">Discover</option>
+								<option value="SWITCHMAESTRO">SwitchMaestro</option>
+								<option value="SOLO">Solo</option>
+								<option value="CARTEAURORE">CarteAurore</option>
+								<option value="CARTEBLUE">CarteBleue</option>
+								<option value="COFINOGA">Cofinoga</option>
+								<option value="ETOILES">4etoiles</option>
+								<option value="CARTAAURA">CartaAura</option>
+								<option value="TARJETAAURORA">TarjetaAurora</option>
 								<option value="JCB">JCB</option>
 						    </select>
 						</td>
@@ -105,7 +105,7 @@
 					<tr>
 						<td class="param_value"><select name="startMonth">
 								<option value="">--Select--</option>
-								<option value="01" selected="selected">01</option>
+								<option value="01" >01</option>
 								<option value="02">02</option>
 								<option value="03">03</option>
 								<option value="04">04</option>
@@ -119,7 +119,7 @@
 								<option value="12">12</option>
 						</select></td>
 						<td class="param_value">
-						    <input type="text" name="startYear" value="2012" />
+						    <input type="text" name="startYear" value="" />
 						</td>
 					</tr>
 				</table>

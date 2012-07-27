@@ -40,7 +40,7 @@
 					</div>
 				</div>
 				<div class="submit">
-				    <asp:Button ID="AdaptiveAccountsBtn" Text="SetFundingSourcesConfirmed" runat="server" PostBackUrl="adaptiveaccountshandler.ashx" />					
+				    <asp:Button ID="AdaptiveAccountsBtn" Text="SetFundingSourceConfirmed" runat="server" PostBackUrl="adaptiveaccountshandler.ashx" />					
 				</div>			
 			</div>
 		</form>

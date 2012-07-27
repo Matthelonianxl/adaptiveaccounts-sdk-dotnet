@@ -50,7 +50,7 @@ namespace PayPal.AdaptiveAccounts.Model
 	{
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private int? errorIdField;
 		public int? errorId
@@ -67,7 +67,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string domainField;
 		public string domain
@@ -84,7 +84,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string subdomainField;
 		public string subdomain
@@ -101,7 +101,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private ErrorSeverity? severityField;
 		public ErrorSeverity? severity
@@ -118,7 +118,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private ErrorCategory? categoryField;
 		public ErrorCategory? category
@@ -135,7 +135,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string messageField;
 		public string message
@@ -152,7 +152,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string exceptionIdField;
 		public string exceptionId
@@ -169,7 +169,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private List<ErrorParameter> parameterField = new List<ErrorParameter>();
 		public List<ErrorParameter> parameter
@@ -257,7 +257,7 @@ namespace PayPal.AdaptiveAccounts.Model
 	{
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string nameField;
 		public string name
@@ -274,7 +274,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string valueField;
 		public string value
@@ -301,12 +301,12 @@ namespace PayPal.AdaptiveAccounts.Model
 		{
 			string key = "";
 			int i;
-			key = prefix + "name";
+			key = prefix + ".name";
 			if(map.ContainsKey(key))
 			{
 				this.name = map[key];
 			}
-			key = prefix + "value";
+			key = prefix ;
 			if(map.ContainsKey(key))
 			{
 				this.value = map[key];
@@ -326,7 +326,7 @@ namespace PayPal.AdaptiveAccounts.Model
 	{
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private DetailLevelCode? detailLevelField;
 		public DetailLevelCode? detailLevel
@@ -343,7 +343,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string errorLanguageField;
 		public string errorLanguage
@@ -393,7 +393,7 @@ namespace PayPal.AdaptiveAccounts.Model
 	{
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string timestampField;
 		public string timestamp
@@ -410,7 +410,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private AckCode? ackField;
 		public AckCode? ack
@@ -427,7 +427,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string correlationIdField;
 		public string correlationId
@@ -444,7 +444,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string buildField;
 		public string build
@@ -506,7 +506,7 @@ namespace PayPal.AdaptiveAccounts.Model
 	{
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string ipAddressField;
 		public string ipAddress
@@ -523,7 +523,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string deviceIdField;
 		public string deviceId
@@ -540,7 +540,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string applicationIdField;
 		public string applicationId
@@ -557,7 +557,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string modelField;
 		public string model
@@ -574,7 +574,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string geoLocationField;
 		public string geoLocation
@@ -591,7 +591,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string customerTypeField;
 		public string customerType
@@ -608,7 +608,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string partnerNameField;
 		public string partnerName
@@ -625,7 +625,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string customerIdField;
 		public string customerId
@@ -698,7 +698,7 @@ namespace PayPal.AdaptiveAccounts.Model
 	{
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private ResponseEnvelope responseEnvelopeField;
 		public ResponseEnvelope responseEnvelope
@@ -715,7 +715,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private List<ErrorData> errorField = new List<ErrorData>();
 		public List<ErrorData> error
@@ -750,7 +750,7 @@ namespace PayPal.AdaptiveAccounts.Model
 			i = 0;
 			while(true){
 				key = prefix + "error" + "(" + i + ")";
-				if(map.ContainsKey(key + ".parameter(0)"))
+				if(map.ContainsKey(key + ".errorId"))
 				{
 					this.error.Add(new ErrorData(map, key + "."));
 				} else
@@ -973,7 +973,7 @@ namespace PayPal.AdaptiveAccounts.Model
 	{
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private RequestEnvelope requestEnvelopeField;
 		public RequestEnvelope requestEnvelope
@@ -990,7 +990,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private ClientDetailsType clientDetailsField;
 		public ClientDetailsType clientDetails
@@ -1007,7 +1007,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string accountTypeField;
 		public string accountType
@@ -1024,7 +1024,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private NameType nameField;
 		public NameType name
@@ -1041,7 +1041,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string dateOfBirthField;
 		public string dateOfBirth
@@ -1058,7 +1058,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private AddressType addressField;
 		public AddressType address
@@ -1075,7 +1075,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string contactPhoneNumberField;
 		public string contactPhoneNumber
@@ -1092,7 +1092,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string homePhoneNumberField;
 		public string homePhoneNumber
@@ -1109,7 +1109,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string mobilePhoneNumberField;
 		public string mobilePhoneNumber
@@ -1126,7 +1126,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string currencyCodeField;
 		public string currencyCode
@@ -1143,7 +1143,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string citizenshipCountryCodeField;
 		public string citizenshipCountryCode
@@ -1160,7 +1160,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string preferredLanguageCodeField;
 		public string preferredLanguageCode
@@ -1177,7 +1177,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string notificationURLField;
 		public string notificationURL
@@ -1194,7 +1194,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string emailAddressField;
 		public string emailAddress
@@ -1211,7 +1211,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string registrationTypeField;
 		public string registrationType
@@ -1228,7 +1228,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private CreateAccountWebOptionsType createAccountWebOptionsField;
 		public CreateAccountWebOptionsType createAccountWebOptions
@@ -1245,7 +1245,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private bool? suppressWelcomeEmailField;
 		public bool? suppressWelcomeEmail
@@ -1262,7 +1262,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private bool? performExtraVettingOnThisAccountField;
 		public bool? performExtraVettingOnThisAccount
@@ -1279,7 +1279,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string taxIdField;
 		public string taxId
@@ -1296,7 +1296,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string partnerField1Field;
 		public string partnerField1
@@ -1313,7 +1313,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string partnerField2Field;
 		public string partnerField2
@@ -1330,7 +1330,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string partnerField3Field;
 		public string partnerField3
@@ -1347,7 +1347,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string partnerField4Field;
 		public string partnerField4
@@ -1364,7 +1364,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string partnerField5Field;
 		public string partnerField5
@@ -1381,7 +1381,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private BusinessInfoType businessInfoField;
 		public BusinessInfoType businessInfo
@@ -1538,7 +1538,7 @@ namespace PayPal.AdaptiveAccounts.Model
 	{
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private ResponseEnvelope responseEnvelopeField;
 		public ResponseEnvelope responseEnvelope
@@ -1555,7 +1555,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string createAccountKeyField;
 		public string createAccountKey
@@ -1572,7 +1572,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string execStatusField;
 		public string execStatus
@@ -1589,7 +1589,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string redirectURLField;
 		public string redirectURL
@@ -1606,7 +1606,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string accountIdField;
 		public string accountId
@@ -1623,7 +1623,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private List<ErrorData> errorField = new List<ErrorData>();
 		public List<ErrorData> error
@@ -1678,7 +1678,7 @@ namespace PayPal.AdaptiveAccounts.Model
 			i = 0;
 			while(true){
 				key = prefix + "error" + "(" + i + ")";
-				if(map.ContainsKey(key + ".parameter(0)"))
+				if(map.ContainsKey(key + ".errorId"))
 				{
 					this.error.Add(new ErrorData(map, key + "."));
 				} else
@@ -1701,7 +1701,7 @@ namespace PayPal.AdaptiveAccounts.Model
 	{
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private RequestEnvelope requestEnvelopeField;
 		public RequestEnvelope requestEnvelope
@@ -1718,7 +1718,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string createAccountKeyField;
 		public string createAccountKey
@@ -1735,7 +1735,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string countryCodeField;
 		public string countryCode
@@ -1752,7 +1752,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string languageCodeField;
 		public string languageCode
@@ -1816,7 +1816,7 @@ namespace PayPal.AdaptiveAccounts.Model
 	{
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private ResponseEnvelope responseEnvelopeField;
 		public ResponseEnvelope responseEnvelope
@@ -1833,7 +1833,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string agreementField;
 		public string agreement
@@ -1850,7 +1850,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private List<ErrorData> errorField = new List<ErrorData>();
 		public List<ErrorData> error
@@ -1890,7 +1890,7 @@ namespace PayPal.AdaptiveAccounts.Model
 			i = 0;
 			while(true){
 				key = prefix + "error" + "(" + i + ")";
-				if(map.ContainsKey(key + ".parameter(0)"))
+				if(map.ContainsKey(key + ".errorId"))
 				{
 					this.error.Add(new ErrorData(map, key + "."));
 				} else
@@ -1915,7 +1915,7 @@ namespace PayPal.AdaptiveAccounts.Model
 	{
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private RequestEnvelope requestEnvelopeField;
 		public RequestEnvelope requestEnvelope
@@ -1932,7 +1932,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string emailAddressField;
 		public string emailAddress
@@ -1949,7 +1949,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string matchCriteriaField;
 		public string matchCriteria
@@ -1966,7 +1966,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string firstNameField;
 		public string firstName
@@ -1983,7 +1983,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string lastNameField;
 		public string lastName
@@ -2053,7 +2053,7 @@ namespace PayPal.AdaptiveAccounts.Model
 	{
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private ResponseEnvelope responseEnvelopeField;
 		public ResponseEnvelope responseEnvelope
@@ -2070,7 +2070,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string accountStatusField;
 		public string accountStatus
@@ -2087,7 +2087,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string countryCodeField;
 		public string countryCode
@@ -2104,7 +2104,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private UserInfoType userInfoField;
 		public UserInfoType userInfo
@@ -2121,7 +2121,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private List<ErrorData> errorField = new List<ErrorData>();
 		public List<ErrorData> error
@@ -2164,14 +2164,14 @@ namespace PayPal.AdaptiveAccounts.Model
 				this.countryCode = map[key];
 			}
 			key = prefix + "userInfo";
-			if(map.ContainsKey(key + ".name.firstName"))
+			if(map.ContainsKey(key + ".emailAddress"))
 			{
 				this.userInfo = new UserInfoType(map, key + ".");
 			}
 			i = 0;
 			while(true){
 				key = prefix + "error" + "(" + i + ")";
-				if(map.ContainsKey(key + ".parameter(0)"))
+				if(map.ContainsKey(key + ".errorId"))
 				{
 					this.error.Add(new ErrorData(map, key + "."));
 				} else
@@ -2196,7 +2196,7 @@ namespace PayPal.AdaptiveAccounts.Model
 	{
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private RequestEnvelope requestEnvelopeField;
 		public RequestEnvelope requestEnvelope
@@ -2213,7 +2213,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string emailAddressField;
 		public string emailAddress
@@ -2230,7 +2230,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string accountIdField;
 		public string accountId
@@ -2247,7 +2247,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string createAccountKeyField;
 		public string createAccountKey
@@ -2264,7 +2264,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string bankCountryCodeField;
 		public string bankCountryCode
@@ -2281,7 +2281,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string bankNameField;
 		public string bankName
@@ -2298,7 +2298,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string routingNumberField;
 		public string routingNumber
@@ -2315,7 +2315,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private BankAccountType? bankAccountTypeField;
 		public BankAccountType? bankAccountType
@@ -2332,7 +2332,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string bankAccountNumberField;
 		public string bankAccountNumber
@@ -2349,7 +2349,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string ibanField;
 		public string iban
@@ -2366,7 +2366,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string clabeField;
 		public string clabe
@@ -2383,7 +2383,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string bsbNumberField;
 		public string bsbNumber
@@ -2400,7 +2400,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string branchLocationField;
 		public string branchLocation
@@ -2417,7 +2417,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string sortCodeField;
 		public string sortCode
@@ -2434,7 +2434,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string bankTransitNumberField;
 		public string bankTransitNumber
@@ -2451,7 +2451,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string institutionNumberField;
 		public string institutionNumber
@@ -2468,7 +2468,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string branchCodeField;
 		public string branchCode
@@ -2485,7 +2485,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string agencyNumberField;
 		public string agencyNumber
@@ -2502,7 +2502,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string bankCodeField;
 		public string bankCode
@@ -2519,7 +2519,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string ribKeyField;
 		public string ribKey
@@ -2536,7 +2536,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string controlDigitField;
 		public string controlDigit
@@ -2553,7 +2553,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string taxIdTypeField;
 		public string taxIdType
@@ -2570,7 +2570,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string taxIdNumberField;
 		public string taxIdNumber
@@ -2587,7 +2587,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string accountHolderDateOfBirthField;
 		public string accountHolderDateOfBirth
@@ -2604,7 +2604,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private ConfirmationType? confirmationTypeField;
 		public ConfirmationType? confirmationType
@@ -2621,7 +2621,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private WebOptionsType webOptionsField;
 		public WebOptionsType webOptions
@@ -2779,7 +2779,7 @@ namespace PayPal.AdaptiveAccounts.Model
 	{
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private ResponseEnvelope responseEnvelopeField;
 		public ResponseEnvelope responseEnvelope
@@ -2796,7 +2796,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string execStatusField;
 		public string execStatus
@@ -2813,7 +2813,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string redirectURLField;
 		public string redirectURL
@@ -2830,7 +2830,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string fundingSourceKeyField;
 		public string fundingSourceKey
@@ -2847,7 +2847,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private List<ErrorData> errorField = new List<ErrorData>();
 		public List<ErrorData> error
@@ -2897,7 +2897,7 @@ namespace PayPal.AdaptiveAccounts.Model
 			i = 0;
 			while(true){
 				key = prefix + "error" + "(" + i + ")";
-				if(map.ContainsKey(key + ".parameter(0)"))
+				if(map.ContainsKey(key + ".errorId"))
 				{
 					this.error.Add(new ErrorData(map, key + "."));
 				} else
@@ -2922,7 +2922,7 @@ namespace PayPal.AdaptiveAccounts.Model
 	{
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private RequestEnvelope requestEnvelopeField;
 		public RequestEnvelope requestEnvelope
@@ -2939,7 +2939,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string emailAddressField;
 		public string emailAddress
@@ -2956,7 +2956,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string accountIdField;
 		public string accountId
@@ -2973,7 +2973,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string createAccountKeyField;
 		public string createAccountKey
@@ -2990,7 +2990,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private NameType nameOnCardField;
 		public NameType nameOnCard
@@ -3007,7 +3007,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private AddressType billingAddressField;
 		public AddressType billingAddress
@@ -3024,7 +3024,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string cardOwnerDateOfBirthField;
 		public string cardOwnerDateOfBirth
@@ -3041,7 +3041,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string cardNumberField;
 		public string cardNumber
@@ -3058,7 +3058,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private CardTypeType? cardTypeField;
 		public CardTypeType? cardType
@@ -3075,7 +3075,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private CardDateType expirationDateField;
 		public CardDateType expirationDate
@@ -3092,7 +3092,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string cardVerificationNumberField;
 		public string cardVerificationNumber
@@ -3109,7 +3109,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private CardDateType startDateField;
 		public CardDateType startDate
@@ -3126,7 +3126,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string issueNumberField;
 		public string issueNumber
@@ -3143,7 +3143,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private ConfirmationType? confirmationTypeField;
 		public ConfirmationType? confirmationType
@@ -3160,7 +3160,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private WebOptionsType webOptionsField;
 		public WebOptionsType webOptions
@@ -3281,7 +3281,7 @@ namespace PayPal.AdaptiveAccounts.Model
 	{
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private ResponseEnvelope responseEnvelopeField;
 		public ResponseEnvelope responseEnvelope
@@ -3298,7 +3298,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string execStatusField;
 		public string execStatus
@@ -3315,7 +3315,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string redirectURLField;
 		public string redirectURL
@@ -3332,7 +3332,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string fundingSourceKeyField;
 		public string fundingSourceKey
@@ -3349,7 +3349,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private List<ErrorData> errorField = new List<ErrorData>();
 		public List<ErrorData> error
@@ -3399,7 +3399,7 @@ namespace PayPal.AdaptiveAccounts.Model
 			i = 0;
 			while(true){
 				key = prefix + "error" + "(" + i + ")";
-				if(map.ContainsKey(key + ".parameter(0)"))
+				if(map.ContainsKey(key + ".errorId"))
 				{
 					this.error.Add(new ErrorData(map, key + "."));
 				} else
@@ -3424,7 +3424,7 @@ namespace PayPal.AdaptiveAccounts.Model
 	{
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private RequestEnvelope requestEnvelopeField;
 		public RequestEnvelope requestEnvelope
@@ -3441,7 +3441,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string emailAddressField;
 		public string emailAddress
@@ -3458,7 +3458,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string accountIdField;
 		public string accountId
@@ -3475,7 +3475,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string fundingSourceKeyField;
 		public string fundingSourceKey
@@ -3540,7 +3540,7 @@ namespace PayPal.AdaptiveAccounts.Model
 	{
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private ResponseEnvelope responseEnvelopeField;
 		public ResponseEnvelope responseEnvelope
@@ -3557,7 +3557,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private List<ErrorData> errorField = new List<ErrorData>();
 		public List<ErrorData> error
@@ -3592,7 +3592,7 @@ namespace PayPal.AdaptiveAccounts.Model
 			i = 0;
 			while(true){
 				key = prefix + "error" + "(" + i + ")";
-				if(map.ContainsKey(key + ".parameter(0)"))
+				if(map.ContainsKey(key + ".errorId"))
 				{
 					this.error.Add(new ErrorData(map, key + "."));
 				} else
@@ -3615,7 +3615,7 @@ namespace PayPal.AdaptiveAccounts.Model
 	{
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string salutationField;
 		public string salutation
@@ -3632,7 +3632,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string firstNameField;
 		public string firstName
@@ -3649,7 +3649,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string middleNameField;
 		public string middleName
@@ -3666,7 +3666,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string lastNameField;
 		public string lastName
@@ -3683,7 +3683,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string suffixField;
 		public string suffix
@@ -3782,7 +3782,7 @@ namespace PayPal.AdaptiveAccounts.Model
 	{
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string line1Field;
 		public string line1
@@ -3799,7 +3799,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string line2Field;
 		public string line2
@@ -3816,7 +3816,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string cityField;
 		public string city
@@ -3833,7 +3833,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string stateField;
 		public string state
@@ -3850,7 +3850,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string postalCodeField;
 		public string postalCode
@@ -3867,7 +3867,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string countryCodeField;
 		public string countryCode
@@ -3941,7 +3941,7 @@ namespace PayPal.AdaptiveAccounts.Model
 	{
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string returnUrlField;
 		public string returnUrl
@@ -3958,7 +3958,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private bool? showAddCreditCardField;
 		public bool? showAddCreditCard
@@ -3975,7 +3975,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private bool? showMobileConfirmField;
 		public bool? showMobileConfirm
@@ -3992,7 +3992,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string returnUrlDescriptionField;
 		public string returnUrlDescription
@@ -4009,7 +4009,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private bool? useMiniBrowserField;
 		public bool? useMiniBrowser
@@ -4069,7 +4069,7 @@ namespace PayPal.AdaptiveAccounts.Model
 	{
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string businessNameField;
 		public string businessName
@@ -4086,7 +4086,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private AddressType businessAddressField;
 		public AddressType businessAddress
@@ -4103,7 +4103,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string workPhoneField;
 		public string workPhone
@@ -4120,7 +4120,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private int? categoryField;
 		public int? category
@@ -4137,7 +4137,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private int? subCategoryField;
 		public int? subCategory
@@ -4154,7 +4154,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private int? merchantCategoryCodeField;
 		public int? merchantCategoryCode
@@ -4171,7 +4171,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string doingBusinessAsField;
 		public string doingBusinessAs
@@ -4188,7 +4188,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string customerServicePhoneField;
 		public string customerServicePhone
@@ -4205,7 +4205,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string customerServiceEmailField;
 		public string customerServiceEmail
@@ -4222,7 +4222,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string disputeEmailField;
 		public string disputeEmail
@@ -4239,7 +4239,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string webSiteField;
 		public string webSite
@@ -4256,7 +4256,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string companyIdField;
 		public string companyId
@@ -4273,7 +4273,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string dateOfEstablishmentField;
 		public string dateOfEstablishment
@@ -4290,7 +4290,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private BusinessType? businessTypeField;
 		public BusinessType? businessType
@@ -4307,7 +4307,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private BusinessSubtypeType? businessSubtypeField;
 		public BusinessSubtypeType? businessSubtype
@@ -4324,7 +4324,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string incorporationIdField;
 		public string incorporationId
@@ -4341,7 +4341,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private decimal? averagePriceField;
 		public decimal? averagePrice
@@ -4358,7 +4358,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private decimal? averageMonthlyVolumeField;
 		public decimal? averageMonthlyVolume
@@ -4375,7 +4375,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private int? percentageRevenueFromOnlineField;
 		public int? percentageRevenueFromOnline
@@ -4392,7 +4392,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private List<SalesVenueType?> salesVenueField = new List<SalesVenueType?>();
 		public List<SalesVenueType?> salesVenue
@@ -4409,7 +4409,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string salesVenueDescField;
 		public string salesVenueDesc
@@ -4426,7 +4426,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string vatIdField;
 		public string vatId
@@ -4443,7 +4443,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string vatCountryCodeField;
 		public string vatCountryCode
@@ -4460,7 +4460,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string commercialRegistrationLocationField;
 		public string commercialRegistrationLocation
@@ -4477,7 +4477,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private AddressType principalPlaceOfBusinessAddressField;
 		public AddressType principalPlaceOfBusinessAddress
@@ -4494,7 +4494,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private AddressType registeredOfficeAddressField;
 		public AddressType registeredOfficeAddress
@@ -4511,7 +4511,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string establishmentCountryCodeField;
 		public string establishmentCountryCode
@@ -4528,7 +4528,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string establishmentStateField;
 		public string establishmentState
@@ -4545,7 +4545,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private List<BusinessStakeholderType> businessStakeholderField = new List<BusinessStakeholderType>();
 		public List<BusinessStakeholderType> businessStakeholder
@@ -4724,7 +4724,7 @@ namespace PayPal.AdaptiveAccounts.Model
 	{
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private StakeholderRoleType? roleField;
 		public StakeholderRoleType? role
@@ -4741,7 +4741,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private NameType nameField;
 		public NameType name
@@ -4758,7 +4758,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string fullLegalNameField;
 		public string fullLegalName
@@ -4775,7 +4775,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private AddressType addressField;
 		public AddressType address
@@ -4792,7 +4792,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string dateOfBirthField;
 		public string dateOfBirth
@@ -4863,7 +4863,7 @@ namespace PayPal.AdaptiveAccounts.Model
 	{
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string emailAddressField;
 		public string emailAddress
@@ -4880,7 +4880,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string accountTypeField;
 		public string accountType
@@ -4897,7 +4897,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string accountIdField;
 		public string accountId
@@ -4914,7 +4914,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private NameType nameField;
 		public NameType name
@@ -4931,7 +4931,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string businessNameField;
 		public string businessName
@@ -4997,7 +4997,7 @@ namespace PayPal.AdaptiveAccounts.Model
 	{
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string returnUrlField;
 		public string returnUrl
@@ -5014,7 +5014,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string cancelUrlField;
 		public string cancelUrl
@@ -5031,7 +5031,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string returnUrlDescriptionField;
 		public string returnUrlDescription
@@ -5048,7 +5048,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private string cancelUrlDescriptionField;
 		public string cancelUrlDescription
@@ -5104,7 +5104,7 @@ namespace PayPal.AdaptiveAccounts.Model
 	{
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private int? monthField;
 		public int? month
@@ -5121,7 +5121,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *No Document Comments
+          *
 		  */
 		private int? yearField;
 		public int? year
