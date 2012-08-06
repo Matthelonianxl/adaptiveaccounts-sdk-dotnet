@@ -192,57 +192,84 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 
 
-		public ErrorData(Dictionary<string, string> map, string prefix)
+
+		public static ErrorData createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "errorId";
-			if(map.ContainsKey(key))
+			ErrorData errorData = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.errorId = System.Convert.ToInt32(map[key]);
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			key = prefix + "errorId";
+			if (map.ContainsKey(key))
+			{
+				errorData = (errorData == null) ? new ErrorData() : errorData;
+				errorData.errorId = System.Convert.ToInt32(map[key]);
 			}
 			key = prefix + "domain";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.domain = map[key];
+				errorData = (errorData == null) ? new ErrorData() : errorData;
+				errorData.domain = map[key];
 			}
 			key = prefix + "subdomain";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.subdomain = map[key];
+				errorData = (errorData == null) ? new ErrorData() : errorData;
+				errorData.subdomain = map[key];
 			}
 			key = prefix + "severity";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.severity = (ErrorSeverity)EnumUtils.getValue(map[key],typeof(ErrorSeverity));;
+				errorData = (errorData == null) ? new ErrorData() : errorData;
+				errorData.severity = (ErrorSeverity)EnumUtils.getValue(map[key],typeof(ErrorSeverity));;
 			}
 			key = prefix + "category";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.category = (ErrorCategory)EnumUtils.getValue(map[key],typeof(ErrorCategory));;
+				errorData = (errorData == null) ? new ErrorData() : errorData;
+				errorData.category = (ErrorCategory)EnumUtils.getValue(map[key],typeof(ErrorCategory));;
 			}
 			key = prefix + "message";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.message = map[key];
+				errorData = (errorData == null) ? new ErrorData() : errorData;
+				errorData.message = map[key];
 			}
 			key = prefix + "exceptionId";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.exceptionId = map[key];
+				errorData = (errorData == null) ? new ErrorData() : errorData;
+				errorData.exceptionId = map[key];
 			}
 			i = 0;
-			while(true){
-				key = prefix + "parameter" + "(" + i + ")";
-				if(map.ContainsKey(key))
+			while(true)
+			{
+				ErrorParameter parameter =  ErrorParameter.createInstance(map, prefix + "parameter", i);
+				if (parameter != null)
 				{
-					this.parameter.Add(new ErrorParameter(map, key));
-				} else
+					errorData = (errorData == null) ? new ErrorData() : errorData;
+					errorData.parameter.Add(parameter);
+					i++;
+				} 
+				else
 				{
 					break;
 				}
-				i++;
 			}
+			return errorData;
 		}
 		
 	}
@@ -297,20 +324,39 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 
 
-		public ErrorParameter(Dictionary<string, string> map, string prefix)
+
+		public static ErrorParameter createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + ".name";
-			if(map.ContainsKey(key))
+			ErrorParameter errorParameter = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.name = map[key];
-			}
-			key = prefix ;
-			if(map.ContainsKey(key))
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
 			{
-				this.value = map[key];
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
 			}
+			key = prefix + "name";
+			if (map.ContainsKey(key))
+			{
+				errorParameter = (errorParameter == null) ? new ErrorParameter() : errorParameter;
+				errorParameter.name = map[key];
+			}
+			key = prefix.Substring(0, prefix.Length - 1);
+			if (map.ContainsKey(key))
+			{
+				errorParameter = (errorParameter == null) ? new ErrorParameter() : errorParameter;
+				errorParameter.value = map[key];
+			}
+			return errorParameter;
 		}
 		
 	}
@@ -467,30 +513,51 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 
 
-		public ResponseEnvelope(Dictionary<string, string> map, string prefix)
+
+		public static ResponseEnvelope createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "timestamp";
-			if(map.ContainsKey(key))
+			ResponseEnvelope responseEnvelope = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.timestamp = map[key];
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			key = prefix + "timestamp";
+			if (map.ContainsKey(key))
+			{
+				responseEnvelope = (responseEnvelope == null) ? new ResponseEnvelope() : responseEnvelope;
+				responseEnvelope.timestamp = map[key];
 			}
 			key = prefix + "ack";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.ack = (AckCode)EnumUtils.getValue(map[key],typeof(AckCode));;
+				responseEnvelope = (responseEnvelope == null) ? new ResponseEnvelope() : responseEnvelope;
+				responseEnvelope.ack = (AckCode)EnumUtils.getValue(map[key],typeof(AckCode));;
 			}
 			key = prefix + "correlationId";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.correlationId = map[key];
+				responseEnvelope = (responseEnvelope == null) ? new ResponseEnvelope() : responseEnvelope;
+				responseEnvelope.correlationId = map[key];
 			}
 			key = prefix + "build";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.build = map[key];
+				responseEnvelope = (responseEnvelope == null) ? new ResponseEnvelope() : responseEnvelope;
+				responseEnvelope.build = map[key];
 			}
+			return responseEnvelope;
 		}
 		
 	}
@@ -738,27 +805,48 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 
 
-		public FaultMessage(Dictionary<string, string> map, string prefix)
+
+		public static FaultMessage createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "responseEnvelope";
-			if(map.ContainsKey(key + ".timestamp"))
+			FaultMessage faultMessage = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.responseEnvelope = new ResponseEnvelope(map, key + ".");
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			if (responseEnvelope != null)
+			{
+				faultMessage = (faultMessage == null) ? new FaultMessage() : faultMessage;
+				faultMessage.responseEnvelope = responseEnvelope;
 			}
 			i = 0;
-			while(true){
-				key = prefix + "error" + "(" + i + ")";
-				if(map.ContainsKey(key + ".errorId"))
+			while(true)
+			{
+				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				if (error != null)
 				{
-					this.error.Add(new ErrorData(map, key + "."));
-				} else
+					faultMessage = (faultMessage == null) ? new FaultMessage() : faultMessage;
+					faultMessage.error.Add(error);
+					i++;
+				} 
+				else
 				{
 					break;
 				}
-				i++;
 			}
+			return faultMessage;
 		}
 		
 	}
@@ -1646,47 +1734,72 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 
 
-		public CreateAccountResponse(Dictionary<string, string> map, string prefix)
+
+		public static CreateAccountResponse createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "responseEnvelope";
-			if(map.ContainsKey(key + ".timestamp"))
+			CreateAccountResponse createAccountResponse = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.responseEnvelope = new ResponseEnvelope(map, key + ".");
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			if (responseEnvelope != null)
+			{
+				createAccountResponse = (createAccountResponse == null) ? new CreateAccountResponse() : createAccountResponse;
+				createAccountResponse.responseEnvelope = responseEnvelope;
 			}
 			key = prefix + "createAccountKey";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.createAccountKey = map[key];
+				createAccountResponse = (createAccountResponse == null) ? new CreateAccountResponse() : createAccountResponse;
+				createAccountResponse.createAccountKey = map[key];
 			}
 			key = prefix + "execStatus";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.execStatus = map[key];
+				createAccountResponse = (createAccountResponse == null) ? new CreateAccountResponse() : createAccountResponse;
+				createAccountResponse.execStatus = map[key];
 			}
 			key = prefix + "redirectURL";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.redirectURL = map[key];
+				createAccountResponse = (createAccountResponse == null) ? new CreateAccountResponse() : createAccountResponse;
+				createAccountResponse.redirectURL = map[key];
 			}
 			key = prefix + "accountId";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.accountId = map[key];
+				createAccountResponse = (createAccountResponse == null) ? new CreateAccountResponse() : createAccountResponse;
+				createAccountResponse.accountId = map[key];
 			}
 			i = 0;
-			while(true){
-				key = prefix + "error" + "(" + i + ")";
-				if(map.ContainsKey(key + ".errorId"))
+			while(true)
+			{
+				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				if (error != null)
 				{
-					this.error.Add(new ErrorData(map, key + "."));
-				} else
+					createAccountResponse = (createAccountResponse == null) ? new CreateAccountResponse() : createAccountResponse;
+					createAccountResponse.error.Add(error);
+					i++;
+				} 
+				else
 				{
 					break;
 				}
-				i++;
 			}
+			return createAccountResponse;
 		}
 		
 	}
@@ -1873,32 +1986,54 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 
 
-		public GetUserAgreementResponse(Dictionary<string, string> map, string prefix)
+
+		public static GetUserAgreementResponse createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "responseEnvelope";
-			if(map.ContainsKey(key + ".timestamp"))
+			GetUserAgreementResponse getUserAgreementResponse = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.responseEnvelope = new ResponseEnvelope(map, key + ".");
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			if (responseEnvelope != null)
+			{
+				getUserAgreementResponse = (getUserAgreementResponse == null) ? new GetUserAgreementResponse() : getUserAgreementResponse;
+				getUserAgreementResponse.responseEnvelope = responseEnvelope;
 			}
 			key = prefix + "agreement";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.agreement = map[key];
+				getUserAgreementResponse = (getUserAgreementResponse == null) ? new GetUserAgreementResponse() : getUserAgreementResponse;
+				getUserAgreementResponse.agreement = map[key];
 			}
 			i = 0;
-			while(true){
-				key = prefix + "error" + "(" + i + ")";
-				if(map.ContainsKey(key + ".errorId"))
+			while(true)
+			{
+				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				if (error != null)
 				{
-					this.error.Add(new ErrorData(map, key + "."));
-				} else
+					getUserAgreementResponse = (getUserAgreementResponse == null) ? new GetUserAgreementResponse() : getUserAgreementResponse;
+					getUserAgreementResponse.error.Add(error);
+					i++;
+				} 
+				else
 				{
 					break;
 				}
-				i++;
 			}
+			return getUserAgreementResponse;
 		}
 		
 	}
@@ -2144,42 +2279,66 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 
 
-		public GetVerifiedStatusResponse(Dictionary<string, string> map, string prefix)
+
+		public static GetVerifiedStatusResponse createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "responseEnvelope";
-			if(map.ContainsKey(key + ".timestamp"))
+			GetVerifiedStatusResponse getVerifiedStatusResponse = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.responseEnvelope = new ResponseEnvelope(map, key + ".");
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			if (responseEnvelope != null)
+			{
+				getVerifiedStatusResponse = (getVerifiedStatusResponse == null) ? new GetVerifiedStatusResponse() : getVerifiedStatusResponse;
+				getVerifiedStatusResponse.responseEnvelope = responseEnvelope;
 			}
 			key = prefix + "accountStatus";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.accountStatus = map[key];
+				getVerifiedStatusResponse = (getVerifiedStatusResponse == null) ? new GetVerifiedStatusResponse() : getVerifiedStatusResponse;
+				getVerifiedStatusResponse.accountStatus = map[key];
 			}
 			key = prefix + "countryCode";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.countryCode = map[key];
+				getVerifiedStatusResponse = (getVerifiedStatusResponse == null) ? new GetVerifiedStatusResponse() : getVerifiedStatusResponse;
+				getVerifiedStatusResponse.countryCode = map[key];
 			}
-			key = prefix + "userInfo";
-			if(map.ContainsKey(key + ".emailAddress"))
+			UserInfoType userInfo =  UserInfoType.createInstance(map, prefix + "userInfo", -1);
+			if (userInfo != null)
 			{
-				this.userInfo = new UserInfoType(map, key + ".");
+				getVerifiedStatusResponse = (getVerifiedStatusResponse == null) ? new GetVerifiedStatusResponse() : getVerifiedStatusResponse;
+				getVerifiedStatusResponse.userInfo = userInfo;
 			}
 			i = 0;
-			while(true){
-				key = prefix + "error" + "(" + i + ")";
-				if(map.ContainsKey(key + ".errorId"))
+			while(true)
+			{
+				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				if (error != null)
 				{
-					this.error.Add(new ErrorData(map, key + "."));
-				} else
+					getVerifiedStatusResponse = (getVerifiedStatusResponse == null) ? new GetVerifiedStatusResponse() : getVerifiedStatusResponse;
+					getVerifiedStatusResponse.error.Add(error);
+					i++;
+				} 
+				else
 				{
 					break;
 				}
-				i++;
 			}
+			return getVerifiedStatusResponse;
 		}
 		
 	}
@@ -2870,42 +3029,66 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 
 
-		public AddBankAccountResponse(Dictionary<string, string> map, string prefix)
+
+		public static AddBankAccountResponse createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "responseEnvelope";
-			if(map.ContainsKey(key + ".timestamp"))
+			AddBankAccountResponse addBankAccountResponse = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.responseEnvelope = new ResponseEnvelope(map, key + ".");
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			if (responseEnvelope != null)
+			{
+				addBankAccountResponse = (addBankAccountResponse == null) ? new AddBankAccountResponse() : addBankAccountResponse;
+				addBankAccountResponse.responseEnvelope = responseEnvelope;
 			}
 			key = prefix + "execStatus";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.execStatus = map[key];
+				addBankAccountResponse = (addBankAccountResponse == null) ? new AddBankAccountResponse() : addBankAccountResponse;
+				addBankAccountResponse.execStatus = map[key];
 			}
 			key = prefix + "redirectURL";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.redirectURL = map[key];
+				addBankAccountResponse = (addBankAccountResponse == null) ? new AddBankAccountResponse() : addBankAccountResponse;
+				addBankAccountResponse.redirectURL = map[key];
 			}
 			key = prefix + "fundingSourceKey";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.fundingSourceKey = map[key];
+				addBankAccountResponse = (addBankAccountResponse == null) ? new AddBankAccountResponse() : addBankAccountResponse;
+				addBankAccountResponse.fundingSourceKey = map[key];
 			}
 			i = 0;
-			while(true){
-				key = prefix + "error" + "(" + i + ")";
-				if(map.ContainsKey(key + ".errorId"))
+			while(true)
+			{
+				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				if (error != null)
 				{
-					this.error.Add(new ErrorData(map, key + "."));
-				} else
+					addBankAccountResponse = (addBankAccountResponse == null) ? new AddBankAccountResponse() : addBankAccountResponse;
+					addBankAccountResponse.error.Add(error);
+					i++;
+				} 
+				else
 				{
 					break;
 				}
-				i++;
 			}
+			return addBankAccountResponse;
 		}
 		
 	}
@@ -3372,42 +3555,66 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 
 
-		public AddPaymentCardResponse(Dictionary<string, string> map, string prefix)
+
+		public static AddPaymentCardResponse createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "responseEnvelope";
-			if(map.ContainsKey(key + ".timestamp"))
+			AddPaymentCardResponse addPaymentCardResponse = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.responseEnvelope = new ResponseEnvelope(map, key + ".");
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			if (responseEnvelope != null)
+			{
+				addPaymentCardResponse = (addPaymentCardResponse == null) ? new AddPaymentCardResponse() : addPaymentCardResponse;
+				addPaymentCardResponse.responseEnvelope = responseEnvelope;
 			}
 			key = prefix + "execStatus";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.execStatus = map[key];
+				addPaymentCardResponse = (addPaymentCardResponse == null) ? new AddPaymentCardResponse() : addPaymentCardResponse;
+				addPaymentCardResponse.execStatus = map[key];
 			}
 			key = prefix + "redirectURL";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.redirectURL = map[key];
+				addPaymentCardResponse = (addPaymentCardResponse == null) ? new AddPaymentCardResponse() : addPaymentCardResponse;
+				addPaymentCardResponse.redirectURL = map[key];
 			}
 			key = prefix + "fundingSourceKey";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.fundingSourceKey = map[key];
+				addPaymentCardResponse = (addPaymentCardResponse == null) ? new AddPaymentCardResponse() : addPaymentCardResponse;
+				addPaymentCardResponse.fundingSourceKey = map[key];
 			}
 			i = 0;
-			while(true){
-				key = prefix + "error" + "(" + i + ")";
-				if(map.ContainsKey(key + ".errorId"))
+			while(true)
+			{
+				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				if (error != null)
 				{
-					this.error.Add(new ErrorData(map, key + "."));
-				} else
+					addPaymentCardResponse = (addPaymentCardResponse == null) ? new AddPaymentCardResponse() : addPaymentCardResponse;
+					addPaymentCardResponse.error.Add(error);
+					i++;
+				} 
+				else
 				{
 					break;
 				}
-				i++;
 			}
+			return addPaymentCardResponse;
 		}
 		
 	}
@@ -3580,27 +3787,364 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 
 
-		public SetFundingSourceConfirmedResponse(Dictionary<string, string> map, string prefix)
+
+		public static SetFundingSourceConfirmedResponse createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "responseEnvelope";
-			if(map.ContainsKey(key + ".timestamp"))
+			SetFundingSourceConfirmedResponse setFundingSourceConfirmedResponse = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.responseEnvelope = new ResponseEnvelope(map, key + ".");
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			if (responseEnvelope != null)
+			{
+				setFundingSourceConfirmedResponse = (setFundingSourceConfirmedResponse == null) ? new SetFundingSourceConfirmedResponse() : setFundingSourceConfirmedResponse;
+				setFundingSourceConfirmedResponse.responseEnvelope = responseEnvelope;
 			}
 			i = 0;
-			while(true){
-				key = prefix + "error" + "(" + i + ")";
-				if(map.ContainsKey(key + ".errorId"))
+			while(true)
+			{
+				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				if (error != null)
 				{
-					this.error.Add(new ErrorData(map, key + "."));
-				} else
+					setFundingSourceConfirmedResponse = (setFundingSourceConfirmedResponse == null) ? new SetFundingSourceConfirmedResponse() : setFundingSourceConfirmedResponse;
+					setFundingSourceConfirmedResponse.error.Add(error);
+					i++;
+				} 
+				else
 				{
 					break;
 				}
-				i++;
 			}
+			return setFundingSourceConfirmedResponse;
+		}
+		
+	}
+
+
+
+
+	/**
+      *Identifies a PayPal account to which this request is
+      *targeted. Caller of this API has to provide ONLY one of
+      *these inputs: emailAddress, accountId or phoneNumber. 
+      */
+	public partial class AccountIdentifierType	
+	{
+
+		/**
+          *
+		  */
+		private string emailAddressField;
+		public string emailAddress
+		{
+			get
+			{
+				return this.emailAddressField;
+			}
+			set
+			{
+				this.emailAddressField = value;
+			}
+		}
+		
+
+		/**
+          *
+		  */
+		private string phoneNumberField;
+		public string phoneNumber
+		{
+			get
+			{
+				return this.phoneNumberField;
+			}
+			set
+			{
+				this.phoneNumberField = value;
+			}
+		}
+		
+
+		/**
+          *
+		  */
+		private string accountIdField;
+		public string accountId
+		{
+			get
+			{
+				return this.accountIdField;
+			}
+			set
+			{
+				this.accountIdField = value;
+			}
+		}
+		
+
+		/**
+	 	  * Constructor with arguments
+	 	  */
+	 	public AccountIdentifierType(string emailAddress, string phoneNumber, string accountId){
+			this.emailAddress = emailAddress;
+			this.phoneNumber = phoneNumber;
+			this.accountId = accountId;
+		}
+
+		/**
+	 	  * Default Constructor
+	 	  */
+	 	public AccountIdentifierType(){
+		}
+
+
+		public string toNVPString(string prefix)
+		{
+			StringBuilder sb = new StringBuilder();
+			if (this.emailAddress != null)
+			{
+					sb.Append(prefix).Append("emailAddress").Append("=").Append(HttpUtility.UrlEncode(this.emailAddress, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			if (this.phoneNumber != null)
+			{
+					sb.Append(prefix).Append("phoneNumber").Append("=").Append(HttpUtility.UrlEncode(this.phoneNumber, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			if (this.accountId != null)
+			{
+					sb.Append(prefix).Append("accountId").Append("=").Append(HttpUtility.UrlEncode(this.accountId, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			return sb.ToString();
+		}
+	}
+
+
+
+
+	/**
+      *Identifies a PayPal account to which this request is
+      *targeted. Caller of this API has to provide ONLY one of
+      *these inputs: emailAddress, accountId or phoneNumber. 
+      */
+	public partial class CheckComplianceStatusRequest	
+	{
+
+		/**
+          *
+		  */
+		private RequestEnvelope requestEnvelopeField;
+		public RequestEnvelope requestEnvelope
+		{
+			get
+			{
+				return this.requestEnvelopeField;
+			}
+			set
+			{
+				this.requestEnvelopeField = value;
+			}
+		}
+		
+
+		/**
+          *
+		  */
+		private AccountIdentifierType accountIdentifierField;
+		public AccountIdentifierType accountIdentifier
+		{
+			get
+			{
+				return this.accountIdentifierField;
+			}
+			set
+			{
+				this.accountIdentifierField = value;
+			}
+		}
+		
+
+		/**
+	 	  * Constructor with arguments
+	 	  */
+	 	public CheckComplianceStatusRequest(RequestEnvelope requestEnvelope, AccountIdentifierType accountIdentifier){
+			this.requestEnvelope = requestEnvelope;
+			this.accountIdentifier = accountIdentifier;
+		}
+
+		/**
+	 	  * Default Constructor
+	 	  */
+	 	public CheckComplianceStatusRequest(){
+		}
+
+
+		public string toNVPString(string prefix)
+		{
+			StringBuilder sb = new StringBuilder();
+			if (this.requestEnvelope != null)
+			{
+					string newPrefix = prefix + "requestEnvelope" + ".";
+					sb.Append(this.requestEnvelopeField.toNVPString(newPrefix));
+			}
+			if (this.accountIdentifier != null)
+			{
+					string newPrefix = prefix + "accountIdentifier" + ".";
+					sb.Append(this.accountIdentifierField.toNVPString(newPrefix));
+			}
+			return sb.ToString();
+		}
+	}
+
+
+
+
+	/**
+      *Returned values are: ALLOW|DENY 
+      */
+	public partial class CheckComplianceStatusResponse	
+	{
+
+		/**
+          *
+		  */
+		private ResponseEnvelope responseEnvelopeField;
+		public ResponseEnvelope responseEnvelope
+		{
+			get
+			{
+				return this.responseEnvelopeField;
+			}
+			set
+			{
+				this.responseEnvelopeField = value;
+			}
+		}
+		
+
+		/**
+          *
+		  */
+		private string execStatusField;
+		public string execStatus
+		{
+			get
+			{
+				return this.execStatusField;
+			}
+			set
+			{
+				this.execStatusField = value;
+			}
+		}
+		
+
+		/**
+          *
+		  */
+		private string denialReasonField;
+		public string denialReason
+		{
+			get
+			{
+				return this.denialReasonField;
+			}
+			set
+			{
+				this.denialReasonField = value;
+			}
+		}
+		
+
+		/**
+          *
+		  */
+		private List<ErrorData> errorField = new List<ErrorData>();
+		public List<ErrorData> error
+		{
+			get
+			{
+				return this.errorField;
+			}
+			set
+			{
+				this.errorField = value;
+			}
+		}
+		
+
+		/**
+	 	  * Default Constructor
+	 	  */
+	 	public CheckComplianceStatusResponse(){
+		}
+
+
+
+		public static CheckComplianceStatusResponse createInstance(Dictionary<string, string> map, string prefix, int index)
+		{
+			CheckComplianceStatusResponse checkComplianceStatusResponse = null;
+			string key;
+			int i = 0;
+			if(index != -1)
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			if (responseEnvelope != null)
+			{
+				checkComplianceStatusResponse = (checkComplianceStatusResponse == null) ? new CheckComplianceStatusResponse() : checkComplianceStatusResponse;
+				checkComplianceStatusResponse.responseEnvelope = responseEnvelope;
+			}
+			key = prefix + "execStatus";
+			if (map.ContainsKey(key))
+			{
+				checkComplianceStatusResponse = (checkComplianceStatusResponse == null) ? new CheckComplianceStatusResponse() : checkComplianceStatusResponse;
+				checkComplianceStatusResponse.execStatus = map[key];
+			}
+			key = prefix + "denialReason";
+			if (map.ContainsKey(key))
+			{
+				checkComplianceStatusResponse = (checkComplianceStatusResponse == null) ? new CheckComplianceStatusResponse() : checkComplianceStatusResponse;
+				checkComplianceStatusResponse.denialReason = map[key];
+			}
+			i = 0;
+			while(true)
+			{
+				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				if (error != null)
+				{
+					checkComplianceStatusResponse = (checkComplianceStatusResponse == null) ? new CheckComplianceStatusResponse() : checkComplianceStatusResponse;
+					checkComplianceStatusResponse.error.Add(error);
+					i++;
+				} 
+				else
+				{
+					break;
+				}
+			}
+			return checkComplianceStatusResponse;
 		}
 		
 	}
@@ -3739,35 +4283,57 @@ namespace PayPal.AdaptiveAccounts.Model
 			}
 			return sb.ToString();
 		}
-		public NameType(Dictionary<string, string> map, string prefix)
+
+		public static NameType createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "salutation";
-			if(map.ContainsKey(key))
+			NameType nameType = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.salutation = map[key];
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			key = prefix + "salutation";
+			if (map.ContainsKey(key))
+			{
+				nameType = (nameType == null) ? new NameType() : nameType;
+				nameType.salutation = map[key];
 			}
 			key = prefix + "firstName";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.firstName = map[key];
+				nameType = (nameType == null) ? new NameType() : nameType;
+				nameType.firstName = map[key];
 			}
 			key = prefix + "middleName";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.middleName = map[key];
+				nameType = (nameType == null) ? new NameType() : nameType;
+				nameType.middleName = map[key];
 			}
 			key = prefix + "lastName";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.lastName = map[key];
+				nameType = (nameType == null) ? new NameType() : nameType;
+				nameType.lastName = map[key];
 			}
 			key = prefix + "suffix";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.suffix = map[key];
+				nameType = (nameType == null) ? new NameType() : nameType;
+				nameType.suffix = map[key];
 			}
+			return nameType;
 		}
 		
 	}
@@ -4954,35 +5520,57 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 
 
-		public UserInfoType(Dictionary<string, string> map, string prefix)
+
+		public static UserInfoType createInstance(Dictionary<string, string> map, string prefix, int index)
 		{
-			string key = "";
-			int i;
-			key = prefix + "emailAddress";
-			if(map.ContainsKey(key))
+			UserInfoType userInfoType = null;
+			string key;
+			int i = 0;
+			if(index != -1)
 			{
-				this.emailAddress = map[key];
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			key = prefix + "emailAddress";
+			if (map.ContainsKey(key))
+			{
+				userInfoType = (userInfoType == null) ? new UserInfoType() : userInfoType;
+				userInfoType.emailAddress = map[key];
 			}
 			key = prefix + "accountType";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.accountType = map[key];
+				userInfoType = (userInfoType == null) ? new UserInfoType() : userInfoType;
+				userInfoType.accountType = map[key];
 			}
 			key = prefix + "accountId";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.accountId = map[key];
+				userInfoType = (userInfoType == null) ? new UserInfoType() : userInfoType;
+				userInfoType.accountId = map[key];
 			}
-			key = prefix + "name";
-			if(map.ContainsKey(key + ".firstName"))
+			NameType name =  NameType.createInstance(map, prefix + "name", -1);
+			if (name != null)
 			{
-				this.name = new NameType(map, key + ".");
+				userInfoType = (userInfoType == null) ? new UserInfoType() : userInfoType;
+				userInfoType.name = name;
 			}
 			key = prefix + "businessName";
-			if(map.ContainsKey(key))
+			if (map.ContainsKey(key))
 			{
-				this.businessName = map[key];
+				userInfoType = (userInfoType == null) ? new UserInfoType() : userInfoType;
+				userInfoType.businessName = map[key];
 			}
+			return userInfoType;
 		}
 		
 	}

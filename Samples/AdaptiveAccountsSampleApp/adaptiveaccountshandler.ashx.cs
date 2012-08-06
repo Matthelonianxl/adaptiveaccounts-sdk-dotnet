@@ -143,7 +143,7 @@ namespace AdaptiveAccountsSampleApp
                 keyResponseParams.Add("Execution status", resp.execStatus.ToString());                
             }
             displayResponse(context, "CreateAccount", keyResponseParams, service.getLastRequest(), service.getLastResponse(),
-                resp.error, redirectUrl);
+                resp.error, redirectUrl, resp);
         }
 
         /// <summary>
@@ -243,7 +243,7 @@ namespace AdaptiveAccountsSampleApp
                 keyResponseParams.Add("Funding source key", resp.fundingSourceKey);
             }
             displayResponse(context, "AddBankAccount", keyResponseParams, service.getLastRequest(), service.getLastResponse(),
-                resp.error, redirectUrl);
+                resp.error, redirectUrl, resp);
         }
 
 
@@ -345,7 +345,7 @@ namespace AdaptiveAccountsSampleApp
                 keyResponseParams.Add("Funding source key", resp.fundingSourceKey);                
             }
             displayResponse(context, "AddPaymentCard", keyResponseParams, service.getLastRequest(), service.getLastResponse(),
-                resp.error, redirectUrl);
+                resp.error, redirectUrl, resp);
         }
 
         /// <summary>
@@ -390,7 +390,7 @@ namespace AdaptiveAccountsSampleApp
                 }
             }
             displayResponse(context, "GetVerifiedStatus", keyResponseParams, service.getLastRequest(), service.getLastResponse(),
-                resp.error, redirectUrl);
+                resp.error, redirectUrl, resp);
         }
 
         /// <summary>
@@ -431,7 +431,7 @@ namespace AdaptiveAccountsSampleApp
                 keyResponseParams.Add("Agreement", resp.agreement.Substring(0, 100) + "....");
             }
             displayResponse(context, "GetUserAgreement", keyResponseParams, service.getLastRequest(), service.getLastResponse(),
-                resp.error, redirectUrl);
+                resp.error, redirectUrl, resp);
         }
 
 
@@ -472,7 +472,7 @@ namespace AdaptiveAccountsSampleApp
                 // nothing to add
             }
             displayResponse(context, "SetFundingSourceConfirmed", keyResponseParams, service.getLastRequest(), service.getLastResponse(),
-                resp.error, redirectUrl);
+                resp.error, redirectUrl, resp);
         }
 
         /// <summary>
@@ -486,8 +486,11 @@ namespace AdaptiveAccountsSampleApp
         /// <param name="errorMessages"></param>
         /// <param name="redirectUrl"></param>
         private void displayResponse(HttpContext context, string apiName, Dictionary<string, string> responseValues, 
-            string requestPayload, string responsePayload, List<ErrorData> errorMessages, string redirectUrl)
+            string requestPayload, string responsePayload, List<ErrorData> errorMessages, string redirectUrl, Object responseObject)
         {
+
+            context.Items["responseObject"] = responseObject;
+            context.Items["responsePayload"] = responsePayload;
 
             context.Response.Write("<html><head><title>");
             context.Response.Write("PayPal Adaptive Accounts - " + apiName);

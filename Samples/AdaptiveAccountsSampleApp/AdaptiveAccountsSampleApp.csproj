@@ -96,6 +96,7 @@
     </Compile>
     <Compile Include="objectdumper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SanityTest\DeserializationTestFilter.cs" />
     <Compile Include="SetFundingSourcesConfirmed.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>SetFundingSourcesConfirmed.aspx</DependentUpon>

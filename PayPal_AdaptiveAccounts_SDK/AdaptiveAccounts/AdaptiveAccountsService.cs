@@ -54,7 +54,8 @@ namespace PayPal.AdaptiveAccounts {
 	 	{
 			string resp = call("CreateAccount", CreateAccountRequest.toNVPString(""), apiUsername);
 			NVPUtil util = new NVPUtil();
-			return new CreateAccountResponse(util.parseNVPString(resp), "");
+			return CreateAccountResponse.createInstance(util.parseNVPString(resp), "", -1);
+			
 	 	}
 	 
 	 	/** 
@@ -131,7 +132,8 @@ namespace PayPal.AdaptiveAccounts {
 	 	{
 			string resp = call("GetUserAgreement", GetUserAgreementRequest.toNVPString(""), apiUsername);
 			NVPUtil util = new NVPUtil();
-			return new GetUserAgreementResponse(util.parseNVPString(resp), "");
+			return GetUserAgreementResponse.createInstance(util.parseNVPString(resp), "", -1);
+			
 	 	}
 	 
 	 	/** 
@@ -183,7 +185,8 @@ namespace PayPal.AdaptiveAccounts {
 	 	{
 			string resp = call("GetVerifiedStatus", GetVerifiedStatusRequest.toNVPString(""), apiUsername);
 			NVPUtil util = new NVPUtil();
-			return new GetVerifiedStatusResponse(util.parseNVPString(resp), "");
+			return GetVerifiedStatusResponse.createInstance(util.parseNVPString(resp), "", -1);
+			
 	 	}
 	 
 	 	/** 
@@ -220,7 +223,8 @@ namespace PayPal.AdaptiveAccounts {
 	 	{
 			string resp = call("AddBankAccount", AddBankAccountRequest.toNVPString(""), apiUsername);
 			NVPUtil util = new NVPUtil();
-			return new AddBankAccountResponse(util.parseNVPString(resp), "");
+			return AddBankAccountResponse.createInstance(util.parseNVPString(resp), "", -1);
+			
 	 	}
 	 
 	 	/** 
@@ -283,7 +287,8 @@ namespace PayPal.AdaptiveAccounts {
 	 	{
 			string resp = call("AddPaymentCard", AddPaymentCardRequest.toNVPString(""), apiUsername);
 			NVPUtil util = new NVPUtil();
-			return new AddPaymentCardResponse(util.parseNVPString(resp), "");
+			return AddPaymentCardResponse.createInstance(util.parseNVPString(resp), "", -1);
+			
 	 	}
 	 
 	 	/** 
@@ -364,7 +369,8 @@ namespace PayPal.AdaptiveAccounts {
 	 	{
 			string resp = call("SetFundingSourceConfirmed", SetFundingSourceConfirmedRequest.toNVPString(""), apiUsername);
 			NVPUtil util = new NVPUtil();
-			return new SetFundingSourceConfirmedResponse(util.parseNVPString(resp), "");
+			return SetFundingSourceConfirmedResponse.createInstance(util.parseNVPString(resp), "", -1);
+			
 	 	}
 	 
 	 	/** 
@@ -405,6 +411,39 @@ namespace PayPal.AdaptiveAccounts {
 	 	public SetFundingSourceConfirmedResponse SetFundingSourceConfirmed(SetFundingSourceConfirmedRequest SetFundingSourceConfirmedRequest)
 	 	{
 	 		return SetFundingSourceConfirmed(SetFundingSourceConfirmedRequest, null);
+	 	}
+
+		/**	
+          * To be updated.
+          *    Countries Supported:
+          *     US - United States
+          *   
+          *   
+          *   
+          *   
+          *  
+	 	  */
+	 	public CheckComplianceStatusResponse CheckComplianceStatus(CheckComplianceStatusRequest CheckComplianceStatusRequest, string apiUsername)
+	 	{
+			string resp = call("CheckComplianceStatus", CheckComplianceStatusRequest.toNVPString(""), apiUsername);
+			NVPUtil util = new NVPUtil();
+			return CheckComplianceStatusResponse.createInstance(util.parseNVPString(resp), "", -1);
+			
+	 	}
+	 
+	 	/** 
+          * To be updated.
+          *    Countries Supported:
+          *     US - United States
+          *   
+          *   
+          *   
+          *   
+          *  
+	 	  */
+	 	public CheckComplianceStatusResponse CheckComplianceStatus(CheckComplianceStatusRequest CheckComplianceStatusRequest)
+	 	{
+	 		return CheckComplianceStatus(CheckComplianceStatusRequest, null);
 	 	}
 	}
 }
