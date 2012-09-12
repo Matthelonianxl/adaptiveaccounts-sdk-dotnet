@@ -47,7 +47,7 @@
 				<div class="params">					
 					<div class="param_name">Date of birth</div>
 					<div class="param_value">
-						<input type="text" name="dateOfBirth" value="1968-01-01Z" />
+						<input type="text" name="dateOfBirth" value="1968-01-01" />
 					</div>
 				</div>						
 				<div class="section_header">Address Details</div>
@@ -502,7 +502,7 @@
 				<div class="params">					
 					<div class="param_name">Date of birth</div>
 					<div class="param_value">
-						<input type="text" name="stakeholderDateOfBirth" value="1968-01-01Z" />
+						<input type="text" name="stakeholderDateOfBirth" value="1968-01-01" />
 					</div>
 				</div>																
 				<div class="submit">

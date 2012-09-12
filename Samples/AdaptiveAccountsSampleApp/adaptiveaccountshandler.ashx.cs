@@ -140,10 +140,14 @@ namespace AdaptiveAccountsSampleApp
                 redirectUrl =  resp.redirectURL;
                 keyResponseParams.Add("Account Id", resp.accountId);
                 keyResponseParams.Add("Create account key", resp.createAccountKey);
-                keyResponseParams.Add("Execution status", resp.execStatus.ToString());                
+                keyResponseParams.Add("Execution status", resp.execStatus.ToString()); 
+
+                //Selenium Test Case
+                keyResponseParams.Add("Acknowledgement", resp.responseEnvelope.ack.ToString());
+                keyResponseParams.Add("Redirect To PayPal", resp.redirectURL);                
             }
             displayResponse(context, "CreateAccount", keyResponseParams, service.getLastRequest(), service.getLastResponse(),
-                resp.error, redirectUrl, resp);
+                resp.error, redirectUrl);
         }
 
         /// <summary>
@@ -241,9 +245,13 @@ namespace AdaptiveAccountsSampleApp
                 redirectUrl =  resp.redirectURL;
                 keyResponseParams.Add("Execution status", resp.execStatus.ToString());
                 keyResponseParams.Add("Funding source key", resp.fundingSourceKey);
+
+                //Selenium Test Case
+                keyResponseParams.Add("Acknowledgement", resp.responseEnvelope.ack.ToString());
+                keyResponseParams.Add("Redirect To PayPal", resp.redirectURL);  
             }
             displayResponse(context, "AddBankAccount", keyResponseParams, service.getLastRequest(), service.getLastResponse(),
-                resp.error, redirectUrl, resp);
+                resp.error, redirectUrl);
         }
 
 
@@ -342,10 +350,14 @@ namespace AdaptiveAccountsSampleApp
             {
                 redirectUrl = resp.redirectURL;
                 keyResponseParams.Add("Execution status", resp.execStatus.ToString());
-                keyResponseParams.Add("Funding source key", resp.fundingSourceKey);                
+                keyResponseParams.Add("Funding source key", resp.fundingSourceKey);
+
+                //Selenium Test Case
+                keyResponseParams.Add("Acknowledgement", resp.responseEnvelope.ack.ToString());
+                keyResponseParams.Add("Redirect To PayPal", resp.redirectURL);  
             }
             displayResponse(context, "AddPaymentCard", keyResponseParams, service.getLastRequest(), service.getLastResponse(),
-                resp.error, redirectUrl, resp);
+                resp.error, redirectUrl);
         }
 
         /// <summary>
@@ -387,10 +399,13 @@ namespace AdaptiveAccountsSampleApp
                 {
                     keyResponseParams.Add("Account Id", resp.userInfo.accountId);
                     keyResponseParams.Add("Account type", resp.userInfo.accountType);
+
+                    //Selenium Test Case
+                    keyResponseParams.Add("Acknowledgement", resp.responseEnvelope.ack.ToString()); 
                 }
             }
             displayResponse(context, "GetVerifiedStatus", keyResponseParams, service.getLastRequest(), service.getLastResponse(),
-                resp.error, redirectUrl, resp);
+                resp.error, redirectUrl);
         }
 
         /// <summary>
@@ -429,9 +444,12 @@ namespace AdaptiveAccountsSampleApp
                 !(resp.responseEnvelope.ack == AckCode.FAILUREWITHWARNING))
             {
                 keyResponseParams.Add("Agreement", resp.agreement.Substring(0, 100) + "....");
+
+                //Selenium Test Case
+                keyResponseParams.Add("Acknowledgement", resp.responseEnvelope.ack.ToString()); 
             }
             displayResponse(context, "GetUserAgreement", keyResponseParams, service.getLastRequest(), service.getLastResponse(),
-                resp.error, redirectUrl, resp);
+                resp.error, redirectUrl);
         }
 
 
@@ -472,7 +490,7 @@ namespace AdaptiveAccountsSampleApp
                 // nothing to add
             }
             displayResponse(context, "SetFundingSourceConfirmed", keyResponseParams, service.getLastRequest(), service.getLastResponse(),
-                resp.error, redirectUrl, resp);
+                resp.error, redirectUrl);
         }
 
         /// <summary>
@@ -486,11 +504,8 @@ namespace AdaptiveAccountsSampleApp
         /// <param name="errorMessages"></param>
         /// <param name="redirectUrl"></param>
         private void displayResponse(HttpContext context, string apiName, Dictionary<string, string> responseValues, 
-            string requestPayload, string responsePayload, List<ErrorData> errorMessages, string redirectUrl, Object responseObject)
+            string requestPayload, string responsePayload, List<ErrorData> errorMessages, string redirectUrl)
         {
-
-            context.Items["responseObject"] = responseObject;
-            context.Items["responsePayload"] = responsePayload;
 
             context.Response.Write("<html><head><title>");
             context.Response.Write("PayPal Adaptive Accounts - " + apiName);
@@ -514,11 +529,40 @@ namespace AdaptiveAccountsSampleApp
             }
             context.Response.Write("<div class='section_header'>Key values from response</div>");
             context.Response.Write("<div class='note'>Consult response object and reference doc for complete list of response values.</div><table>");
+           /*
             foreach (KeyValuePair<String, String> entry in responseValues) {
                 context.Response.Write("<tr><td class='label'>");
                 context.Response.Write(entry.Key);
                 context.Response.Write(": </td><td>");
                 context.Response.Write(entry.Value);
+                context.Response.Write("</td></tr>");
+            }
+            */
+
+            //Selenium Test Case            
+            foreach (KeyValuePair<String, String> entry in responseValues)
+            {
+
+                context.Response.Write("<tr><td class='label'>");
+                context.Response.Write(entry.Key);
+                context.Response.Write(": </td><td>");
+
+                if (entry.Key == "Redirect To PayPal")
+                {
+                    context.Response.Write("<a id='");
+                    context.Response.Write(entry.Key);
+                    context.Response.Write("' href=");
+                    context.Response.Write(entry.Value);
+                    context.Response.Write(">Redirect To PayPal</a>");
+                }
+                else
+                {
+                    context.Response.Write("<div id='");
+                    context.Response.Write(entry.Key);
+                    context.Response.Write("'>");
+                    context.Response.Write(entry.Value);
+                }
+
                 context.Response.Write("</td></tr>");
             }
 
