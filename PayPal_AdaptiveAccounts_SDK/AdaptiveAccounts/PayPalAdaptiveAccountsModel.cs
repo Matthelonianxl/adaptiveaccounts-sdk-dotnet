@@ -5229,7 +5229,7 @@ namespace PayPal.AdaptiveAccounts.Model
 			{
 				if (this.salesVenue[i] != null)
 				{
-					sb.Append(prefix).Append("salesVenue").Append(i).Append(")=").Append(EnumUtils.getDescription(salesVenue[i]));
+					sb.Append(prefix).Append("salesVenue(").Append(i).Append(")=").Append(EnumUtils.getDescription(salesVenue[i]));
 					sb.Append("&");
 				}
 			}
