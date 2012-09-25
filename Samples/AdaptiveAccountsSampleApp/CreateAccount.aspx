@@ -39,8 +39,11 @@
 					<tr>
 						<td><input type="text" name="salutation" value="Mr."/></td>
 						<td><input type="text" name="firstName" value="Bonzop" /></td>
-						<td><input type="text" name="middleName" value="Zaius" /></td>
-						<td><input type="text" name="lastName" value="Simore" /></td>						
+						
+						<%--//Fix for release--%>					
+						<td><input type="text" name="lastName" value="Simore" /></td>	
+						<td><input type="text" name="middleName" value="Zaius" /></td>	
+										
 						<td><input type="text" name="suffix" value="" /></td>
 					</tr>
 				</table>
@@ -469,8 +472,11 @@
 					<tr>
 						<td><input type="text" name="stakeholderSalutation" value="Mr."/></td>
 						<td><input type="text" name="stakeholderFirstName" value="Krakkel" /></td>
-						<td><input type="text" name="stakeholderMiddleName" value="" /></td>
+						
+						<%--//Fix for release--%>						
 						<td><input type="text" name="stakeholderLastName" value="Simore" /></td>
+						<td><input type="text" name="stakeholderMiddleName" value="" /></td>
+						
 						<td><input type="text" name="stakeholderSuffix" value="" /></td>												
 					</tr>
 				</table>
