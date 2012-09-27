@@ -46,11 +46,11 @@ namespace PayPal
         /// <param name="method"></param>
         /// <param name="requestPayload"></param>
         /// <returns></returns>
-        public string call(String method, string requestPayload, string apiUsername)
+        public string Call(string method, string requestPayload, string apiUserName)
         {   
             APIService apiService = new APIService(ServiceName, ServiceVersion);	
             this.LastRequest = requestPayload;
-            this.LastResponse =  apiService.makeRequest(method, requestPayload, apiUsername, 
+            this.LastResponse =  apiService.MakeRequest(method, requestPayload, apiUserName, 
                                     this.AccessToken, this.AccessTokenSecret);
             return this.LastResponse;            
         }
