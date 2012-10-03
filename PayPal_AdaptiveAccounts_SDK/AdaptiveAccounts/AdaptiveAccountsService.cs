@@ -1,3 +1,4 @@
+using System.Xml;
 using PayPal;
 using PayPal.Authentication;
 using PayPal.Util;
@@ -50,11 +51,11 @@ namespace PayPal.AdaptiveAccounts {
           *   
           *  
 	 	  */
-	 	public CreateAccountResponse CreateAccount(CreateAccountRequest CreateAccountRequest, string apiUsername)
+	 	public CreateAccountResponse CreateAccount(CreateAccountRequest createAccountRequest, string apiUserName)
 	 	{
-			string resp = call("CreateAccount", CreateAccountRequest.toNVPString(""), apiUsername);
+			string response = Call("CreateAccount", createAccountRequest.ToNVPString(""), apiUserName);
 			NVPUtil util = new NVPUtil();
-			return CreateAccountResponse.createInstance(util.parseNVPString(resp), "", -1);
+			return CreateAccountResponse.CreateInstance(util.ParseNVPString(response), "", -1);
 			
 	 	}
 	 
@@ -91,9 +92,9 @@ namespace PayPal.AdaptiveAccounts {
           *   
           *  
 	 	  */
-	 	public CreateAccountResponse CreateAccount(CreateAccountRequest CreateAccountRequest)
+	 	public CreateAccountResponse CreateAccount(CreateAccountRequest createAccountRequest)
 	 	{
-	 		return CreateAccount(CreateAccountRequest, null);
+	 		return CreateAccount(createAccountRequest, null);
 	 	}
 
 		/**	
@@ -128,11 +129,11 @@ namespace PayPal.AdaptiveAccounts {
           *   
           *  
 	 	  */
-	 	public GetUserAgreementResponse GetUserAgreement(GetUserAgreementRequest GetUserAgreementRequest, string apiUsername)
+	 	public GetUserAgreementResponse GetUserAgreement(GetUserAgreementRequest getUserAgreementRequest, string apiUserName)
 	 	{
-			string resp = call("GetUserAgreement", GetUserAgreementRequest.toNVPString(""), apiUsername);
+			string response = Call("GetUserAgreement", getUserAgreementRequest.ToNVPString(""), apiUserName);
 			NVPUtil util = new NVPUtil();
-			return GetUserAgreementResponse.createInstance(util.parseNVPString(resp), "", -1);
+			return GetUserAgreementResponse.CreateInstance(util.ParseNVPString(response), "", -1);
 			
 	 	}
 	 
@@ -168,9 +169,9 @@ namespace PayPal.AdaptiveAccounts {
           *   
           *  
 	 	  */
-	 	public GetUserAgreementResponse GetUserAgreement(GetUserAgreementRequest GetUserAgreementRequest)
+	 	public GetUserAgreementResponse GetUserAgreement(GetUserAgreementRequest getUserAgreementRequest)
 	 	{
-	 		return GetUserAgreement(GetUserAgreementRequest, null);
+	 		return GetUserAgreement(getUserAgreementRequest, null);
 	 	}
 
 		/**	
@@ -181,11 +182,11 @@ namespace PayPal.AdaptiveAccounts {
           *   
           *  
 	 	  */
-	 	public GetVerifiedStatusResponse GetVerifiedStatus(GetVerifiedStatusRequest GetVerifiedStatusRequest, string apiUsername)
+	 	public GetVerifiedStatusResponse GetVerifiedStatus(GetVerifiedStatusRequest getVerifiedStatusRequest, string apiUserName)
 	 	{
-			string resp = call("GetVerifiedStatus", GetVerifiedStatusRequest.toNVPString(""), apiUsername);
+			string response = Call("GetVerifiedStatus", getVerifiedStatusRequest.ToNVPString(""), apiUserName);
 			NVPUtil util = new NVPUtil();
-			return GetVerifiedStatusResponse.createInstance(util.parseNVPString(resp), "", -1);
+			return GetVerifiedStatusResponse.CreateInstance(util.ParseNVPString(response), "", -1);
 			
 	 	}
 	 
@@ -197,9 +198,9 @@ namespace PayPal.AdaptiveAccounts {
           *   
           *  
 	 	  */
-	 	public GetVerifiedStatusResponse GetVerifiedStatus(GetVerifiedStatusRequest GetVerifiedStatusRequest)
+	 	public GetVerifiedStatusResponse GetVerifiedStatus(GetVerifiedStatusRequest getVerifiedStatusRequest)
 	 	{
-	 		return GetVerifiedStatus(GetVerifiedStatusRequest, null);
+	 		return GetVerifiedStatus(getVerifiedStatusRequest, null);
 	 	}
 
 		/**	
@@ -219,11 +220,11 @@ namespace PayPal.AdaptiveAccounts {
           *   
           *  
 	 	  */
-	 	public AddBankAccountResponse AddBankAccount(AddBankAccountRequest AddBankAccountRequest, string apiUsername)
+	 	public AddBankAccountResponse AddBankAccount(AddBankAccountRequest addBankAccountRequest, string apiUserName)
 	 	{
-			string resp = call("AddBankAccount", AddBankAccountRequest.toNVPString(""), apiUsername);
+			string response = Call("AddBankAccount", addBankAccountRequest.ToNVPString(""), apiUserName);
 			NVPUtil util = new NVPUtil();
-			return AddBankAccountResponse.createInstance(util.parseNVPString(resp), "", -1);
+			return AddBankAccountResponse.CreateInstance(util.ParseNVPString(response), "", -1);
 			
 	 	}
 	 
@@ -244,9 +245,9 @@ namespace PayPal.AdaptiveAccounts {
           *   
           *  
 	 	  */
-	 	public AddBankAccountResponse AddBankAccount(AddBankAccountRequest AddBankAccountRequest)
+	 	public AddBankAccountResponse AddBankAccount(AddBankAccountRequest addBankAccountRequest)
 	 	{
-	 		return AddBankAccount(AddBankAccountRequest, null);
+	 		return AddBankAccount(addBankAccountRequest, null);
 	 	}
 
 		/**	
@@ -283,11 +284,11 @@ namespace PayPal.AdaptiveAccounts {
           *   
           *  
 	 	  */
-	 	public AddPaymentCardResponse AddPaymentCard(AddPaymentCardRequest AddPaymentCardRequest, string apiUsername)
+	 	public AddPaymentCardResponse AddPaymentCard(AddPaymentCardRequest addPaymentCardRequest, string apiUserName)
 	 	{
-			string resp = call("AddPaymentCard", AddPaymentCardRequest.toNVPString(""), apiUsername);
+			string response = Call("AddPaymentCard", addPaymentCardRequest.ToNVPString(""), apiUserName);
 			NVPUtil util = new NVPUtil();
-			return AddPaymentCardResponse.createInstance(util.parseNVPString(resp), "", -1);
+			return AddPaymentCardResponse.CreateInstance(util.ParseNVPString(response), "", -1);
 			
 	 	}
 	 
@@ -325,9 +326,9 @@ namespace PayPal.AdaptiveAccounts {
           *   
           *  
 	 	  */
-	 	public AddPaymentCardResponse AddPaymentCard(AddPaymentCardRequest AddPaymentCardRequest)
+	 	public AddPaymentCardResponse AddPaymentCard(AddPaymentCardRequest addPaymentCardRequest)
 	 	{
-	 		return AddPaymentCard(AddPaymentCardRequest, null);
+	 		return AddPaymentCard(addPaymentCardRequest, null);
 	 	}
 
 		/**	
@@ -365,11 +366,11 @@ namespace PayPal.AdaptiveAccounts {
           *   
           *  
 	 	  */
-	 	public SetFundingSourceConfirmedResponse SetFundingSourceConfirmed(SetFundingSourceConfirmedRequest SetFundingSourceConfirmedRequest, string apiUsername)
+	 	public SetFundingSourceConfirmedResponse SetFundingSourceConfirmed(SetFundingSourceConfirmedRequest setFundingSourceConfirmedRequest, string apiUserName)
 	 	{
-			string resp = call("SetFundingSourceConfirmed", SetFundingSourceConfirmedRequest.toNVPString(""), apiUsername);
+			string response = Call("SetFundingSourceConfirmed", setFundingSourceConfirmedRequest.ToNVPString(""), apiUserName);
 			NVPUtil util = new NVPUtil();
-			return SetFundingSourceConfirmedResponse.createInstance(util.parseNVPString(resp), "", -1);
+			return SetFundingSourceConfirmedResponse.CreateInstance(util.ParseNVPString(response), "", -1);
 			
 	 	}
 	 
@@ -408,9 +409,9 @@ namespace PayPal.AdaptiveAccounts {
           *   
           *  
 	 	  */
-	 	public SetFundingSourceConfirmedResponse SetFundingSourceConfirmed(SetFundingSourceConfirmedRequest SetFundingSourceConfirmedRequest)
+	 	public SetFundingSourceConfirmedResponse SetFundingSourceConfirmed(SetFundingSourceConfirmedRequest setFundingSourceConfirmedRequest)
 	 	{
-	 		return SetFundingSourceConfirmed(SetFundingSourceConfirmedRequest, null);
+	 		return SetFundingSourceConfirmed(setFundingSourceConfirmedRequest, null);
 	 	}
 
 		/**	
@@ -423,11 +424,11 @@ namespace PayPal.AdaptiveAccounts {
           *   
           *  
 	 	  */
-	 	public CheckComplianceStatusResponse CheckComplianceStatus(CheckComplianceStatusRequest CheckComplianceStatusRequest, string apiUsername)
+	 	public CheckComplianceStatusResponse CheckComplianceStatus(CheckComplianceStatusRequest checkComplianceStatusRequest, string apiUserName)
 	 	{
-			string resp = call("CheckComplianceStatus", CheckComplianceStatusRequest.toNVPString(""), apiUsername);
+			string response = Call("CheckComplianceStatus", checkComplianceStatusRequest.ToNVPString(""), apiUserName);
 			NVPUtil util = new NVPUtil();
-			return CheckComplianceStatusResponse.createInstance(util.parseNVPString(resp), "", -1);
+			return CheckComplianceStatusResponse.CreateInstance(util.ParseNVPString(response), "", -1);
 			
 	 	}
 	 
@@ -441,9 +442,75 @@ namespace PayPal.AdaptiveAccounts {
           *   
           *  
 	 	  */
-	 	public CheckComplianceStatusResponse CheckComplianceStatus(CheckComplianceStatusRequest CheckComplianceStatusRequest)
+	 	public CheckComplianceStatusResponse CheckComplianceStatus(CheckComplianceStatusRequest checkComplianceStatusRequest)
 	 	{
-	 		return CheckComplianceStatus(CheckComplianceStatusRequest, null);
+	 		return CheckComplianceStatus(checkComplianceStatusRequest, null);
+	 	}
+
+		/**	
+          * To be updated.
+          *    Countries Supported:
+          *     US - United States
+          *    Supported FinancialProduct: PayPal netSpend Master
+          *Prepaid Card
+          *   
+          *   
+          *   
+          *   
+          *  
+	 	  */
+	 	public AddPartnerFinancialProductResponse AddPartnerFinancialProduct(AddPartnerFinancialProductRequest addPartnerFinancialProductRequest, string apiUserName)
+	 	{
+			string response = Call("AddPartnerFinancialProduct", addPartnerFinancialProductRequest.ToNVPString(""), apiUserName);
+			NVPUtil util = new NVPUtil();
+			return AddPartnerFinancialProductResponse.CreateInstance(util.ParseNVPString(response), "", -1);
+			
+	 	}
+	 
+	 	/** 
+          * To be updated.
+          *    Countries Supported:
+          *     US - United States
+          *    Supported FinancialProduct: PayPal netSpend Master
+          *Prepaid Card
+          *   
+          *   
+          *   
+          *   
+          *  
+	 	  */
+	 	public AddPartnerFinancialProductResponse AddPartnerFinancialProduct(AddPartnerFinancialProductRequest addPartnerFinancialProductRequest)
+	 	{
+	 		return AddPartnerFinancialProduct(addPartnerFinancialProductRequest, null);
+	 	}
+
+		/**	
+          * To Activate POS - For a POC - Internal Purposes
+          *   
+          *   
+          *   
+          *   
+          *  
+	 	  */
+	 	public ActivateProductResponse ActivateProduct(ActivateProductRequest activateProductRequest, string apiUserName)
+	 	{
+			string response = Call("ActivateProduct", activateProductRequest.ToNVPString(""), apiUserName);
+			NVPUtil util = new NVPUtil();
+			return ActivateProductResponse.CreateInstance(util.ParseNVPString(response), "", -1);
+			
+	 	}
+	 
+	 	/** 
+          * To Activate POS - For a POC - Internal Purposes
+          *   
+          *   
+          *   
+          *   
+          *  
+	 	  */
+	 	public ActivateProductResponse ActivateProduct(ActivateProductRequest activateProductRequest)
+	 	{
+	 		return ActivateProduct(activateProductRequest, null);
 	 	}
 	}
 }

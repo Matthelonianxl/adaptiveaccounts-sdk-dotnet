@@ -4,19 +4,20 @@
   */
 using System;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Xml;
 using System.Collections;
-using System.ComponentModel;
 using System.Collections.Generic;
+using System.ComponentModel;
 using PayPal.Util;
 
 namespace PayPal.AdaptiveAccounts.Model
 {
 
-	public class EnumUtils
+	public static class EnumUtils
 	{
-		public static string getDescription(Enum value)
+		public static string GetDescription(Enum value)
 		{
 			string description = "";
 			DescriptionAttribute[] attributes = (DescriptionAttribute[])value.GetType().GetField(value.ToString()).GetCustomAttributes(typeof(DescriptionAttribute), false);
@@ -27,12 +28,12 @@ namespace PayPal.AdaptiveAccounts.Model
 			return description;
 		}
 		
-		public static object getValue(String value,Type enumType)
+		public static object GetValue(string value,Type enumType)
 		{
 			string[] names = Enum.GetNames(enumType);
 			foreach(string name in names)
             {
-            	if (getDescription((Enum)Enum.Parse(enumType, name)).Equals(value))
+            	if (GetDescription((Enum)Enum.Parse(enumType, name)).Equals(value))
             	{
 					return Enum.Parse(enumType, name);
 				}
@@ -46,8 +47,7 @@ namespace PayPal.AdaptiveAccounts.Model
       *This type contains the detailed error information resulting
       *from the service operation. 
       */
-	public partial class ErrorData	
-	{
+	public partial class ErrorData	{
 
 		/**
           *
@@ -193,7 +193,7 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-		public static ErrorData createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static ErrorData CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			ErrorData errorData = null;
 			string key;
@@ -234,13 +234,13 @@ namespace PayPal.AdaptiveAccounts.Model
 			if (map.ContainsKey(key))
 			{
 				errorData = (errorData == null) ? new ErrorData() : errorData;
-				errorData.severity = (ErrorSeverity)EnumUtils.getValue(map[key],typeof(ErrorSeverity));;
+				errorData.severity = (ErrorSeverity)EnumUtils.GetValue(map[key],typeof(ErrorSeverity));
 			}
 			key = prefix + "category";
 			if (map.ContainsKey(key))
 			{
 				errorData = (errorData == null) ? new ErrorData() : errorData;
-				errorData.category = (ErrorCategory)EnumUtils.getValue(map[key],typeof(ErrorCategory));;
+				errorData.category = (ErrorCategory)EnumUtils.GetValue(map[key],typeof(ErrorCategory));
 			}
 			key = prefix + "message";
 			if (map.ContainsKey(key))
@@ -257,7 +257,7 @@ namespace PayPal.AdaptiveAccounts.Model
 			i = 0;
 			while(true)
 			{
-				ErrorParameter parameter =  ErrorParameter.createInstance(map, prefix + "parameter", i);
+				ErrorParameter parameter =  ErrorParameter.CreateInstance(map, prefix + "parameter", i);
 				if (parameter != null)
 				{
 					errorData = (errorData == null) ? new ErrorData() : errorData;
@@ -271,7 +271,6 @@ namespace PayPal.AdaptiveAccounts.Model
 			}
 			return errorData;
 		}
-		
 	}
 
 
@@ -280,8 +279,7 @@ namespace PayPal.AdaptiveAccounts.Model
 	/**
       *
       */
-	public partial class ErrorParameter	
-	{
+	public partial class ErrorParameter	{
 
 		/**
           *
@@ -325,7 +323,7 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-		public static ErrorParameter createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static ErrorParameter CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			ErrorParameter errorParameter = null;
 			string key;
@@ -358,7 +356,6 @@ namespace PayPal.AdaptiveAccounts.Model
 			}
 			return errorParameter;
 		}
-		
 	}
 
 
@@ -368,8 +365,7 @@ namespace PayPal.AdaptiveAccounts.Model
       *This specifies the list of parameters with every request to
       *the service. 
       */
-	public partial class RequestEnvelope	
-	{
+	public partial class RequestEnvelope	{
 
 		/**
           *
@@ -412,12 +408,12 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.detailLevel != null)
 			{
-					sb.Append(prefix).Append("detailLevel").Append("=").Append(EnumUtils.getDescription(detailLevel));
+					sb.Append(prefix).Append("detailLevel").Append("=").Append(EnumUtils.GetDescription(detailLevel));
 					sb.Append("&");
 			}
 			if (this.errorLanguage != null)
@@ -435,8 +431,7 @@ namespace PayPal.AdaptiveAccounts.Model
       *This specifies a list of parameters with every response from
       *a service. 
       */
-	public partial class ResponseEnvelope	
-	{
+	public partial class ResponseEnvelope	{
 
 		/**
           *
@@ -514,7 +509,7 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-		public static ResponseEnvelope createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static ResponseEnvelope CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			ResponseEnvelope responseEnvelope = null;
 			string key;
@@ -543,7 +538,7 @@ namespace PayPal.AdaptiveAccounts.Model
 			if (map.ContainsKey(key))
 			{
 				responseEnvelope = (responseEnvelope == null) ? new ResponseEnvelope() : responseEnvelope;
-				responseEnvelope.ack = (AckCode)EnumUtils.getValue(map[key],typeof(AckCode));;
+				responseEnvelope.ack = (AckCode)EnumUtils.GetValue(map[key],typeof(AckCode));
 			}
 			key = prefix + "correlationId";
 			if (map.ContainsKey(key))
@@ -559,7 +554,6 @@ namespace PayPal.AdaptiveAccounts.Model
 			}
 			return responseEnvelope;
 		}
-		
 	}
 
 
@@ -569,8 +563,7 @@ namespace PayPal.AdaptiveAccounts.Model
       *This elements in this type refers to the end user of the
       *application invoking this service. 
       */
-	public partial class ClientDetailsType	
-	{
+	public partial class ClientDetailsType	{
 
 		/**
           *
@@ -715,7 +708,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.ipAddress != null)
@@ -761,8 +754,7 @@ namespace PayPal.AdaptiveAccounts.Model
       *This specifies a fault, encapsulating error data, with
       *specific error codes. 
       */
-	public partial class FaultMessage	
-	{
+	public partial class FaultMessage	{
 
 		/**
           *
@@ -806,7 +798,7 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-		public static FaultMessage createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static FaultMessage CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			FaultMessage faultMessage = null;
 			string key;
@@ -825,7 +817,7 @@ namespace PayPal.AdaptiveAccounts.Model
 					prefix = prefix + ".";
 				}
 			}
-			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.CreateInstance(map, prefix + "responseEnvelope", -1);
 			if (responseEnvelope != null)
 			{
 				faultMessage = (faultMessage == null) ? new FaultMessage() : faultMessage;
@@ -834,7 +826,7 @@ namespace PayPal.AdaptiveAccounts.Model
 			i = 0;
 			while(true)
 			{
-				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				ErrorData error =  ErrorData.CreateInstance(map, prefix + "error", i);
 				if (error != null)
 				{
 					faultMessage = (faultMessage == null) ? new FaultMessage() : faultMessage;
@@ -848,7 +840,6 @@ namespace PayPal.AdaptiveAccounts.Model
 			}
 			return faultMessage;
 		}
-		
 	}
 
 
@@ -857,6 +848,7 @@ namespace PayPal.AdaptiveAccounts.Model
 	/**
       *
       */
+    [Serializable]
 	public enum ErrorSeverity {
 		[Description("Error")]ERROR,	
 		[Description("Warning")]WARNING	
@@ -868,6 +860,7 @@ namespace PayPal.AdaptiveAccounts.Model
 	/**
       *
       */
+    [Serializable]
 	public enum ErrorCategory {
 		[Description("System")]SYSTEM,	
 		[Description("Application")]APPLICATION,	
@@ -886,6 +879,7 @@ namespace PayPal.AdaptiveAccounts.Model
       * an application level acknowledgement element.
       * 
       */
+    [Serializable]
 	public enum AckCode {
 		[Description("Success")]SUCCESS,	
 		[Description("Failure")]FAILURE,	
@@ -901,6 +895,7 @@ namespace PayPal.AdaptiveAccounts.Model
       * DetailLevelCodeType
       * 
       */
+    [Serializable]
 	public enum DetailLevelCode {
 		[Description("ReturnAll")]RETURNALL,	
 		[Description("ReturnAttributes")]RETURNATTRIBUTES	
@@ -915,6 +910,7 @@ namespace PayPal.AdaptiveAccounts.Model
       * BUSINESS_SAVINGS,NORMAL, or UNKNOWN.
       * 
       */
+    [Serializable]
 	public enum BankAccountType {
 		[Description("CHECKING")]CHECKING,	
 		[Description("SAVINGS")]SAVINGS,	
@@ -934,6 +930,7 @@ namespace PayPal.AdaptiveAccounts.Model
       * registration.
       * 
       */
+    [Serializable]
 	public enum ConfirmationType {
 		[Description("WEB")]WEB,	
 		[Description("MOBILE")]MOBILE,	
@@ -947,6 +944,7 @@ namespace PayPal.AdaptiveAccounts.Model
       * Business Types
       * 
       */
+    [Serializable]
 	public enum BusinessType {
 		[Description("ASSOCIATION")]ASSOCIATION,	
 		[Description("CORPORATION")]CORPORATION,	
@@ -983,6 +981,7 @@ namespace PayPal.AdaptiveAccounts.Model
       * ASSOCIATION: INCORPORATED, NON_INCORPORATED
       * 
       */
+    [Serializable]
 	public enum BusinessSubtypeType {
 		[Description("ENTITY")]ENTITY,	
 		[Description("EMANATION")]EMANATION,	
@@ -1000,6 +999,7 @@ namespace PayPal.AdaptiveAccounts.Model
       * Sales venue / store front type
       * 
       */
+    [Serializable]
 	public enum SalesVenueType {
 		[Description("WEB")]WEB,	
 		[Description("EBAY")]EBAY,	
@@ -1014,6 +1014,7 @@ namespace PayPal.AdaptiveAccounts.Model
       * Stake holder role 
       * 
       */
+    [Serializable]
 	public enum StakeholderRoleType {
 		[Description("CHAIRMAN")]CHAIRMAN,	
 		[Description("SECRETARY")]SECRETARY,	
@@ -1033,6 +1034,7 @@ namespace PayPal.AdaptiveAccounts.Model
 	/**
       *
       */
+    [Serializable]
 	public enum CardTypeType {
 		[Description("Visa")]VISA,	
 		[Description("MasterCard")]MASTERCARD,	
@@ -1053,12 +1055,124 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 	/**
+      *
+      */
+    [Serializable]
+	public enum ProductActivationErrors {
+		[Description("MISSING_PIN")]MISSINGPIN,	
+		[Description("MISSING_CC")]MISSINGCC,	
+		[Description("MISSING_MOBILE_PHONE")]MISSINGMOBILEPHONE,	
+		[Description("NOT_ALLOWED")]NOTALLOWED,	
+		[Description("MOBILE_PHONE_NOT_ACTIVATED")]MOBILEPHONENOTACTIVATED,	
+		[Description("INTERNAL_ERROR")]INTERNALERROR,	
+		[Description("PRODUCT_EXISTS")]PRODUCTEXISTS	
+	}
+
+
+
+
+	/**
+      *Identifies a PayPal account to which this request is
+      *targeted. Caller of this API has to provide ONLY one of
+      *these inputs: emailAddress, accountId or phoneNumber. 
+      */
+	public partial class AccountIdentifierType	{
+
+		/**
+          *
+		  */
+		private string emailAddressField;
+		public string emailAddress
+		{
+			get
+			{
+				return this.emailAddressField;
+			}
+			set
+			{
+				this.emailAddressField = value;
+			}
+		}
+		
+
+		/**
+          *
+		  */
+		private string phoneNumberField;
+		public string phoneNumber
+		{
+			get
+			{
+				return this.phoneNumberField;
+			}
+			set
+			{
+				this.phoneNumberField = value;
+			}
+		}
+		
+
+		/**
+          *
+		  */
+		private string accountIdField;
+		public string accountId
+		{
+			get
+			{
+				return this.accountIdField;
+			}
+			set
+			{
+				this.accountIdField = value;
+			}
+		}
+		
+
+		/**
+	 	  * Constructor with arguments
+	 	  */
+	 	public AccountIdentifierType(string emailAddress, string phoneNumber, string accountId){
+			this.emailAddress = emailAddress;
+			this.phoneNumber = phoneNumber;
+			this.accountId = accountId;
+		}
+
+		/**
+	 	  * Default Constructor
+	 	  */
+	 	public AccountIdentifierType(){
+		}
+
+
+		public string ToNVPString(string prefix)
+		{
+			StringBuilder sb = new StringBuilder();
+			if (this.emailAddress != null)
+			{
+					sb.Append(prefix).Append("emailAddress").Append("=").Append(HttpUtility.UrlEncode(this.emailAddress, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			if (this.phoneNumber != null)
+			{
+					sb.Append(prefix).Append("phoneNumber").Append("=").Append(HttpUtility.UrlEncode(this.phoneNumber, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			if (this.accountId != null)
+			{
+					sb.Append(prefix).Append("accountId").Append("=").Append(HttpUtility.UrlEncode(this.accountId, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			return sb.ToString();
+		}
+	}
+
+
+
+
+	/**
       *Valid values are: Personal, Premier, and Business. Flag="2"
       *corresponds to java.util.regex.Pattern.CASE_INSENSITIVE,
       *meaning the strings are not case-sensitive 
       */
-	public partial class CreateAccountRequest	
-	{
+	public partial class CreateAccountRequest	{
 
 		/**
           *
@@ -1502,18 +1616,18 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.requestEnvelope != null)
 			{
 					string newPrefix = prefix + "requestEnvelope" + ".";
-					sb.Append(this.requestEnvelopeField.toNVPString(newPrefix));
+					sb.Append(this.requestEnvelopeField.ToNVPString(newPrefix));
 			}
 			if (this.clientDetails != null)
 			{
 					string newPrefix = prefix + "clientDetails" + ".";
-					sb.Append(this.clientDetailsField.toNVPString(newPrefix));
+					sb.Append(this.clientDetailsField.ToNVPString(newPrefix));
 			}
 			if (this.accountType != null)
 			{
@@ -1522,7 +1636,7 @@ namespace PayPal.AdaptiveAccounts.Model
 			if (this.name != null)
 			{
 					string newPrefix = prefix + "name" + ".";
-					sb.Append(this.nameField.toNVPString(newPrefix));
+					sb.Append(this.nameField.ToNVPString(newPrefix));
 			}
 			if (this.dateOfBirth != null)
 			{
@@ -1531,7 +1645,7 @@ namespace PayPal.AdaptiveAccounts.Model
 			if (this.address != null)
 			{
 					string newPrefix = prefix + "address" + ".";
-					sb.Append(this.addressField.toNVPString(newPrefix));
+					sb.Append(this.addressField.ToNVPString(newPrefix));
 			}
 			if (this.contactPhoneNumber != null)
 			{
@@ -1572,7 +1686,7 @@ namespace PayPal.AdaptiveAccounts.Model
 			if (this.createAccountWebOptions != null)
 			{
 					string newPrefix = prefix + "createAccountWebOptions" + ".";
-					sb.Append(this.createAccountWebOptionsField.toNVPString(newPrefix));
+					sb.Append(this.createAccountWebOptionsField.ToNVPString(newPrefix));
 			}
 			if (this.suppressWelcomeEmail != null)
 			{
@@ -1609,7 +1723,7 @@ namespace PayPal.AdaptiveAccounts.Model
 			if (this.businessInfo != null)
 			{
 					string newPrefix = prefix + "businessInfo" + ".";
-					sb.Append(this.businessInfoField.toNVPString(newPrefix));
+					sb.Append(this.businessInfoField.ToNVPString(newPrefix));
 			}
 			return sb.ToString();
 		}
@@ -1619,11 +1733,9 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 	/**
-      *Valid values are: COMPLETED,
-      *COMPLETED:MERCHANT_REFERRAL_BONUS_ID_ASSOCIATION_FAILED 
+      *Valid values are: COMPLETED 
       */
-	public partial class CreateAccountResponse	
-	{
+	public partial class CreateAccountResponse	{
 
 		/**
           *
@@ -1735,7 +1847,7 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-		public static CreateAccountResponse createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static CreateAccountResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			CreateAccountResponse createAccountResponse = null;
 			string key;
@@ -1754,7 +1866,7 @@ namespace PayPal.AdaptiveAccounts.Model
 					prefix = prefix + ".";
 				}
 			}
-			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.CreateInstance(map, prefix + "responseEnvelope", -1);
 			if (responseEnvelope != null)
 			{
 				createAccountResponse = (createAccountResponse == null) ? new CreateAccountResponse() : createAccountResponse;
@@ -1787,7 +1899,7 @@ namespace PayPal.AdaptiveAccounts.Model
 			i = 0;
 			while(true)
 			{
-				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				ErrorData error =  ErrorData.CreateInstance(map, prefix + "error", i);
 				if (error != null)
 				{
 					createAccountResponse = (createAccountResponse == null) ? new CreateAccountResponse() : createAccountResponse;
@@ -1801,7 +1913,6 @@ namespace PayPal.AdaptiveAccounts.Model
 			}
 			return createAccountResponse;
 		}
-		
 	}
 
 
@@ -1810,8 +1921,7 @@ namespace PayPal.AdaptiveAccounts.Model
 	/**
       *
       */
-	public partial class GetUserAgreementRequest	
-	{
+	public partial class GetUserAgreementRequest	{
 
 		/**
           *
@@ -1895,13 +2005,13 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.requestEnvelope != null)
 			{
 					string newPrefix = prefix + "requestEnvelope" + ".";
-					sb.Append(this.requestEnvelopeField.toNVPString(newPrefix));
+					sb.Append(this.requestEnvelopeField.ToNVPString(newPrefix));
 			}
 			if (this.createAccountKey != null)
 			{
@@ -1925,8 +2035,7 @@ namespace PayPal.AdaptiveAccounts.Model
 	/**
       *
       */
-	public partial class GetUserAgreementResponse	
-	{
+	public partial class GetUserAgreementResponse	{
 
 		/**
           *
@@ -1987,7 +2096,7 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-		public static GetUserAgreementResponse createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static GetUserAgreementResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			GetUserAgreementResponse getUserAgreementResponse = null;
 			string key;
@@ -2006,7 +2115,7 @@ namespace PayPal.AdaptiveAccounts.Model
 					prefix = prefix + ".";
 				}
 			}
-			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.CreateInstance(map, prefix + "responseEnvelope", -1);
 			if (responseEnvelope != null)
 			{
 				getUserAgreementResponse = (getUserAgreementResponse == null) ? new GetUserAgreementResponse() : getUserAgreementResponse;
@@ -2021,7 +2130,7 @@ namespace PayPal.AdaptiveAccounts.Model
 			i = 0;
 			while(true)
 			{
-				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				ErrorData error =  ErrorData.CreateInstance(map, prefix + "error", i);
 				if (error != null)
 				{
 					getUserAgreementResponse = (getUserAgreementResponse == null) ? new GetUserAgreementResponse() : getUserAgreementResponse;
@@ -2035,7 +2144,6 @@ namespace PayPal.AdaptiveAccounts.Model
 			}
 			return getUserAgreementResponse;
 		}
-		
 	}
 
 
@@ -2046,8 +2154,7 @@ namespace PayPal.AdaptiveAccounts.Model
       *emailAddress is used to locate the account. Currently, we
       *support matchCriteria of 'NAME' and 'NONE'. 
       */
-	public partial class GetVerifiedStatusRequest	
-	{
+	public partial class GetVerifiedStatusRequest	{
 
 		/**
           *
@@ -2150,13 +2257,13 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.requestEnvelope != null)
 			{
 					string newPrefix = prefix + "requestEnvelope" + ".";
-					sb.Append(this.requestEnvelopeField.toNVPString(newPrefix));
+					sb.Append(this.requestEnvelopeField.ToNVPString(newPrefix));
 			}
 			if (this.emailAddress != null)
 			{
@@ -2184,8 +2291,7 @@ namespace PayPal.AdaptiveAccounts.Model
 	/**
       *Returned values are: VERIFIED|UNVERIFIED. 
       */
-	public partial class GetVerifiedStatusResponse	
-	{
+	public partial class GetVerifiedStatusResponse	{
 
 		/**
           *
@@ -2280,7 +2386,7 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-		public static GetVerifiedStatusResponse createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static GetVerifiedStatusResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			GetVerifiedStatusResponse getVerifiedStatusResponse = null;
 			string key;
@@ -2299,7 +2405,7 @@ namespace PayPal.AdaptiveAccounts.Model
 					prefix = prefix + ".";
 				}
 			}
-			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.CreateInstance(map, prefix + "responseEnvelope", -1);
 			if (responseEnvelope != null)
 			{
 				getVerifiedStatusResponse = (getVerifiedStatusResponse == null) ? new GetVerifiedStatusResponse() : getVerifiedStatusResponse;
@@ -2317,7 +2423,7 @@ namespace PayPal.AdaptiveAccounts.Model
 				getVerifiedStatusResponse = (getVerifiedStatusResponse == null) ? new GetVerifiedStatusResponse() : getVerifiedStatusResponse;
 				getVerifiedStatusResponse.countryCode = map[key];
 			}
-			UserInfoType userInfo =  UserInfoType.createInstance(map, prefix + "userInfo", -1);
+			UserInfoType userInfo =  UserInfoType.CreateInstance(map, prefix + "userInfo", -1);
 			if (userInfo != null)
 			{
 				getVerifiedStatusResponse = (getVerifiedStatusResponse == null) ? new GetVerifiedStatusResponse() : getVerifiedStatusResponse;
@@ -2326,7 +2432,7 @@ namespace PayPal.AdaptiveAccounts.Model
 			i = 0;
 			while(true)
 			{
-				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				ErrorData error =  ErrorData.CreateInstance(map, prefix + "error", i);
 				if (error != null)
 				{
 					getVerifiedStatusResponse = (getVerifiedStatusResponse == null) ? new GetVerifiedStatusResponse() : getVerifiedStatusResponse;
@@ -2340,7 +2446,6 @@ namespace PayPal.AdaptiveAccounts.Model
 			}
 			return getVerifiedStatusResponse;
 		}
-		
 	}
 
 
@@ -2351,8 +2456,7 @@ namespace PayPal.AdaptiveAccounts.Model
       *targetted to. Caller of this API has to either provided an
       *emailAddress or an accountId. 
       */
-	public partial class AddBankAccountRequest	
-	{
+	public partial class AddBankAccountRequest	{
 
 		/**
           *
@@ -2812,13 +2916,13 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.requestEnvelope != null)
 			{
 					string newPrefix = prefix + "requestEnvelope" + ".";
-					sb.Append(this.requestEnvelopeField.toNVPString(newPrefix));
+					sb.Append(this.requestEnvelopeField.ToNVPString(newPrefix));
 			}
 			if (this.emailAddress != null)
 			{
@@ -2846,7 +2950,7 @@ namespace PayPal.AdaptiveAccounts.Model
 			}
 			if (this.bankAccountType != null)
 			{
-					sb.Append(prefix).Append("bankAccountType").Append("=").Append(EnumUtils.getDescription(bankAccountType));
+					sb.Append(prefix).Append("bankAccountType").Append("=").Append(EnumUtils.GetDescription(bankAccountType));
 					sb.Append("&");
 			}
 			if (this.bankAccountNumber != null)
@@ -2915,13 +3019,13 @@ namespace PayPal.AdaptiveAccounts.Model
 			}
 			if (this.confirmationType != null)
 			{
-					sb.Append(prefix).Append("confirmationType").Append("=").Append(EnumUtils.getDescription(confirmationType));
+					sb.Append(prefix).Append("confirmationType").Append("=").Append(EnumUtils.GetDescription(confirmationType));
 					sb.Append("&");
 			}
 			if (this.webOptions != null)
 			{
 					string newPrefix = prefix + "webOptions" + ".";
-					sb.Append(this.webOptionsField.toNVPString(newPrefix));
+					sb.Append(this.webOptionsField.ToNVPString(newPrefix));
 			}
 			return sb.ToString();
 		}
@@ -2934,8 +3038,7 @@ namespace PayPal.AdaptiveAccounts.Model
       *Valid values are: FUNDING_SOURCE_ADDED,
       *WEB_URL_VERIFICATION_NEEDED 
       */
-	public partial class AddBankAccountResponse	
-	{
+	public partial class AddBankAccountResponse	{
 
 		/**
           *
@@ -3030,7 +3133,7 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-		public static AddBankAccountResponse createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static AddBankAccountResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			AddBankAccountResponse addBankAccountResponse = null;
 			string key;
@@ -3049,7 +3152,7 @@ namespace PayPal.AdaptiveAccounts.Model
 					prefix = prefix + ".";
 				}
 			}
-			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.CreateInstance(map, prefix + "responseEnvelope", -1);
 			if (responseEnvelope != null)
 			{
 				addBankAccountResponse = (addBankAccountResponse == null) ? new AddBankAccountResponse() : addBankAccountResponse;
@@ -3076,7 +3179,7 @@ namespace PayPal.AdaptiveAccounts.Model
 			i = 0;
 			while(true)
 			{
-				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				ErrorData error =  ErrorData.CreateInstance(map, prefix + "error", i);
 				if (error != null)
 				{
 					addBankAccountResponse = (addBankAccountResponse == null) ? new AddBankAccountResponse() : addBankAccountResponse;
@@ -3090,7 +3193,6 @@ namespace PayPal.AdaptiveAccounts.Model
 			}
 			return addBankAccountResponse;
 		}
-		
 	}
 
 
@@ -3101,8 +3203,7 @@ namespace PayPal.AdaptiveAccounts.Model
       *targetted to. Caller of this API has to either provided an
       *emailAddress or an accountId. 
       */
-	public partial class AddPaymentCardRequest	
-	{
+	public partial class AddPaymentCardRequest	{
 
 		/**
           *
@@ -3378,13 +3479,13 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.requestEnvelope != null)
 			{
 					string newPrefix = prefix + "requestEnvelope" + ".";
-					sb.Append(this.requestEnvelopeField.toNVPString(newPrefix));
+					sb.Append(this.requestEnvelopeField.ToNVPString(newPrefix));
 			}
 			if (this.emailAddress != null)
 			{
@@ -3401,12 +3502,12 @@ namespace PayPal.AdaptiveAccounts.Model
 			if (this.nameOnCard != null)
 			{
 					string newPrefix = prefix + "nameOnCard" + ".";
-					sb.Append(this.nameOnCardField.toNVPString(newPrefix));
+					sb.Append(this.nameOnCardField.ToNVPString(newPrefix));
 			}
 			if (this.billingAddress != null)
 			{
 					string newPrefix = prefix + "billingAddress" + ".";
-					sb.Append(this.billingAddressField.toNVPString(newPrefix));
+					sb.Append(this.billingAddressField.ToNVPString(newPrefix));
 			}
 			if (this.cardOwnerDateOfBirth != null)
 			{
@@ -3418,13 +3519,13 @@ namespace PayPal.AdaptiveAccounts.Model
 			}
 			if (this.cardType != null)
 			{
-					sb.Append(prefix).Append("cardType").Append("=").Append(EnumUtils.getDescription(cardType));
+					sb.Append(prefix).Append("cardType").Append("=").Append(EnumUtils.GetDescription(cardType));
 					sb.Append("&");
 			}
 			if (this.expirationDate != null)
 			{
 					string newPrefix = prefix + "expirationDate" + ".";
-					sb.Append(this.expirationDateField.toNVPString(newPrefix));
+					sb.Append(this.expirationDateField.ToNVPString(newPrefix));
 			}
 			if (this.cardVerificationNumber != null)
 			{
@@ -3433,7 +3534,7 @@ namespace PayPal.AdaptiveAccounts.Model
 			if (this.startDate != null)
 			{
 					string newPrefix = prefix + "startDate" + ".";
-					sb.Append(this.startDateField.toNVPString(newPrefix));
+					sb.Append(this.startDateField.ToNVPString(newPrefix));
 			}
 			if (this.issueNumber != null)
 			{
@@ -3441,13 +3542,13 @@ namespace PayPal.AdaptiveAccounts.Model
 			}
 			if (this.confirmationType != null)
 			{
-					sb.Append(prefix).Append("confirmationType").Append("=").Append(EnumUtils.getDescription(confirmationType));
+					sb.Append(prefix).Append("confirmationType").Append("=").Append(EnumUtils.GetDescription(confirmationType));
 					sb.Append("&");
 			}
 			if (this.webOptions != null)
 			{
 					string newPrefix = prefix + "webOptions" + ".";
-					sb.Append(this.webOptionsField.toNVPString(newPrefix));
+					sb.Append(this.webOptionsField.ToNVPString(newPrefix));
 			}
 			return sb.ToString();
 		}
@@ -3460,8 +3561,7 @@ namespace PayPal.AdaptiveAccounts.Model
       *Valid values are: FUNDING_SOURCE_ADDED,
       *WEB_URL_VERIFICATION_NEEDED 
       */
-	public partial class AddPaymentCardResponse	
-	{
+	public partial class AddPaymentCardResponse	{
 
 		/**
           *
@@ -3556,7 +3656,7 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-		public static AddPaymentCardResponse createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static AddPaymentCardResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			AddPaymentCardResponse addPaymentCardResponse = null;
 			string key;
@@ -3575,7 +3675,7 @@ namespace PayPal.AdaptiveAccounts.Model
 					prefix = prefix + ".";
 				}
 			}
-			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.CreateInstance(map, prefix + "responseEnvelope", -1);
 			if (responseEnvelope != null)
 			{
 				addPaymentCardResponse = (addPaymentCardResponse == null) ? new AddPaymentCardResponse() : addPaymentCardResponse;
@@ -3602,7 +3702,7 @@ namespace PayPal.AdaptiveAccounts.Model
 			i = 0;
 			while(true)
 			{
-				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				ErrorData error =  ErrorData.CreateInstance(map, prefix + "error", i);
 				if (error != null)
 				{
 					addPaymentCardResponse = (addPaymentCardResponse == null) ? new AddPaymentCardResponse() : addPaymentCardResponse;
@@ -3616,7 +3716,394 @@ namespace PayPal.AdaptiveAccounts.Model
 			}
 			return addPaymentCardResponse;
 		}
+	}
+
+
+
+
+	/**
+      *This not considered when
+      *financialProductCategory=PRE_PAID_CARD 
+      */
+	public partial class AddPartnerFinancialProductRequest	{
+
+		/**
+          *
+		  */
+		private RequestEnvelope requestEnvelopeField;
+		public RequestEnvelope requestEnvelope
+		{
+			get
+			{
+				return this.requestEnvelopeField;
+			}
+			set
+			{
+				this.requestEnvelopeField = value;
+			}
+		}
 		
+
+		/**
+          *
+		  */
+		private AccountIdentifierType accountIdentifierField;
+		public AccountIdentifierType accountIdentifier
+		{
+			get
+			{
+				return this.accountIdentifierField;
+			}
+			set
+			{
+				this.accountIdentifierField = value;
+			}
+		}
+		
+
+		/**
+          *
+		  */
+		private NameType nameOnCardField;
+		public NameType nameOnCard
+		{
+			get
+			{
+				return this.nameOnCardField;
+			}
+			set
+			{
+				this.nameOnCardField = value;
+			}
+		}
+		
+
+		/**
+          *
+		  */
+		private AddressType billingAddressField;
+		public AddressType billingAddress
+		{
+			get
+			{
+				return this.billingAddressField;
+			}
+			set
+			{
+				this.billingAddressField = value;
+			}
+		}
+		
+
+		/**
+          *
+		  */
+		private string cardOwnerDateOfBirthField;
+		public string cardOwnerDateOfBirth
+		{
+			get
+			{
+				return this.cardOwnerDateOfBirthField;
+			}
+			set
+			{
+				this.cardOwnerDateOfBirthField = value;
+			}
+		}
+		
+
+		/**
+          *
+		  */
+		private string cardNumberField;
+		public string cardNumber
+		{
+			get
+			{
+				return this.cardNumberField;
+			}
+			set
+			{
+				this.cardNumberField = value;
+			}
+		}
+		
+
+		/**
+          *
+		  */
+		private string financialProductCategoryField;
+		public string financialProductCategory
+		{
+			get
+			{
+				return this.financialProductCategoryField;
+			}
+			set
+			{
+				this.financialProductCategoryField = value;
+			}
+		}
+		
+
+		/**
+          *
+		  */
+		private CardDateType expirationDateField;
+		public CardDateType expirationDate
+		{
+			get
+			{
+				return this.expirationDateField;
+			}
+			set
+			{
+				this.expirationDateField = value;
+			}
+		}
+		
+
+		/**
+          *
+		  */
+		private string cardVerificationNumberField;
+		public string cardVerificationNumber
+		{
+			get
+			{
+				return this.cardVerificationNumberField;
+			}
+			set
+			{
+				this.cardVerificationNumberField = value;
+			}
+		}
+		
+
+		/**
+          *
+		  */
+		private CardDateType startDateField;
+		public CardDateType startDate
+		{
+			get
+			{
+				return this.startDateField;
+			}
+			set
+			{
+				this.startDateField = value;
+			}
+		}
+		
+
+		/**
+          *
+		  */
+		private string issueNumberField;
+		public string issueNumber
+		{
+			get
+			{
+				return this.issueNumberField;
+			}
+			set
+			{
+				this.issueNumberField = value;
+			}
+		}
+		
+
+		/**
+	 	  * Constructor with arguments
+	 	  */
+	 	public AddPartnerFinancialProductRequest(RequestEnvelope requestEnvelope, AccountIdentifierType accountIdentifier, string cardNumber, string financialProductCategory, CardDateType expirationDate){
+			this.requestEnvelope = requestEnvelope;
+			this.accountIdentifier = accountIdentifier;
+			this.cardNumber = cardNumber;
+			this.financialProductCategory = financialProductCategory;
+			this.expirationDate = expirationDate;
+		}
+
+		/**
+	 	  * Default Constructor
+	 	  */
+	 	public AddPartnerFinancialProductRequest(){
+		}
+
+
+		public string ToNVPString(string prefix)
+		{
+			StringBuilder sb = new StringBuilder();
+			if (this.requestEnvelope != null)
+			{
+					string newPrefix = prefix + "requestEnvelope" + ".";
+					sb.Append(this.requestEnvelopeField.ToNVPString(newPrefix));
+			}
+			if (this.accountIdentifier != null)
+			{
+					string newPrefix = prefix + "accountIdentifier" + ".";
+					sb.Append(this.accountIdentifierField.ToNVPString(newPrefix));
+			}
+			if (this.nameOnCard != null)
+			{
+					string newPrefix = prefix + "nameOnCard" + ".";
+					sb.Append(this.nameOnCardField.ToNVPString(newPrefix));
+			}
+			if (this.billingAddress != null)
+			{
+					string newPrefix = prefix + "billingAddress" + ".";
+					sb.Append(this.billingAddressField.ToNVPString(newPrefix));
+			}
+			if (this.cardOwnerDateOfBirth != null)
+			{
+					sb.Append(prefix).Append("cardOwnerDateOfBirth").Append("=").Append(this.cardOwnerDateOfBirth).Append("&");
+			}
+			if (this.cardNumber != null)
+			{
+					sb.Append(prefix).Append("cardNumber").Append("=").Append(HttpUtility.UrlEncode(this.cardNumber, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			if (this.financialProductCategory != null)
+			{
+					sb.Append(prefix).Append("financialProductCategory").Append("=").Append(HttpUtility.UrlEncode(this.financialProductCategory, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			if (this.expirationDate != null)
+			{
+					string newPrefix = prefix + "expirationDate" + ".";
+					sb.Append(this.expirationDateField.ToNVPString(newPrefix));
+			}
+			if (this.cardVerificationNumber != null)
+			{
+					sb.Append(prefix).Append("cardVerificationNumber").Append("=").Append(HttpUtility.UrlEncode(this.cardVerificationNumber, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			if (this.startDate != null)
+			{
+					string newPrefix = prefix + "startDate" + ".";
+					sb.Append(this.startDateField.ToNVPString(newPrefix));
+			}
+			if (this.issueNumber != null)
+			{
+					sb.Append(prefix).Append("issueNumber").Append("=").Append(HttpUtility.UrlEncode(this.issueNumber, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			return sb.ToString();
+		}
+	}
+
+
+
+
+	/**
+      *Valid values are: CARD_ADDED 
+      */
+	public partial class AddPartnerFinancialProductResponse	{
+
+		/**
+          *
+		  */
+		private ResponseEnvelope responseEnvelopeField;
+		public ResponseEnvelope responseEnvelope
+		{
+			get
+			{
+				return this.responseEnvelopeField;
+			}
+			set
+			{
+				this.responseEnvelopeField = value;
+			}
+		}
+		
+
+		/**
+          *
+		  */
+		private string execStatusField;
+		public string execStatus
+		{
+			get
+			{
+				return this.execStatusField;
+			}
+			set
+			{
+				this.execStatusField = value;
+			}
+		}
+		
+
+		/**
+          *
+		  */
+		private List<ErrorData> errorField = new List<ErrorData>();
+		public List<ErrorData> error
+		{
+			get
+			{
+				return this.errorField;
+			}
+			set
+			{
+				this.errorField = value;
+			}
+		}
+		
+
+		/**
+	 	  * Default Constructor
+	 	  */
+	 	public AddPartnerFinancialProductResponse(){
+		}
+
+
+
+		public static AddPartnerFinancialProductResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
+		{
+			AddPartnerFinancialProductResponse addPartnerFinancialProductResponse = null;
+			string key;
+			int i = 0;
+			if(index != -1)
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.CreateInstance(map, prefix + "responseEnvelope", -1);
+			if (responseEnvelope != null)
+			{
+				addPartnerFinancialProductResponse = (addPartnerFinancialProductResponse == null) ? new AddPartnerFinancialProductResponse() : addPartnerFinancialProductResponse;
+				addPartnerFinancialProductResponse.responseEnvelope = responseEnvelope;
+			}
+			key = prefix + "execStatus";
+			if (map.ContainsKey(key))
+			{
+				addPartnerFinancialProductResponse = (addPartnerFinancialProductResponse == null) ? new AddPartnerFinancialProductResponse() : addPartnerFinancialProductResponse;
+				addPartnerFinancialProductResponse.execStatus = map[key];
+			}
+			i = 0;
+			while(true)
+			{
+				ErrorData error =  ErrorData.CreateInstance(map, prefix + "error", i);
+				if (error != null)
+				{
+					addPartnerFinancialProductResponse = (addPartnerFinancialProductResponse == null) ? new AddPartnerFinancialProductResponse() : addPartnerFinancialProductResponse;
+					addPartnerFinancialProductResponse.error.Add(error);
+					i++;
+				} 
+				else
+				{
+					break;
+				}
+			}
+			return addPartnerFinancialProductResponse;
+		}
 	}
 
 
@@ -3627,8 +4114,7 @@ namespace PayPal.AdaptiveAccounts.Model
       *targetted to. Caller of this API has to either provided an
       *emailAddress or an accountId. 
       */
-	public partial class SetFundingSourceConfirmedRequest	
-	{
+	public partial class SetFundingSourceConfirmedRequest	{
 
 		/**
           *
@@ -3713,13 +4199,13 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.requestEnvelope != null)
 			{
 					string newPrefix = prefix + "requestEnvelope" + ".";
-					sb.Append(this.requestEnvelopeField.toNVPString(newPrefix));
+					sb.Append(this.requestEnvelopeField.ToNVPString(newPrefix));
 			}
 			if (this.emailAddress != null)
 			{
@@ -3743,8 +4229,7 @@ namespace PayPal.AdaptiveAccounts.Model
 	/**
       *
       */
-	public partial class SetFundingSourceConfirmedResponse	
-	{
+	public partial class SetFundingSourceConfirmedResponse	{
 
 		/**
           *
@@ -3788,7 +4273,7 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-		public static SetFundingSourceConfirmedResponse createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static SetFundingSourceConfirmedResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			SetFundingSourceConfirmedResponse setFundingSourceConfirmedResponse = null;
 			string key;
@@ -3807,7 +4292,7 @@ namespace PayPal.AdaptiveAccounts.Model
 					prefix = prefix + ".";
 				}
 			}
-			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.CreateInstance(map, prefix + "responseEnvelope", -1);
 			if (responseEnvelope != null)
 			{
 				setFundingSourceConfirmedResponse = (setFundingSourceConfirmedResponse == null) ? new SetFundingSourceConfirmedResponse() : setFundingSourceConfirmedResponse;
@@ -3816,7 +4301,7 @@ namespace PayPal.AdaptiveAccounts.Model
 			i = 0;
 			while(true)
 			{
-				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				ErrorData error =  ErrorData.CreateInstance(map, prefix + "error", i);
 				if (error != null)
 				{
 					setFundingSourceConfirmedResponse = (setFundingSourceConfirmedResponse == null) ? new SetFundingSourceConfirmedResponse() : setFundingSourceConfirmedResponse;
@@ -3830,7 +4315,6 @@ namespace PayPal.AdaptiveAccounts.Model
 			}
 			return setFundingSourceConfirmedResponse;
 		}
-		
 	}
 
 
@@ -3841,105 +4325,7 @@ namespace PayPal.AdaptiveAccounts.Model
       *targeted. Caller of this API has to provide ONLY one of
       *these inputs: emailAddress, accountId or phoneNumber. 
       */
-	public partial class AccountIdentifierType	
-	{
-
-		/**
-          *
-		  */
-		private string emailAddressField;
-		public string emailAddress
-		{
-			get
-			{
-				return this.emailAddressField;
-			}
-			set
-			{
-				this.emailAddressField = value;
-			}
-		}
-		
-
-		/**
-          *
-		  */
-		private string phoneNumberField;
-		public string phoneNumber
-		{
-			get
-			{
-				return this.phoneNumberField;
-			}
-			set
-			{
-				this.phoneNumberField = value;
-			}
-		}
-		
-
-		/**
-          *
-		  */
-		private string accountIdField;
-		public string accountId
-		{
-			get
-			{
-				return this.accountIdField;
-			}
-			set
-			{
-				this.accountIdField = value;
-			}
-		}
-		
-
-		/**
-	 	  * Constructor with arguments
-	 	  */
-	 	public AccountIdentifierType(string emailAddress, string phoneNumber, string accountId){
-			this.emailAddress = emailAddress;
-			this.phoneNumber = phoneNumber;
-			this.accountId = accountId;
-		}
-
-		/**
-	 	  * Default Constructor
-	 	  */
-	 	public AccountIdentifierType(){
-		}
-
-
-		public string toNVPString(string prefix)
-		{
-			StringBuilder sb = new StringBuilder();
-			if (this.emailAddress != null)
-			{
-					sb.Append(prefix).Append("emailAddress").Append("=").Append(HttpUtility.UrlEncode(this.emailAddress, BaseConstants.ENCODING_FORMAT)).Append("&");
-			}
-			if (this.phoneNumber != null)
-			{
-					sb.Append(prefix).Append("phoneNumber").Append("=").Append(HttpUtility.UrlEncode(this.phoneNumber, BaseConstants.ENCODING_FORMAT)).Append("&");
-			}
-			if (this.accountId != null)
-			{
-					sb.Append(prefix).Append("accountId").Append("=").Append(HttpUtility.UrlEncode(this.accountId, BaseConstants.ENCODING_FORMAT)).Append("&");
-			}
-			return sb.ToString();
-		}
-	}
-
-
-
-
-	/**
-      *Identifies a PayPal account to which this request is
-      *targeted. Caller of this API has to provide ONLY one of
-      *these inputs: emailAddress, accountId or phoneNumber. 
-      */
-	public partial class CheckComplianceStatusRequest	
-	{
+	public partial class CheckComplianceStatusRequest	{
 
 		/**
           *
@@ -3990,18 +4376,18 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.requestEnvelope != null)
 			{
 					string newPrefix = prefix + "requestEnvelope" + ".";
-					sb.Append(this.requestEnvelopeField.toNVPString(newPrefix));
+					sb.Append(this.requestEnvelopeField.ToNVPString(newPrefix));
 			}
 			if (this.accountIdentifier != null)
 			{
 					string newPrefix = prefix + "accountIdentifier" + ".";
-					sb.Append(this.accountIdentifierField.toNVPString(newPrefix));
+					sb.Append(this.accountIdentifierField.ToNVPString(newPrefix));
 			}
 			return sb.ToString();
 		}
@@ -4013,8 +4399,7 @@ namespace PayPal.AdaptiveAccounts.Model
 	/**
       *Returned values are: ALLOW|DENY 
       */
-	public partial class CheckComplianceStatusResponse	
-	{
+	public partial class CheckComplianceStatusResponse	{
 
 		/**
           *
@@ -4092,7 +4477,7 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-		public static CheckComplianceStatusResponse createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static CheckComplianceStatusResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			CheckComplianceStatusResponse checkComplianceStatusResponse = null;
 			string key;
@@ -4111,7 +4496,7 @@ namespace PayPal.AdaptiveAccounts.Model
 					prefix = prefix + ".";
 				}
 			}
-			ResponseEnvelope responseEnvelope =  ResponseEnvelope.createInstance(map, prefix + "responseEnvelope", -1);
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.CreateInstance(map, prefix + "responseEnvelope", -1);
 			if (responseEnvelope != null)
 			{
 				checkComplianceStatusResponse = (checkComplianceStatusResponse == null) ? new CheckComplianceStatusResponse() : checkComplianceStatusResponse;
@@ -4132,7 +4517,7 @@ namespace PayPal.AdaptiveAccounts.Model
 			i = 0;
 			while(true)
 			{
-				ErrorData error =  ErrorData.createInstance(map, prefix + "error", i);
+				ErrorData error =  ErrorData.CreateInstance(map, prefix + "error", i);
 				if (error != null)
 				{
 					checkComplianceStatusResponse = (checkComplianceStatusResponse == null) ? new CheckComplianceStatusResponse() : checkComplianceStatusResponse;
@@ -4146,7 +4531,230 @@ namespace PayPal.AdaptiveAccounts.Model
 			}
 			return checkComplianceStatusResponse;
 		}
+	}
+
+
+
+
+	/**
+      *This operation is for internal purposes developed for a POC.
+      *
+      */
+	public partial class ActivateProductRequest	{
+
+		/**
+          *
+		  */
+		private RequestEnvelope requestEnvelopeField;
+		public RequestEnvelope requestEnvelope
+		{
+			get
+			{
+				return this.requestEnvelopeField;
+			}
+			set
+			{
+				this.requestEnvelopeField = value;
+			}
+		}
 		
+
+		/**
+          *
+		  */
+		private AccountIdentifierType accountIdentifierField;
+		public AccountIdentifierType accountIdentifier
+		{
+			get
+			{
+				return this.accountIdentifierField;
+			}
+			set
+			{
+				this.accountIdentifierField = value;
+			}
+		}
+		
+
+		/**
+	 	  * Constructor with arguments
+	 	  */
+	 	public ActivateProductRequest(RequestEnvelope requestEnvelope, AccountIdentifierType accountIdentifier){
+			this.requestEnvelope = requestEnvelope;
+			this.accountIdentifier = accountIdentifier;
+		}
+
+		/**
+	 	  * Default Constructor
+	 	  */
+	 	public ActivateProductRequest(){
+		}
+
+
+		public string ToNVPString(string prefix)
+		{
+			StringBuilder sb = new StringBuilder();
+			if (this.requestEnvelope != null)
+			{
+					string newPrefix = prefix + "requestEnvelope" + ".";
+					sb.Append(this.requestEnvelopeField.ToNVPString(newPrefix));
+			}
+			if (this.accountIdentifier != null)
+			{
+					string newPrefix = prefix + "accountIdentifier" + ".";
+					sb.Append(this.accountIdentifierField.ToNVPString(newPrefix));
+			}
+			return sb.ToString();
+		}
+	}
+
+
+
+
+	/**
+      *Valid values are: SUCCESS, FAILED 
+      */
+	public partial class ActivateProductResponse	{
+
+		/**
+          *
+		  */
+		private ResponseEnvelope responseEnvelopeField;
+		public ResponseEnvelope responseEnvelope
+		{
+			get
+			{
+				return this.responseEnvelopeField;
+			}
+			set
+			{
+				this.responseEnvelopeField = value;
+			}
+		}
+		
+
+		/**
+          *
+		  */
+		private string execStatusField;
+		public string execStatus
+		{
+			get
+			{
+				return this.execStatusField;
+			}
+			set
+			{
+				this.execStatusField = value;
+			}
+		}
+		
+
+		/**
+          *
+		  */
+		private List<ProductActivationErrors?> productActivationErrorsField = new List<ProductActivationErrors?>();
+		public List<ProductActivationErrors?> productActivationErrors
+		{
+			get
+			{
+				return this.productActivationErrorsField;
+			}
+			set
+			{
+				this.productActivationErrorsField = value;
+			}
+		}
+		
+
+		/**
+          *
+		  */
+		private List<ErrorData> errorField = new List<ErrorData>();
+		public List<ErrorData> error
+		{
+			get
+			{
+				return this.errorField;
+			}
+			set
+			{
+				this.errorField = value;
+			}
+		}
+		
+
+		/**
+	 	  * Default Constructor
+	 	  */
+	 	public ActivateProductResponse(){
+		}
+
+
+
+		public static ActivateProductResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
+		{
+			ActivateProductResponse activateProductResponse = null;
+			string key;
+			int i = 0;
+			if(index != -1)
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.CreateInstance(map, prefix + "responseEnvelope", -1);
+			if (responseEnvelope != null)
+			{
+				activateProductResponse = (activateProductResponse == null) ? new ActivateProductResponse() : activateProductResponse;
+				activateProductResponse.responseEnvelope = responseEnvelope;
+			}
+			key = prefix + "execStatus";
+			if (map.ContainsKey(key))
+			{
+				activateProductResponse = (activateProductResponse == null) ? new ActivateProductResponse() : activateProductResponse;
+				activateProductResponse.execStatus = map[key];
+			}
+			i = 0;
+			while(true)
+			{
+				key = prefix + "productActivationErrors" + "(" + i + ")";
+				if (map.ContainsKey(key))
+				{
+					activateProductResponse = (activateProductResponse == null) ? new ActivateProductResponse() : activateProductResponse;
+					activateProductResponse.productActivationErrors.Add((ProductActivationErrors)EnumUtils.GetValue(map[key],typeof(ProductActivationErrors)));
+					i++;
+				}
+				else
+				{
+					break;
+				}
+			}
+			i = 0;
+			while(true)
+			{
+				ErrorData error =  ErrorData.CreateInstance(map, prefix + "error", i);
+				if (error != null)
+				{
+					activateProductResponse = (activateProductResponse == null) ? new ActivateProductResponse() : activateProductResponse;
+					activateProductResponse.error.Add(error);
+					i++;
+				} 
+				else
+				{
+					break;
+				}
+			}
+			return activateProductResponse;
+		}
 	}
 
 
@@ -4155,8 +4763,7 @@ namespace PayPal.AdaptiveAccounts.Model
 	/**
       *
       */
-	public partial class NameType	
-	{
+	public partial class NameType	{
 
 		/**
           *
@@ -4258,7 +4865,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.salutation != null)
@@ -4284,7 +4891,7 @@ namespace PayPal.AdaptiveAccounts.Model
 			return sb.ToString();
 		}
 
-		public static NameType createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static NameType CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			NameType nameType = null;
 			string key;
@@ -4335,7 +4942,6 @@ namespace PayPal.AdaptiveAccounts.Model
 			}
 			return nameType;
 		}
-		
 	}
 
 
@@ -4344,8 +4950,7 @@ namespace PayPal.AdaptiveAccounts.Model
 	/**
       *
       */
-	public partial class AddressType	
-	{
+	public partial class AddressType	{
 
 		/**
           *
@@ -4464,7 +5069,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.line1 != null)
@@ -4503,8 +5108,7 @@ namespace PayPal.AdaptiveAccounts.Model
       *phone. This number must be supplied by the API caller (using
       *mobilePhoneNumber) Default=false. 
       */
-	public partial class CreateAccountWebOptionsType	
-	{
+	public partial class CreateAccountWebOptionsType	{
 
 		/**
           *
@@ -4592,13 +5196,30 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
+          *
+		  */
+		private string reminderEmailFrequencyField;
+		public string reminderEmailFrequency
+		{
+			get
+			{
+				return this.reminderEmailFrequencyField;
+			}
+			set
+			{
+				this.reminderEmailFrequencyField = value;
+			}
+		}
+		
+
+		/**
 	 	  * Default Constructor
 	 	  */
 	 	public CreateAccountWebOptionsType(){
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.returnUrl != null)
@@ -4621,6 +5242,10 @@ namespace PayPal.AdaptiveAccounts.Model
 			{
 					sb.Append(prefix).Append("useMiniBrowser").Append("=").Append(this.useMiniBrowser).Append("&");
 			}
+			if (this.reminderEmailFrequency != null)
+			{
+					sb.Append(prefix).Append("reminderEmailFrequency").Append("=").Append(HttpUtility.UrlEncode(this.reminderEmailFrequency, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
 			return sb.ToString();
 		}
 	}
@@ -4631,8 +5256,7 @@ namespace PayPal.AdaptiveAccounts.Model
 	/**
       *PayPal Business Category. i.e., baby - 1004 
       */
-	public partial class BusinessInfoType	
-	{
+	public partial class BusinessInfoType	{
 
 		/**
           *
@@ -5143,7 +5767,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.businessName != null)
@@ -5153,7 +5777,7 @@ namespace PayPal.AdaptiveAccounts.Model
 			if (this.businessAddress != null)
 			{
 					string newPrefix = prefix + "businessAddress" + ".";
-					sb.Append(this.businessAddressField.toNVPString(newPrefix));
+					sb.Append(this.businessAddressField.ToNVPString(newPrefix));
 			}
 			if (this.workPhone != null)
 			{
@@ -5201,12 +5825,12 @@ namespace PayPal.AdaptiveAccounts.Model
 			}
 			if (this.businessType != null)
 			{
-					sb.Append(prefix).Append("businessType").Append("=").Append(EnumUtils.getDescription(businessType));
+					sb.Append(prefix).Append("businessType").Append("=").Append(EnumUtils.GetDescription(businessType));
 					sb.Append("&");
 			}
 			if (this.businessSubtype != null)
 			{
-					sb.Append(prefix).Append("businessSubtype").Append("=").Append(EnumUtils.getDescription(businessSubtype));
+					sb.Append(prefix).Append("businessSubtype").Append("=").Append(EnumUtils.GetDescription(businessSubtype));
 					sb.Append("&");
 			}
 			if (this.incorporationId != null)
@@ -5229,7 +5853,7 @@ namespace PayPal.AdaptiveAccounts.Model
 			{
 				if (this.salesVenue[i] != null)
 				{
-					sb.Append(prefix).Append("salesVenue(").Append(i).Append(")=").Append(EnumUtils.getDescription(salesVenue[i]));
+					sb.Append(prefix).Append("salesVenue(").Append(i).Append(")=").Append(EnumUtils.GetDescription(salesVenue[i]));
 					sb.Append("&");
 				}
 			}
@@ -5252,12 +5876,12 @@ namespace PayPal.AdaptiveAccounts.Model
 			if (this.principalPlaceOfBusinessAddress != null)
 			{
 					string newPrefix = prefix + "principalPlaceOfBusinessAddress" + ".";
-					sb.Append(this.principalPlaceOfBusinessAddressField.toNVPString(newPrefix));
+					sb.Append(this.principalPlaceOfBusinessAddressField.ToNVPString(newPrefix));
 			}
 			if (this.registeredOfficeAddress != null)
 			{
 					string newPrefix = prefix + "registeredOfficeAddress" + ".";
-					sb.Append(this.registeredOfficeAddressField.toNVPString(newPrefix));
+					sb.Append(this.registeredOfficeAddressField.ToNVPString(newPrefix));
 			}
 			if (this.establishmentCountryCode != null)
 			{
@@ -5272,7 +5896,7 @@ namespace PayPal.AdaptiveAccounts.Model
 				if (this.businessStakeholder[i] != null)
 				{
 					string newPrefix = prefix + "businessStakeholder" + "(" + i + ").";
-					sb.Append(this.businessStakeholder[i].toNVPString(newPrefix));
+					sb.Append(this.businessStakeholder[i].ToNVPString(newPrefix));
 				}
 			}
 			return sb.ToString();
@@ -5286,8 +5910,7 @@ namespace PayPal.AdaptiveAccounts.Model
       *Info about Stakeholders such as partner, beneficial, owner,
       *director etc. 
       */
-	public partial class BusinessStakeholderType	
-	{
+	public partial class BusinessStakeholderType	{
 
 		/**
           *
@@ -5388,18 +6011,18 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.role != null)
 			{
-					sb.Append(prefix).Append("role").Append("=").Append(EnumUtils.getDescription(role));
+					sb.Append(prefix).Append("role").Append("=").Append(EnumUtils.GetDescription(role));
 					sb.Append("&");
 			}
 			if (this.name != null)
 			{
 					string newPrefix = prefix + "name" + ".";
-					sb.Append(this.nameField.toNVPString(newPrefix));
+					sb.Append(this.nameField.ToNVPString(newPrefix));
 			}
 			if (this.fullLegalName != null)
 			{
@@ -5408,7 +6031,7 @@ namespace PayPal.AdaptiveAccounts.Model
 			if (this.address != null)
 			{
 					string newPrefix = prefix + "address" + ".";
-					sb.Append(this.addressField.toNVPString(newPrefix));
+					sb.Append(this.addressField.ToNVPString(newPrefix));
 			}
 			if (this.dateOfBirth != null)
 			{
@@ -5425,8 +6048,7 @@ namespace PayPal.AdaptiveAccounts.Model
       *Info about PayPal user such as emailAddress, accountId,
       *firstName, lastName etc. 
       */
-	public partial class UserInfoType	
-	{
+	public partial class UserInfoType	{
 
 		/**
           *
@@ -5521,7 +6143,7 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-		public static UserInfoType createInstance(Dictionary<string, string> map, string prefix, int index)
+		public static UserInfoType CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			UserInfoType userInfoType = null;
 			string key;
@@ -5558,7 +6180,7 @@ namespace PayPal.AdaptiveAccounts.Model
 				userInfoType = (userInfoType == null) ? new UserInfoType() : userInfoType;
 				userInfoType.accountId = map[key];
 			}
-			NameType name =  NameType.createInstance(map, prefix + "name", -1);
+			NameType name =  NameType.CreateInstance(map, prefix + "name", -1);
 			if (name != null)
 			{
 				userInfoType = (userInfoType == null) ? new UserInfoType() : userInfoType;
@@ -5572,7 +6194,6 @@ namespace PayPal.AdaptiveAccounts.Model
 			}
 			return userInfoType;
 		}
-		
 	}
 
 
@@ -5581,8 +6202,7 @@ namespace PayPal.AdaptiveAccounts.Model
 	/**
       *
       */
-	public partial class WebOptionsType	
-	{
+	public partial class WebOptionsType	{
 
 		/**
           *
@@ -5659,7 +6279,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.returnUrl != null)
@@ -5688,8 +6308,7 @@ namespace PayPal.AdaptiveAccounts.Model
 	/**
       *Month in integer format, between 1 and 12 
       */
-	public partial class CardDateType	
-	{
+	public partial class CardDateType	{
 
 		/**
           *
@@ -5740,7 +6359,7 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 
 
-		public string toNVPString(string prefix)
+		public string ToNVPString(string prefix)
 		{
 			StringBuilder sb = new StringBuilder();
 			if (this.month != null)
