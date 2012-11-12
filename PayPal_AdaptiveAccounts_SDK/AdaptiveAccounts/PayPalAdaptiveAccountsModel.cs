@@ -1075,7 +1075,8 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 	/**
-      *
+      * SwitchMaestro, deprecated card type, use UKMaestro instead
+      *             
       */
     [Serializable]
 	public enum CardTypeType {
@@ -1084,14 +1085,15 @@ namespace PayPal.AdaptiveAccounts.Model
 		[Description("AmericanExpress")]AMERICANEXPRESS,	
 		[Description("Discover")]DISCOVER,	
 		[Description("SwitchMaestro")]SWITCHMAESTRO,	
-		[Description("Solo")]SOLO,	
+		[Description("UKMaestro")]UKMAESTRO,	
 		[Description("CarteAurore")]CARTEAURORE,	
 		[Description("CarteBleue")]CARTEBLEUE,	
 		[Description("Cofinoga")]COFINOGA,	
 		[Description("4etoiles")]ETOILES,	
 		[Description("CartaAura")]CARTAAURA,	
 		[Description("TarjetaAurora")]TARJETAAURORA,	
-		[Description("JCB")]JCB	
+		[Description("JCB")]JCB,	
+		[Description("Maestro")]MAESTRO	
 	}
 
 
@@ -1749,11 +1751,11 @@ namespace PayPal.AdaptiveAccounts.Model
 			}
 			if (this.suppressWelcomeEmail != null)
 			{
-					sb.Append(prefix).Append("suppressWelcomeEmail").Append("=").Append(this.suppressWelcomeEmail).Append("&");
+					sb.Append(prefix).Append("suppressWelcomeEmail").Append("=").Append(this.suppressWelcomeEmail.ToString().ToLower()).Append("&");
 			}
 			if (this.performExtraVettingOnThisAccount != null)
 			{
-					sb.Append(prefix).Append("performExtraVettingOnThisAccount").Append("=").Append(this.performExtraVettingOnThisAccount).Append("&");
+					sb.Append(prefix).Append("performExtraVettingOnThisAccount").Append("=").Append(this.performExtraVettingOnThisAccount.ToString().ToLower()).Append("&");
 			}
 			if (this.taxId != null)
 			{
@@ -5421,6 +5423,23 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
+          *
+		  */
+		private string confirmEmailField;
+		public string confirmEmail
+		{
+			get
+			{
+				return this.confirmEmailField;
+			}
+			set
+			{
+				this.confirmEmailField = value;
+			}
+		}
+		
+
+		/**
 	 	  * Default Constructor
 	 	  */
 	 	public CreateAccountWebOptionsType()
@@ -5437,11 +5456,11 @@ namespace PayPal.AdaptiveAccounts.Model
 			}
 			if (this.showAddCreditCard != null)
 			{
-					sb.Append(prefix).Append("showAddCreditCard").Append("=").Append(this.showAddCreditCard).Append("&");
+					sb.Append(prefix).Append("showAddCreditCard").Append("=").Append(this.showAddCreditCard.ToString().ToLower()).Append("&");
 			}
 			if (this.showMobileConfirm != null)
 			{
-					sb.Append(prefix).Append("showMobileConfirm").Append("=").Append(this.showMobileConfirm).Append("&");
+					sb.Append(prefix).Append("showMobileConfirm").Append("=").Append(this.showMobileConfirm.ToString().ToLower()).Append("&");
 			}
 			if (this.returnUrlDescription != null)
 			{
@@ -5449,11 +5468,15 @@ namespace PayPal.AdaptiveAccounts.Model
 			}
 			if (this.useMiniBrowser != null)
 			{
-					sb.Append(prefix).Append("useMiniBrowser").Append("=").Append(this.useMiniBrowser).Append("&");
+					sb.Append(prefix).Append("useMiniBrowser").Append("=").Append(this.useMiniBrowser.ToString().ToLower()).Append("&");
 			}
 			if (this.reminderEmailFrequency != null)
 			{
 					sb.Append(prefix).Append("reminderEmailFrequency").Append("=").Append(HttpUtility.UrlEncode(this.reminderEmailFrequency, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			if (this.confirmEmail != null)
+			{
+					sb.Append(prefix).Append("confirmEmail").Append("=").Append(HttpUtility.UrlEncode(this.confirmEmail, BaseConstants.ENCODING_FORMAT)).Append("&");
 			}
 			return sb.ToString();
 		}
