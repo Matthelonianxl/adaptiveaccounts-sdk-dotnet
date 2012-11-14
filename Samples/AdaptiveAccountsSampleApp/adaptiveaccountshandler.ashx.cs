@@ -128,6 +128,7 @@ namespace AdaptiveAccountsSampleApp
             catch (System.Exception e)
             {
                 context.Response.Write(e.Message);
+                return;
             }
 
 

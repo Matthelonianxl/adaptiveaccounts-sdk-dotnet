@@ -146,7 +146,7 @@
 				<div class="params">					
 					<div class="param_name">Show mobile confirmation option</div>
 					<div class="param_value">
-						<input type="text" name="showMobileConfirm" value="true" />
+						<input type="text" name="showMobileConfirm" value="false" />
 					</div>
 				</div>
 				<div class="params">					

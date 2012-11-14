@@ -64,6 +64,7 @@
     <Compile Include="AddPaymentCard.aspx.designer.cs">
       <DependentUpon>AddPaymentCard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="App_Code\Message.cs" />
     <Compile Include="CreateAccount.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>CreateAccount.aspx</DependentUpon>
@@ -105,6 +106,13 @@
     <Compile Include="SetFundingSourcesConfirmed.aspx.designer.cs">
       <DependentUpon>SetFundingSourcesConfirmed.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ShowError.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>ShowError.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShowError.aspx.designer.cs">
+      <DependentUpon>ShowError.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="adaptiveaccountshandler.ashx" />
@@ -123,6 +131,7 @@
     <None Include="README.md" />
     <Content Include="lib\PayPal_Core_SDK.dll" />
     <Content Include="SanityTest\Web.development.config" />
+    <Content Include="ShowError.aspx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\PayPal_AdaptiveAccounts_SDK\PayPal_AdaptiveAccounts_SDK.csproj">

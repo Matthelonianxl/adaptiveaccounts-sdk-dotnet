@@ -5460,7 +5460,7 @@ namespace PayPal.AdaptiveAccounts.Model
 			}
 			if (this.showMobileConfirm != null)
 			{
-					sb.Append(prefix).Append("showMobileConfirm").Append("=").Append(this.showMobileConfirm.ToString()).Append("&");
+					sb.Append(prefix).Append("showMobileConfirm").Append("=").Append(this.showMobileConfirm.ToString().ToLower()).Append("&");
 			}
 			if (this.returnUrlDescription != null)
 			{
