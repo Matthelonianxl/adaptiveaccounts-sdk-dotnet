@@ -18,7 +18,7 @@ namespace AdaptiveAccountsSampleApp
             string currentPath = System.Web.HttpContext.Current.Request.Url.OriginalString;
             this.returnUrl.Value = currentPath;
             Random autoRand = new Random();
-            this.emailAddress.Value = "sdkaccount_" + autoRand.Next(0, Int32.MaxValue) + "@paypal.com";
+            this.emailAddress.Value = "sdkaccount_" + autoRand.Next(0, int.MaxValue) + "@paypal.com";
         }
     }
 }

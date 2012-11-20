@@ -6,7 +6,8 @@
     <title>PayPal Adaptive Accounts Sample App</title>
 </head>
 <body>
-    <h2>PayPal Adaptive Accounts - API Samples</h2>
+    <h2>
+        PayPal Adaptive Accounts - API Samples</h2>
     <form id="form1" runat="server">
         <div>
             <a href="CreateAccount.aspx">CreateAccount</a><br />

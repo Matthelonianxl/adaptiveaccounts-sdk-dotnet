@@ -17,11 +17,9 @@ namespace AdaptiveAccountsSampleApp
 {
     /// <summary>
     /// Summary description for $codebehindclassname$
-    /// </summary>
-    
+    /// </summary>    
     public class adaptiveaccountshandler : IHttpHandler
     {
-
         public void ProcessRequest(HttpContext context)
         {
             context.Response.ContentType = "text/html";
@@ -60,6 +58,7 @@ namespace AdaptiveAccountsSampleApp
                 return false;
             }
         }
+
         private void CreateAccount(HttpContext context)
         {
             NameValueCollection parameters = context.Request.Params;
@@ -84,6 +83,7 @@ namespace AdaptiveAccountsSampleApp
 
             CreateAccountRequest req = new CreateAccountRequest(new RequestEnvelope(), nameOnCard, address,
                 parameters["preferredLanguageCode"]);
+            
             // set optional parameters
             if(parameters["contactPhoneNumber"] != "")
                 req.contactPhoneNumber = parameters["contactPhoneNumber"];
@@ -131,7 +131,6 @@ namespace AdaptiveAccountsSampleApp
                 return;
             }
 
-
             // Display response values. 
             Dictionary<string, string> keyResponseParams = new Dictionary<string, string>();
             string redirectUrl = null;
@@ -163,6 +162,7 @@ namespace AdaptiveAccountsSampleApp
                 Enum.Parse(typeof(ConfirmationType), parameters["confirmationType"]);
             AddBankAccountRequest req = new AddBankAccountRequest(
                 new RequestEnvelope(), parameters["bankCountryCode"], confirmationType);
+            
             // set optional parameters
             if (parameters["accountId"] != "")
                 req.accountId = parameters["accountId"];
@@ -255,7 +255,6 @@ namespace AdaptiveAccountsSampleApp
                 resp.error, redirectUrl);
         }
 
-
         /// <summary>
         /// Handle AddPaymentCard API call
         /// </summary>
@@ -290,6 +289,7 @@ namespace AdaptiveAccountsSampleApp
             // Create API request object
             AddPaymentCardRequest req = new AddPaymentCardRequest(new RequestEnvelope(), nameOnCard, billingAddress,
                     parameters["cardNumber"], cardType, confirmationType);
+           
             // set optional parameters
             if (parameters["accountId"] != "")
                 req.accountId = parameters["accountId"];
@@ -302,16 +302,16 @@ namespace AdaptiveAccountsSampleApp
             if (parameters["expirationMonth"] != "" && parameters["expirationYear"] != "")
             {
                 req.expirationDate = new CardDateType(
-                    Int32.Parse(parameters["expirationMonth"]),
-                    Int32.Parse(parameters["expirationYear"]));
+                    int.Parse(parameters["expirationMonth"]),
+                    int.Parse(parameters["expirationYear"]));
             }
             if (parameters["cardVerificationNumber"] != "")
                 req.cardVerificationNumber = parameters["cardVerificationNumber"];
             if (parameters["startMonth"] != "" && parameters["startYear"] != "")
             {
                 req.startDate = new CardDateType(
-                    Int32.Parse(parameters["startMonth"]),
-                    Int32.Parse(parameters["startYear"]));
+                    int.Parse(parameters["startMonth"]),
+                    int.Parse(parameters["startYear"]));
             }            
             if (parameters["issueNumber"] != "")
                 req.issueNumber = parameters["issueNumber"];
@@ -417,13 +417,20 @@ namespace AdaptiveAccountsSampleApp
         {
             NameValueCollection parameters = context.Request.Params;
             GetUserAgreementRequest req = new GetUserAgreementRequest(new RequestEnvelope());
+            
             // set optional parameters
             if (parameters["createAccountKey"] != "")
+            {
                 req.createAccountKey = parameters["createAccountKey"];
+            }
             if (parameters["countryCode"] != "")
+            {
                 req.countryCode = parameters["countryCode"];
+            }
             if (parameters["languageCode"] != "")
+            {
                 req.languageCode = parameters["languageCode"];
+            }
 
             // All set. Fire the request            
             AdaptiveAccountsService service = new AdaptiveAccountsService();
@@ -530,15 +537,6 @@ namespace AdaptiveAccountsSampleApp
             }
             context.Response.Write("<div class='section_header'>Key values from response</div>");
             context.Response.Write("<div class='note'>Consult response object and reference doc for complete list of response values.</div><table>");
-           /*
-            foreach (KeyValuePair<String, String> entry in responseValues) {
-                context.Response.Write("<tr><td class='label'>");
-                context.Response.Write(entry.Key);
-                context.Response.Write(": </td><td>");
-                context.Response.Write(entry.Value);
-                context.Response.Write("</td></tr>");
-            }
-            */
 
             //Selenium Test Case            
             foreach (KeyValuePair<String, String> entry in responseValues)

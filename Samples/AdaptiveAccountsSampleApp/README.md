@@ -1,3 +1,8 @@
+This ASP.NET Web Application (C#) contains API based samples. 
+
+Prerequisites:
+--------------
+*	Visual Studio 2005 or higher
 
 Overview
 --------
