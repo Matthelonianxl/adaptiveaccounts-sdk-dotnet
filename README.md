@@ -41,15 +41,17 @@ Please refer to the sample web.config file in 'AdaptiveAccountsSampleApp' sample
 *	PayPal (Multiple) Accounts API credentials
 	•	apiUsername
 	•	apiPassword
-	•	apiSignature
 	•	applicationId
+	•	apiSignature
+	•	apiCertificate
+	•	privateKeyPassword
 
 Tools:
 ------
 *	log4net.dll - included in 'lib' folder in 'PayPal_AdaptiveAccounts_SDK' project
 	log4net is a tool to help output log statements to a variety of output targets.
 	
-*	C#–ObjectDumper - included in 'AdaptiveAccountsSampleApp' sample application
+*	ObjectDumper.cs - included in 'AdaptiveAccountsSampleApp' sample application
 	ObjectDumper.cs is a nifty little utility class that you can use to dump the data within an object (It will walk the object graph to a specified depth which you can then output to console or a textWriter).
 
 *	jQuery JavaScript Library - included in 'Content' folder in 'AdaptiveAccountsSampleApp' sample application
