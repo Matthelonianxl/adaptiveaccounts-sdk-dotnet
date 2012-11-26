@@ -1,4 +1,4 @@
-This ASP.NET Web Application (C#) contains Adaptive Accounts API based samples. 
+This ASP.NET Web Application (C#) contains PayPal Adaptive Accounts API based samples. 
 
 Prerequisites:
 --------------
