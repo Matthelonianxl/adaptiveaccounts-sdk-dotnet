@@ -8,9 +8,9 @@ SDK Integration:
 ----------------
 *	Create a new ASP.NET Web Application with appropriate web application and solution name
 
-*	Add reference to 'PayPal_AdaptiveAccounts_SDK.dll' from the 'lib' folder in 'PayPal_AdaptiveAccounts_SDK' project
+*	Add reference to 'PayPal_AdaptiveAccounts_SDK.dll'
 
-*	Add reference to 'PayPal_Core_SDK.dll' from the 'lib' folder in 'PayPal_AdaptiveAccounts_SDK' project
+*	Add reference to 'PayPal_Core_SDK.dll'
 
 *	Namespaces to be used
 	•	PayPal
