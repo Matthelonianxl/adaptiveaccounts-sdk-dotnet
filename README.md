@@ -1,4 +1,4 @@
-This repository contains .NET SDK and samples for Adaptive Accounts API.
+This repository contains .NET SDK and samples for PayPal Adaptive Accounts API.
 
 Prerequisites:
 --------------
@@ -8,6 +8,9 @@ SDK Integration:
 ----------------
 *	Create a new ASP.NET Web Application with appropriate web application and solution name
 
+*	Execute 'AdaptiveAccounts.bat' batch commands to ensure that the Adaptive Accounts stubs are up-to-date 
+	[Note: Also ensure that the path to 'devenv.com' in 'AdaptiveAccounts.bat' file is correct as per Visual Studio installation]
+	
 *	Add reference to 'PayPal_AdaptiveAccounts_SDK.dll'
 
 *	Add reference to 'PayPal_Core_SDK.dll'

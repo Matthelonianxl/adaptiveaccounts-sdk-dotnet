@@ -18,10 +18,10 @@ namespace PayPal.AdaptiveAccounts
 		private const string ServiceName = "AdaptiveAccounts";
 		
 		//SDK Name
-		private const string SDKName = "sdkname";
+		private const string SDKName = "adaptiveaccounts-dotnet-sdk";
 	
 		//SDK Version
-		private const string SDKVersion = "sdkversion";
+		private const string SDKVersion = "2.0.96";
 
 		public AdaptiveAccountsService() {}
 
