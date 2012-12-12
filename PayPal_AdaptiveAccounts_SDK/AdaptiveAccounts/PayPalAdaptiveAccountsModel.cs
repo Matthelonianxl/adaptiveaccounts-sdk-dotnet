@@ -1057,8 +1057,7 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 	/**
-      * SwitchMaestro, deprecated card type, use UKMaestro instead
-      *             
+      *
       */
     [Serializable]
 	public enum CardTypeType {
@@ -1067,15 +1066,14 @@ namespace PayPal.AdaptiveAccounts.Model
 		[Description("AmericanExpress")]AMERICANEXPRESS,	
 		[Description("Discover")]DISCOVER,	
 		[Description("SwitchMaestro")]SWITCHMAESTRO,	
-		[Description("UKMaestro")]UKMAESTRO,	
+		[Description("Solo")]SOLO,	
 		[Description("CarteAurore")]CARTEAURORE,	
 		[Description("CarteBleue")]CARTEBLEUE,	
 		[Description("Cofinoga")]COFINOGA,	
 		[Description("4etoiles")]ETOILES,	
 		[Description("CartaAura")]CARTAAURA,	
 		[Description("TarjetaAurora")]TARJETAAURORA,	
-		[Description("JCB")]JCB,	
-		[Description("Maestro")]MAESTRO	
+		[Description("JCB")]JCB	
 	}
 
 
@@ -5339,23 +5337,6 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
-          *
-		  */
-		private string confirmEmailField;
-		public string confirmEmail
-		{
-			get
-			{
-				return this.confirmEmailField;
-			}
-			set
-			{
-				this.confirmEmailField = value;
-			}
-		}
-		
-
-		/**
 	 	  * Default Constructor
 	 	  */
 	 	public CreateAccountWebOptionsType()
@@ -5389,10 +5370,6 @@ namespace PayPal.AdaptiveAccounts.Model
 			if (this.reminderEmailFrequency != null)
 			{
 					sb.Append(prefix).Append("reminderEmailFrequency").Append("=").Append(HttpUtility.UrlEncode(this.reminderEmailFrequency, BaseConstants.ENCODING_FORMAT)).Append("&");
-			}
-			if (this.confirmEmail != null)
-			{
-					sb.Append(prefix).Append("confirmEmail").Append("=").Append(HttpUtility.UrlEncode(this.confirmEmail, BaseConstants.ENCODING_FORMAT)).Append("&");
 			}
 			return sb.ToString();
 		}

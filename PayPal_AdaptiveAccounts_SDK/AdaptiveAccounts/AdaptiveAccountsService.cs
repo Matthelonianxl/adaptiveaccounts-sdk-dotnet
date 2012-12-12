@@ -1,3 +1,4 @@
+using System;
 using System.Xml;
 using PayPal;
 using PayPal.Authentication;
@@ -18,10 +19,10 @@ namespace PayPal.AdaptiveAccounts
 		private const string ServiceName = "AdaptiveAccounts";
 		
 		//SDK Name
-		private const string SDKName = "adaptiveaccounts-dotnet-sdk";
+		private const string SDKName = "sdkname";
 	
 		//SDK Version
-		private const string SDKVersion = "2.0.96";
+		private const string SDKVersion = "sdkversion";
 
 		public AdaptiveAccountsService() {}
 
@@ -61,9 +62,11 @@ namespace PayPal.AdaptiveAccounts
 	 	public CreateAccountResponse CreateAccount(CreateAccountRequest createAccountRequest, string apiUserName)
 	 	{
 	 		IAPICallPreHandler apiCallPreHandler = null;
+	 		string portName = "AdaptiveAccounts";
 			apiCallPreHandler = new PlatformAPICallPreHandler(createAccountRequest.ToNVPString(string.Empty), ServiceName, "CreateAccount", apiUserName, getAccessToken(), getAccessTokenSecret());
 	   	 	((PlatformAPICallPreHandler) apiCallPreHandler).SDKName = SDKName;
 			((PlatformAPICallPreHandler) apiCallPreHandler).SDKVersion = SDKVersion;
+			((PlatformAPICallPreHandler) apiCallPreHandler).PortName = portName;
 			string response = Call(apiCallPreHandler);
 			NVPUtil util = new NVPUtil();
 			return CreateAccountResponse.CreateInstance(util.ParseNVPString(response), string.Empty, -1);
@@ -144,9 +147,11 @@ namespace PayPal.AdaptiveAccounts
 	 	public CreateAccountResponse CreateAccount(CreateAccountRequest createAccountRequest, ICredential credential)
 	 	{
 	 		IAPICallPreHandler apiCallPreHandler = null;
+	 		string portName = "AdaptiveAccounts";
 			apiCallPreHandler = new PlatformAPICallPreHandler(createAccountRequest.ToNVPString(string.Empty), ServiceName, "CreateAccount", credential);
 	   	 	((PlatformAPICallPreHandler) apiCallPreHandler).SDKName = SDKName;
 			((PlatformAPICallPreHandler) apiCallPreHandler).SDKVersion = SDKVersion;
+			((PlatformAPICallPreHandler) apiCallPreHandler).PortName = portName;
 			string response = Call(apiCallPreHandler);
 			NVPUtil util = new NVPUtil();
 			return CreateAccountResponse.CreateInstance(util.ParseNVPString(response), string.Empty, -1);
@@ -188,9 +193,11 @@ namespace PayPal.AdaptiveAccounts
 	 	public GetUserAgreementResponse GetUserAgreement(GetUserAgreementRequest getUserAgreementRequest, string apiUserName)
 	 	{
 	 		IAPICallPreHandler apiCallPreHandler = null;
+	 		string portName = "AdaptiveAccounts";
 			apiCallPreHandler = new PlatformAPICallPreHandler(getUserAgreementRequest.ToNVPString(string.Empty), ServiceName, "GetUserAgreement", apiUserName, getAccessToken(), getAccessTokenSecret());
 	   	 	((PlatformAPICallPreHandler) apiCallPreHandler).SDKName = SDKName;
 			((PlatformAPICallPreHandler) apiCallPreHandler).SDKVersion = SDKVersion;
+			((PlatformAPICallPreHandler) apiCallPreHandler).PortName = portName;
 			string response = Call(apiCallPreHandler);
 			NVPUtil util = new NVPUtil();
 			return GetUserAgreementResponse.CreateInstance(util.ParseNVPString(response), string.Empty, -1);
@@ -269,9 +276,11 @@ namespace PayPal.AdaptiveAccounts
 	 	public GetUserAgreementResponse GetUserAgreement(GetUserAgreementRequest getUserAgreementRequest, ICredential credential)
 	 	{
 	 		IAPICallPreHandler apiCallPreHandler = null;
+	 		string portName = "AdaptiveAccounts";
 			apiCallPreHandler = new PlatformAPICallPreHandler(getUserAgreementRequest.ToNVPString(string.Empty), ServiceName, "GetUserAgreement", credential);
 	   	 	((PlatformAPICallPreHandler) apiCallPreHandler).SDKName = SDKName;
 			((PlatformAPICallPreHandler) apiCallPreHandler).SDKVersion = SDKVersion;
+			((PlatformAPICallPreHandler) apiCallPreHandler).PortName = portName;
 			string response = Call(apiCallPreHandler);
 			NVPUtil util = new NVPUtil();
 			return GetUserAgreementResponse.CreateInstance(util.ParseNVPString(response), string.Empty, -1);
@@ -289,9 +298,11 @@ namespace PayPal.AdaptiveAccounts
 	 	public GetVerifiedStatusResponse GetVerifiedStatus(GetVerifiedStatusRequest getVerifiedStatusRequest, string apiUserName)
 	 	{
 	 		IAPICallPreHandler apiCallPreHandler = null;
+	 		string portName = "AdaptiveAccounts";
 			apiCallPreHandler = new PlatformAPICallPreHandler(getVerifiedStatusRequest.ToNVPString(string.Empty), ServiceName, "GetVerifiedStatus", apiUserName, getAccessToken(), getAccessTokenSecret());
 	   	 	((PlatformAPICallPreHandler) apiCallPreHandler).SDKName = SDKName;
 			((PlatformAPICallPreHandler) apiCallPreHandler).SDKVersion = SDKVersion;
+			((PlatformAPICallPreHandler) apiCallPreHandler).PortName = portName;
 			string response = Call(apiCallPreHandler);
 			NVPUtil util = new NVPUtil();
 			return GetVerifiedStatusResponse.CreateInstance(util.ParseNVPString(response), string.Empty, -1);
@@ -322,9 +333,11 @@ namespace PayPal.AdaptiveAccounts
 	 	public GetVerifiedStatusResponse GetVerifiedStatus(GetVerifiedStatusRequest getVerifiedStatusRequest, ICredential credential)
 	 	{
 	 		IAPICallPreHandler apiCallPreHandler = null;
+	 		string portName = "AdaptiveAccounts";
 			apiCallPreHandler = new PlatformAPICallPreHandler(getVerifiedStatusRequest.ToNVPString(string.Empty), ServiceName, "GetVerifiedStatus", credential);
 	   	 	((PlatformAPICallPreHandler) apiCallPreHandler).SDKName = SDKName;
 			((PlatformAPICallPreHandler) apiCallPreHandler).SDKVersion = SDKVersion;
+			((PlatformAPICallPreHandler) apiCallPreHandler).PortName = portName;
 			string response = Call(apiCallPreHandler);
 			NVPUtil util = new NVPUtil();
 			return GetVerifiedStatusResponse.CreateInstance(util.ParseNVPString(response), string.Empty, -1);
@@ -351,9 +364,11 @@ namespace PayPal.AdaptiveAccounts
 	 	public AddBankAccountResponse AddBankAccount(AddBankAccountRequest addBankAccountRequest, string apiUserName)
 	 	{
 	 		IAPICallPreHandler apiCallPreHandler = null;
+	 		string portName = "AdaptiveAccounts";
 			apiCallPreHandler = new PlatformAPICallPreHandler(addBankAccountRequest.ToNVPString(string.Empty), ServiceName, "AddBankAccount", apiUserName, getAccessToken(), getAccessTokenSecret());
 	   	 	((PlatformAPICallPreHandler) apiCallPreHandler).SDKName = SDKName;
 			((PlatformAPICallPreHandler) apiCallPreHandler).SDKVersion = SDKVersion;
+			((PlatformAPICallPreHandler) apiCallPreHandler).PortName = portName;
 			string response = Call(apiCallPreHandler);
 			NVPUtil util = new NVPUtil();
 			return AddBankAccountResponse.CreateInstance(util.ParseNVPString(response), string.Empty, -1);
@@ -402,9 +417,11 @@ namespace PayPal.AdaptiveAccounts
 	 	public AddBankAccountResponse AddBankAccount(AddBankAccountRequest addBankAccountRequest, ICredential credential)
 	 	{
 	 		IAPICallPreHandler apiCallPreHandler = null;
+	 		string portName = "AdaptiveAccounts";
 			apiCallPreHandler = new PlatformAPICallPreHandler(addBankAccountRequest.ToNVPString(string.Empty), ServiceName, "AddBankAccount", credential);
 	   	 	((PlatformAPICallPreHandler) apiCallPreHandler).SDKName = SDKName;
 			((PlatformAPICallPreHandler) apiCallPreHandler).SDKVersion = SDKVersion;
+			((PlatformAPICallPreHandler) apiCallPreHandler).PortName = portName;
 			string response = Call(apiCallPreHandler);
 			NVPUtil util = new NVPUtil();
 			return AddBankAccountResponse.CreateInstance(util.ParseNVPString(response), string.Empty, -1);
@@ -448,9 +465,11 @@ namespace PayPal.AdaptiveAccounts
 	 	public AddPaymentCardResponse AddPaymentCard(AddPaymentCardRequest addPaymentCardRequest, string apiUserName)
 	 	{
 	 		IAPICallPreHandler apiCallPreHandler = null;
+	 		string portName = "AdaptiveAccounts";
 			apiCallPreHandler = new PlatformAPICallPreHandler(addPaymentCardRequest.ToNVPString(string.Empty), ServiceName, "AddPaymentCard", apiUserName, getAccessToken(), getAccessTokenSecret());
 	   	 	((PlatformAPICallPreHandler) apiCallPreHandler).SDKName = SDKName;
 			((PlatformAPICallPreHandler) apiCallPreHandler).SDKVersion = SDKVersion;
+			((PlatformAPICallPreHandler) apiCallPreHandler).PortName = portName;
 			string response = Call(apiCallPreHandler);
 			NVPUtil util = new NVPUtil();
 			return AddPaymentCardResponse.CreateInstance(util.ParseNVPString(response), string.Empty, -1);
@@ -533,9 +552,11 @@ namespace PayPal.AdaptiveAccounts
 	 	public AddPaymentCardResponse AddPaymentCard(AddPaymentCardRequest addPaymentCardRequest, ICredential credential)
 	 	{
 	 		IAPICallPreHandler apiCallPreHandler = null;
+	 		string portName = "AdaptiveAccounts";
 			apiCallPreHandler = new PlatformAPICallPreHandler(addPaymentCardRequest.ToNVPString(string.Empty), ServiceName, "AddPaymentCard", credential);
 	   	 	((PlatformAPICallPreHandler) apiCallPreHandler).SDKName = SDKName;
 			((PlatformAPICallPreHandler) apiCallPreHandler).SDKVersion = SDKVersion;
+			((PlatformAPICallPreHandler) apiCallPreHandler).PortName = portName;
 			string response = Call(apiCallPreHandler);
 			NVPUtil util = new NVPUtil();
 			return AddPaymentCardResponse.CreateInstance(util.ParseNVPString(response), string.Empty, -1);
@@ -580,9 +601,11 @@ namespace PayPal.AdaptiveAccounts
 	 	public SetFundingSourceConfirmedResponse SetFundingSourceConfirmed(SetFundingSourceConfirmedRequest setFundingSourceConfirmedRequest, string apiUserName)
 	 	{
 	 		IAPICallPreHandler apiCallPreHandler = null;
+	 		string portName = "AdaptiveAccounts";
 			apiCallPreHandler = new PlatformAPICallPreHandler(setFundingSourceConfirmedRequest.ToNVPString(string.Empty), ServiceName, "SetFundingSourceConfirmed", apiUserName, getAccessToken(), getAccessTokenSecret());
 	   	 	((PlatformAPICallPreHandler) apiCallPreHandler).SDKName = SDKName;
 			((PlatformAPICallPreHandler) apiCallPreHandler).SDKVersion = SDKVersion;
+			((PlatformAPICallPreHandler) apiCallPreHandler).PortName = portName;
 			string response = Call(apiCallPreHandler);
 			NVPUtil util = new NVPUtil();
 			return SetFundingSourceConfirmedResponse.CreateInstance(util.ParseNVPString(response), string.Empty, -1);
@@ -667,9 +690,11 @@ namespace PayPal.AdaptiveAccounts
 	 	public SetFundingSourceConfirmedResponse SetFundingSourceConfirmed(SetFundingSourceConfirmedRequest setFundingSourceConfirmedRequest, ICredential credential)
 	 	{
 	 		IAPICallPreHandler apiCallPreHandler = null;
+	 		string portName = "AdaptiveAccounts";
 			apiCallPreHandler = new PlatformAPICallPreHandler(setFundingSourceConfirmedRequest.ToNVPString(string.Empty), ServiceName, "SetFundingSourceConfirmed", credential);
 	   	 	((PlatformAPICallPreHandler) apiCallPreHandler).SDKName = SDKName;
 			((PlatformAPICallPreHandler) apiCallPreHandler).SDKVersion = SDKVersion;
+			((PlatformAPICallPreHandler) apiCallPreHandler).PortName = portName;
 			string response = Call(apiCallPreHandler);
 			NVPUtil util = new NVPUtil();
 			return SetFundingSourceConfirmedResponse.CreateInstance(util.ParseNVPString(response), string.Empty, -1);
@@ -689,9 +714,11 @@ namespace PayPal.AdaptiveAccounts
 	 	public CheckComplianceStatusResponse CheckComplianceStatus(CheckComplianceStatusRequest checkComplianceStatusRequest, string apiUserName)
 	 	{
 	 		IAPICallPreHandler apiCallPreHandler = null;
+	 		string portName = "AdaptiveAccounts";
 			apiCallPreHandler = new PlatformAPICallPreHandler(checkComplianceStatusRequest.ToNVPString(string.Empty), ServiceName, "CheckComplianceStatus", apiUserName, getAccessToken(), getAccessTokenSecret());
 	   	 	((PlatformAPICallPreHandler) apiCallPreHandler).SDKName = SDKName;
 			((PlatformAPICallPreHandler) apiCallPreHandler).SDKVersion = SDKVersion;
+			((PlatformAPICallPreHandler) apiCallPreHandler).PortName = portName;
 			string response = Call(apiCallPreHandler);
 			NVPUtil util = new NVPUtil();
 			return CheckComplianceStatusResponse.CreateInstance(util.ParseNVPString(response), string.Empty, -1);
@@ -726,9 +753,11 @@ namespace PayPal.AdaptiveAccounts
 	 	public CheckComplianceStatusResponse CheckComplianceStatus(CheckComplianceStatusRequest checkComplianceStatusRequest, ICredential credential)
 	 	{
 	 		IAPICallPreHandler apiCallPreHandler = null;
+	 		string portName = "AdaptiveAccounts";
 			apiCallPreHandler = new PlatformAPICallPreHandler(checkComplianceStatusRequest.ToNVPString(string.Empty), ServiceName, "CheckComplianceStatus", credential);
 	   	 	((PlatformAPICallPreHandler) apiCallPreHandler).SDKName = SDKName;
 			((PlatformAPICallPreHandler) apiCallPreHandler).SDKVersion = SDKVersion;
+			((PlatformAPICallPreHandler) apiCallPreHandler).PortName = portName;
 			string response = Call(apiCallPreHandler);
 			NVPUtil util = new NVPUtil();
 			return CheckComplianceStatusResponse.CreateInstance(util.ParseNVPString(response), string.Empty, -1);
@@ -750,9 +779,11 @@ namespace PayPal.AdaptiveAccounts
 	 	public AddPartnerFinancialProductResponse AddPartnerFinancialProduct(AddPartnerFinancialProductRequest addPartnerFinancialProductRequest, string apiUserName)
 	 	{
 	 		IAPICallPreHandler apiCallPreHandler = null;
+	 		string portName = "AdaptiveAccounts";
 			apiCallPreHandler = new PlatformAPICallPreHandler(addPartnerFinancialProductRequest.ToNVPString(string.Empty), ServiceName, "AddPartnerFinancialProduct", apiUserName, getAccessToken(), getAccessTokenSecret());
 	   	 	((PlatformAPICallPreHandler) apiCallPreHandler).SDKName = SDKName;
 			((PlatformAPICallPreHandler) apiCallPreHandler).SDKVersion = SDKVersion;
+			((PlatformAPICallPreHandler) apiCallPreHandler).PortName = portName;
 			string response = Call(apiCallPreHandler);
 			NVPUtil util = new NVPUtil();
 			return AddPartnerFinancialProductResponse.CreateInstance(util.ParseNVPString(response), string.Empty, -1);
@@ -791,9 +822,11 @@ namespace PayPal.AdaptiveAccounts
 	 	public AddPartnerFinancialProductResponse AddPartnerFinancialProduct(AddPartnerFinancialProductRequest addPartnerFinancialProductRequest, ICredential credential)
 	 	{
 	 		IAPICallPreHandler apiCallPreHandler = null;
+	 		string portName = "AdaptiveAccounts";
 			apiCallPreHandler = new PlatformAPICallPreHandler(addPartnerFinancialProductRequest.ToNVPString(string.Empty), ServiceName, "AddPartnerFinancialProduct", credential);
 	   	 	((PlatformAPICallPreHandler) apiCallPreHandler).SDKName = SDKName;
 			((PlatformAPICallPreHandler) apiCallPreHandler).SDKVersion = SDKVersion;
+			((PlatformAPICallPreHandler) apiCallPreHandler).PortName = portName;
 			string response = Call(apiCallPreHandler);
 			NVPUtil util = new NVPUtil();
 			return AddPartnerFinancialProductResponse.CreateInstance(util.ParseNVPString(response), string.Empty, -1);
@@ -811,9 +844,11 @@ namespace PayPal.AdaptiveAccounts
 	 	public ActivateProductResponse ActivateProduct(ActivateProductRequest activateProductRequest, string apiUserName)
 	 	{
 	 		IAPICallPreHandler apiCallPreHandler = null;
+	 		string portName = "AdaptiveAccounts";
 			apiCallPreHandler = new PlatformAPICallPreHandler(activateProductRequest.ToNVPString(string.Empty), ServiceName, "ActivateProduct", apiUserName, getAccessToken(), getAccessTokenSecret());
 	   	 	((PlatformAPICallPreHandler) apiCallPreHandler).SDKName = SDKName;
 			((PlatformAPICallPreHandler) apiCallPreHandler).SDKVersion = SDKVersion;
+			((PlatformAPICallPreHandler) apiCallPreHandler).PortName = portName;
 			string response = Call(apiCallPreHandler);
 			NVPUtil util = new NVPUtil();
 			return ActivateProductResponse.CreateInstance(util.ParseNVPString(response), string.Empty, -1);
@@ -844,9 +879,11 @@ namespace PayPal.AdaptiveAccounts
 	 	public ActivateProductResponse ActivateProduct(ActivateProductRequest activateProductRequest, ICredential credential)
 	 	{
 	 		IAPICallPreHandler apiCallPreHandler = null;
+	 		string portName = "AdaptiveAccounts";
 			apiCallPreHandler = new PlatformAPICallPreHandler(activateProductRequest.ToNVPString(string.Empty), ServiceName, "ActivateProduct", credential);
 	   	 	((PlatformAPICallPreHandler) apiCallPreHandler).SDKName = SDKName;
 			((PlatformAPICallPreHandler) apiCallPreHandler).SDKVersion = SDKVersion;
+			((PlatformAPICallPreHandler) apiCallPreHandler).PortName = portName;
 			string response = Call(apiCallPreHandler);
 			NVPUtil util = new NVPUtil();
 			return ActivateProductResponse.CreateInstance(util.ParseNVPString(response), string.Empty, -1);
