@@ -98,6 +98,11 @@ namespace AdaptiveAccountsSampleApp
             req.citizenshipCountryCode = parameters["citizenshipCountryCode"];
             req.registrationType = parameters["registrationType"];
 
+            if (parameters["notificationUrl"] != string.Empty)
+            {
+                req.notificationURL = parameters["notificationUrl"];
+            }
+
             if (parameters["returnUrl"] != "" || parameters["returnUrlDescription"] != ""
                 || parameters["showAddCreditCard"] != "" || parameters["showMobileConfirm"] != ""
                 || parameters["useMiniBrowser"] != "")
