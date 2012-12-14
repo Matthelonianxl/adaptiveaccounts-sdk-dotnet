@@ -426,7 +426,7 @@ namespace PayPal.AdaptiveAccounts.Model
 			StringBuilder sb = new StringBuilder();
 			if (this.detailLevel != null)
 			{
-					sb.Append(prefix).Append("detailLevel").Append("=").Append(EnumUtils.GetDescription(detailLevel));
+					sb.Append(prefix).Append("detailLevel").Append("=").Append(EnumUtils.GetDescription(this.detailLevel));
 					sb.Append("&");
 			}
 			if (this.errorLanguage != null)
@@ -1057,7 +1057,8 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 	/**
-      *
+      * SwitchMaestro, deprecated card type, use UKMaestro instead
+      *             
       */
     [Serializable]
 	public enum CardTypeType {
@@ -1066,14 +1067,15 @@ namespace PayPal.AdaptiveAccounts.Model
 		[Description("AmericanExpress")]AMERICANEXPRESS,	
 		[Description("Discover")]DISCOVER,	
 		[Description("SwitchMaestro")]SWITCHMAESTRO,	
-		[Description("Solo")]SOLO,	
+		[Description("UKMaestro")]UKMAESTRO,	
 		[Description("CarteAurore")]CARTEAURORE,	
 		[Description("CarteBleue")]CARTEBLEUE,	
 		[Description("Cofinoga")]COFINOGA,	
 		[Description("4etoiles")]ETOILES,	
 		[Description("CartaAura")]CARTAAURA,	
 		[Description("TarjetaAurora")]TARJETAAURORA,	
-		[Description("JCB")]JCB	
+		[Description("JCB")]JCB,	
+		[Description("Maestro")]MAESTRO	
 	}
 
 
@@ -3012,7 +3014,7 @@ namespace PayPal.AdaptiveAccounts.Model
 			}
 			if (this.bankAccountType != null)
 			{
-					sb.Append(prefix).Append("bankAccountType").Append("=").Append(EnumUtils.GetDescription(bankAccountType));
+					sb.Append(prefix).Append("bankAccountType").Append("=").Append(EnumUtils.GetDescription(this.bankAccountType));
 					sb.Append("&");
 			}
 			if (this.bankAccountNumber != null)
@@ -3081,7 +3083,7 @@ namespace PayPal.AdaptiveAccounts.Model
 			}
 			if (this.confirmationType != null)
 			{
-					sb.Append(prefix).Append("confirmationType").Append("=").Append(EnumUtils.GetDescription(confirmationType));
+					sb.Append(prefix).Append("confirmationType").Append("=").Append(EnumUtils.GetDescription(this.confirmationType));
 					sb.Append("&");
 			}
 			if (this.webOptions != null)
@@ -3590,7 +3592,7 @@ namespace PayPal.AdaptiveAccounts.Model
 			}
 			if (this.cardType != null)
 			{
-					sb.Append(prefix).Append("cardType").Append("=").Append(EnumUtils.GetDescription(cardType));
+					sb.Append(prefix).Append("cardType").Append("=").Append(EnumUtils.GetDescription(this.cardType));
 					sb.Append("&");
 			}
 			if (this.expirationDate != null)
@@ -3613,7 +3615,7 @@ namespace PayPal.AdaptiveAccounts.Model
 			}
 			if (this.confirmationType != null)
 			{
-					sb.Append(prefix).Append("confirmationType").Append("=").Append(EnumUtils.GetDescription(confirmationType));
+					sb.Append(prefix).Append("confirmationType").Append("=").Append(EnumUtils.GetDescription(this.confirmationType));
 					sb.Append("&");
 			}
 			if (this.webOptions != null)
@@ -5337,6 +5339,23 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/**
+          *
+		  */
+		private string confirmEmailField;
+		public string confirmEmail
+		{
+			get
+			{
+				return this.confirmEmailField;
+			}
+			set
+			{
+				this.confirmEmailField = value;
+			}
+		}
+		
+
+		/**
 	 	  * Default Constructor
 	 	  */
 	 	public CreateAccountWebOptionsType()
@@ -5370,6 +5389,10 @@ namespace PayPal.AdaptiveAccounts.Model
 			if (this.reminderEmailFrequency != null)
 			{
 					sb.Append(prefix).Append("reminderEmailFrequency").Append("=").Append(HttpUtility.UrlEncode(this.reminderEmailFrequency, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			if (this.confirmEmail != null)
+			{
+					sb.Append(prefix).Append("confirmEmail").Append("=").Append(HttpUtility.UrlEncode(this.confirmEmail, BaseConstants.ENCODING_FORMAT)).Append("&");
 			}
 			return sb.ToString();
 		}
@@ -5955,12 +5978,12 @@ namespace PayPal.AdaptiveAccounts.Model
 			}
 			if (this.businessType != null)
 			{
-					sb.Append(prefix).Append("businessType").Append("=").Append(EnumUtils.GetDescription(businessType));
+					sb.Append(prefix).Append("businessType").Append("=").Append(EnumUtils.GetDescription(this.businessType));
 					sb.Append("&");
 			}
 			if (this.businessSubtype != null)
 			{
-					sb.Append(prefix).Append("businessSubtype").Append("=").Append(EnumUtils.GetDescription(businessSubtype));
+					sb.Append(prefix).Append("businessSubtype").Append("=").Append(EnumUtils.GetDescription(this.businessSubtype));
 					sb.Append("&");
 			}
 			if (this.incorporationId != null)
@@ -5983,7 +6006,7 @@ namespace PayPal.AdaptiveAccounts.Model
 			{
 				if (this.salesVenue[i] != null)
 				{
-					sb.Append(prefix).Append("salesVenue(").Append(i).Append(")=").Append(EnumUtils.GetDescription(salesVenue[i]));
+					sb.Append(prefix).Append("salesVenue(").Append(i).Append(")=").Append(EnumUtils.GetDescription(this.salesVenue[i]));
 					sb.Append("&");
 				}
 			}
@@ -6151,7 +6174,7 @@ namespace PayPal.AdaptiveAccounts.Model
 			StringBuilder sb = new StringBuilder();
 			if (this.role != null)
 			{
-					sb.Append(prefix).Append("role").Append("=").Append(EnumUtils.GetDescription(role));
+					sb.Append(prefix).Append("role").Append("=").Append(EnumUtils.GetDescription(this.role));
 					sb.Append("&");
 			}
 			if (this.name != null)
