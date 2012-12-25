@@ -1,15 +1,15 @@
-This AdaptiveAccountsSampleApp ASP.NET C# Web Application contains the PayPal Adaptive Accounts API Samples. 
+The AdaptiveAccountsSampleApp ASP.NET C# Web Application contains the PayPal Adaptive Accounts API Samples. 
 
 
-Prerequisites:
---------------
+Prerequisites
+-------------
 *	Visual Studio 2005 or higher
 *	NuGet 2.2
 *	.NET Framework 4.0
 
 
-The PayPal Adaptive Accounts Samples
-------------------------------------
+The PayPal Adaptive Accounts API Samples
+----------------------------------------
 *	CreateAccount: Creates PayPal accounts.
 *	AddBankAccount: Link bank accounts to PayPal accounts as funding sources.
 *	AddPaymentCard: Link payment cards to PayPal accounts as funding sources.
