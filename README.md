@@ -1,17 +1,20 @@
 This repository contains the PayPal Adaptive Accounts SDK C#.NET Class Library Application and the AdaptiveAccountsSampleApp Sample ASP.NET C# Web Application.
 
+
 SDK Integration
 ---------------
-*	Create a new ASP.NET Web Application with appropriate web application and solution name
+*	Integrate the PayPal Adaptive Accounts SDK with an ASP.NET Web Application
 
-*	Execute 'AdaptiveAccounts.bat' batch commands to ensure that the Adaptive Accounts stubs are up-to-date 
-	[Note: Also ensure that the path to 'devenv.com' in 'AdaptiveAccounts.bat' file is correct as per the Visual Studio installation]
-	
-*	Add reference to 'PayPal_AdaptiveAccounts_SDK.dll'
+*	Use NuGet to install the 'PayPal_AdaptiveAccounts_SDK' package 
 
-*	Add reference to 'PayPal_Core_SDK.dll'
+*	The NuGet package installs the dependencies to the solution and automatically updates the project
 
-*	Namespaces to be used
+*	Dependent library references:
+	•	'PayPal_AdaptiveAccounts_SDK.dll'
+	•	'PayPal_Core_SDK.dll'	
+	•	'log4net.dll'
+
+*	Namespaces:
 	•	PayPal
 	•	PayPal.AdaptiveAccounts
 	•	PayPal.AdaptiveAccounts.Model
@@ -19,8 +22,8 @@ SDK Integration
 	•	PayPal.Exception
 
 	
-Files
------
+Help
+----
 *	AdaptiveAccounts.bat - Automation script that builds the PayPal Adaptive Accounts SDK C#.NET Class Library Application in release mode and copies the built dlls to the lib folder in the AdaptiveAccountsSampleApp Sample ASP.NET C# Web Application
 
 *	Changelog.txt - Release Notes
@@ -29,6 +32,6 @@ Files
 
 *	LICENSE.txt - PayPal, Inc. SDK License
 
-*	Integrating NuGet with Visual Studio 2005 and 2008.pdf - Guide to Integrate NuGet with Visual Studio 2005 and 2008
+*	Installing NuGet in Visual Studio 2010 and 2012.pdf - Guide to Install NuGet in Visual Studio 2010 and 2012
 
-*	Installing NuGet in Visual Studio 2010 and 2012.pdf - Guide to Integrate NuGet with Visual Studio 2005 and 2008
+*	Integrating NuGet with Visual Studio 2005 and 2008.pdf - Guide to Integrate NuGet with Visual Studio 2005 and 2008
