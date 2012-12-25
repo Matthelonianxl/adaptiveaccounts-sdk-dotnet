@@ -20,7 +20,49 @@ The PayPal Adaptive Accounts SDK
 	GetVerifiedStatus: Verify PayPal accounts by matching account holder criteria such as the account holder’s email address.
 	Get User Agreement: The GetUserAgreement method lets you retrieve the user agreement for the customer to approve the new PayPal account.
 
+
+NuGet – Installing NuGet in Visual Studio 2010 and 2012
+-------------------------------------------------------
+
+Go to Visual Studio 2010 Menu --> Tools
+Select Extension Manager…
+Enter NuGet in the search box and click Online Gallery
+Let it Retrieve information…
+Select the retrieved NuGet Package Manager, click Download
+Let it Download…
+Click Install on the Visual Studio Extension Installer NuGet Package Manager
+Let it Install…
+Click Close and Restart Now
+
+Go to Visual Studio 2010 Menu --> Tools, select Options…
+Verify the following on the Options popup
+Click Package Manager --> Package Sources
+Available package sources:
+Check box (checked) NuGet official package source
+https://nuget.org/api/v2/
+Name: NuGet official package source
+Source: https://nuget.org/api/v2/
+And click OK
+ 
+Go to Menu --> Tools --> Library Package Manage --> Package Manager Console
+Select NuGet official package source from the Package source dropdown box in the Package Manager Console
+Go to Solution Explorer and note the existing references
+Enter at PM> Install-Package PayPal_Core_SDK
+On enter key-press, the output window should display:
+
+Attempting to resolve dependency 'log4net (= 1.2.10)'.
+Successfully installed 'log4net 1.2.10'.
+You are downloading PayPal_Core_SDK from PayPal, the license agreement to which is available at https://github.com/paypal/sdk-core-dotnet/blob/master/LICENSE.txt. Check the package for additional dependencies, which may come with their own license agreement(s). Your use of the package and dependencies constitutes your acceptance of their license agreements. If you do not accept the license agreement(s), then delete the relevant components from your device.
+Successfully installed 'PayPal_Core_SDK 1.0.0'.
+Successfully added 'log4net 1.2.10' to PayPal_Core_SDK.
+Successfully added 'PayPal_Core_SDK 1.0.0' to PayPal_Core_SDK.
+
+After successful installation, note that the new references get added automatically
+
+Also, go to Menu --> Tools --> Library Package Manager, select Manage NuGet Packages for Solution…
+On Manage NuGet Packages, search for 'PayPal_Core_SDK' to get the details
 	
+
 NuGet - Integrating NuGet with Visual Studio 2005 and 2008
 ----------------------------------------------------------
 
@@ -96,6 +138,7 @@ Enter Arguments:
 install PayPal_Core_SDK -excludeversion -outputDirectory .\Packages
 
 On clicking OK, the output window should display:
+
 Attempting to resolve dependency 'PayPal_Core_SDK'.
 Attempting to resolve dependency 'log4net (ò 1.2.10)'.
 Successfully installed 'log4net 1.2.10'.
@@ -115,36 +158,3 @@ The typical location for Visual Studio 2005:
  'C:\Program Files (x86)\Microsoft Visual Studio 8\Common7\IDE\'
 The typical Installation location for Visual Studio 2008:
 'C:\Program Files (x86)\Microsoft Visual Studio 9.0\Common7\IDE\'
-
-
-NuGet – Installing NuGet in Visual Studio 2010 and 2012
--------------------------------------------------------
-
-Go to Visual Studio 2010 Menu --> Tools
-Select Extension Manager…
-Enter NuGet in the search box and click Online Gallery
-Let it Retrieve information…
-Select the retrieved NuGet Package Manager, click Download
-Let it Download…
-Click Install on the Visual Studio Extension Installer NuGet Package Manager
-Let it Install…
-Click Close and Restart Now
-
-Go to Visual Studio 2010 Menu --> Tools, select Options…
-Verify the following on the Options popup
-Click Package Manager --> Package Sources
-Available package sources:
-Check box (checked) NuGet official package source
-https://nuget.org/api/v2/
-Name: NuGet official package source
-Source: https://nuget.org/api/v2/
-And click OK
- 
-Go to Menu --> Tools --> Library Package Manage --> Package Manager Console
-Select NuGet official package source from the Package source dropdown box in the Package Manager Console
-Go to Solution Explorer and note the existing references
-Enter at PM> Install-Package PayPal_Core_SDK
-After successful installation, note that the new references get added automatically
-
-Also, go to Menu --> Tools --> Library Package Manager, select Manage NuGet Packages for Solution…
-On Manage NuGet Packages, search for 'PayPal_Core_SDK' to get the details
