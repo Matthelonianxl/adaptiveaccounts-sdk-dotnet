@@ -13,16 +13,16 @@ namespace PayPal.AdaptiveAccounts
 	{
 
 		// Service Version
-		private const string ServiceVersion = "1.0.3";
+		private const string ServiceVersion = "1.1.0";
 
 		// Service Name
 		private const string ServiceName = "AdaptiveAccounts";
 		
 		//SDK Name
-		private const string SDKName = "adaptiveaccounts-dotnet-sdk";
+		private const string SDKName = "sdkname";
 	
 		//SDK Version
-		private const string SDKVersion = "2.1.96";
+		private const string SDKVersion = "sdkversion";
 
 		public AdaptiveAccountsService() {}
 
@@ -887,6 +887,66 @@ namespace PayPal.AdaptiveAccounts
 			string response = Call(apiCallPreHandler);
 			NVPUtil util = new NVPUtil();
 			return ActivateProductResponse.CreateInstance(util.ParseNVPString(response), string.Empty, -1);
+			
+	 	}
+
+		/**	
+          * To Update the Compliance Status (CIP, KYC, EDD) called from
+          *Authorized Third Party Vendor.
+          *   
+          *   
+          *   
+          *   
+          *  
+	 	  */
+	 	public UpdateComplianceStatusResponse UpdateComplianceStatus(UpdateComplianceStatusRequest updateComplianceStatusRequest, string apiUserName)
+	 	{
+	 		IAPICallPreHandler apiCallPreHandler = null;
+	 		string portName = "AdaptiveAccounts";
+			apiCallPreHandler = new PlatformAPICallPreHandler(updateComplianceStatusRequest.ToNVPString(string.Empty), ServiceName, "UpdateComplianceStatus", apiUserName, getAccessToken(), getAccessTokenSecret());
+	   	 	((PlatformAPICallPreHandler) apiCallPreHandler).SDKName = SDKName;
+			((PlatformAPICallPreHandler) apiCallPreHandler).SDKVersion = SDKVersion;
+			((PlatformAPICallPreHandler) apiCallPreHandler).PortName = portName;
+			string response = Call(apiCallPreHandler);
+			NVPUtil util = new NVPUtil();
+			return UpdateComplianceStatusResponse.CreateInstance(util.ParseNVPString(response), string.Empty, -1);
+			
+	 	}
+	 
+	 	/** 
+          * To Update the Compliance Status (CIP, KYC, EDD) called from
+          *Authorized Third Party Vendor.
+          *   
+          *   
+          *   
+          *   
+          *  
+	 	  */
+	 	public UpdateComplianceStatusResponse UpdateComplianceStatus(UpdateComplianceStatusRequest updateComplianceStatusRequest)
+	 	{
+	 		return UpdateComplianceStatus(updateComplianceStatusRequest,(string) null);
+	 	}
+	 	
+	 	/**	
+          * To Update the Compliance Status (CIP, KYC, EDD) called from
+          *Authorized Third Party Vendor.
+          *   
+          *   
+          *   
+          *   
+          *  
+	 	  */
+	 	public UpdateComplianceStatusResponse UpdateComplianceStatus(UpdateComplianceStatusRequest updateComplianceStatusRequest, ICredential credential)
+	 	{
+	 		IAPICallPreHandler apiCallPreHandler = null;
+	 		string portName = "AdaptiveAccounts";
+			apiCallPreHandler = new PlatformAPICallPreHandler(updateComplianceStatusRequest.ToNVPString(string.Empty), ServiceName, "UpdateComplianceStatus", credential);
+	   	 	((PlatformAPICallPreHandler) apiCallPreHandler).SDKName = SDKName;
+			((PlatformAPICallPreHandler) apiCallPreHandler).SDKVersion = SDKVersion;
+			((PlatformAPICallPreHandler) apiCallPreHandler).PortName = portName;
+			string response = Call(apiCallPreHandler);
+			NVPUtil util = new NVPUtil();
+			return UpdateComplianceStatusResponse.CreateInstance(util.ParseNVPString(response), string.Empty, -1);
 			
 	 	}
 	}

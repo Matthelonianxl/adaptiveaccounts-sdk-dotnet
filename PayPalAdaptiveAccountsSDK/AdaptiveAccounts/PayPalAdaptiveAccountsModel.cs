@@ -1086,13 +1086,14 @@ namespace PayPal.AdaptiveAccounts.Model
       */
     [Serializable]
 	public enum ProductActivationErrors {
-		[Description("MISSING_PIN")]MISSINGPIN,	
+		[Description("NOT_ALLOWED")]NOTALLOWED,	
 		[Description("MISSING_CC")]MISSINGCC,	
 		[Description("MISSING_MOBILE_PHONE")]MISSINGMOBILEPHONE,	
-		[Description("NOT_ALLOWED")]NOTALLOWED,	
+		[Description("MISSING_PIN")]MISSINGPIN,	
 		[Description("MOBILE_PHONE_NOT_ACTIVATED")]MOBILEPHONENOTACTIVATED,	
-		[Description("INTERNAL_ERROR")]INTERNALERROR,	
-		[Description("PRODUCT_EXISTS")]PRODUCTEXISTS	
+		[Description("PRODUCT_EXISTS")]PRODUCTEXISTS,	
+		[Description("UNCONFIRMED_MOBILE")]UNCONFIRMEDMOBILE,	
+		[Description("INTERNAL_ERROR")]INTERNALERROR	
 	}
 
 
@@ -1128,16 +1129,16 @@ namespace PayPal.AdaptiveAccounts.Model
 		/**
           *
 		  */
-		private string phoneNumberField;
-		public string phoneNumber
+		private string mobilePhoneNumberField;
+		public string mobilePhoneNumber
 		{
 			get
 			{
-				return this.phoneNumberField;
+				return this.mobilePhoneNumberField;
 			}
 			set
 			{
-				this.phoneNumberField = value;
+				this.mobilePhoneNumberField = value;
 			}
 		}
 		
@@ -1162,10 +1163,10 @@ namespace PayPal.AdaptiveAccounts.Model
 		/**
 	 	  * Constructor with arguments
 	 	  */
-	 	public AccountIdentifierType(string emailAddress, string phoneNumber, string accountId)
+	 	public AccountIdentifierType(string emailAddress, string mobilePhoneNumber, string accountId)
 	 	{
 			this.emailAddress = emailAddress;
-			this.phoneNumber = phoneNumber;
+			this.mobilePhoneNumber = mobilePhoneNumber;
 			this.accountId = accountId;
 		}
 
@@ -1184,9 +1185,9 @@ namespace PayPal.AdaptiveAccounts.Model
 			{
 					sb.Append(prefix).Append("emailAddress").Append("=").Append(HttpUtility.UrlEncode(this.emailAddress, BaseConstants.ENCODING_FORMAT)).Append("&");
 			}
-			if (this.phoneNumber != null)
+			if (this.mobilePhoneNumber != null)
 			{
-					sb.Append(prefix).Append("phoneNumber").Append("=").Append(HttpUtility.UrlEncode(this.phoneNumber, BaseConstants.ENCODING_FORMAT)).Append("&");
+					sb.Append(prefix).Append("mobilePhoneNumber").Append("=").Append(HttpUtility.UrlEncode(this.mobilePhoneNumber, BaseConstants.ENCODING_FORMAT)).Append("&");
 			}
 			if (this.accountId != null)
 			{
@@ -2200,9 +2201,7 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 	/**
-      *matchCriteria determines which field(s) in addition to
-      *emailAddress is used to locate the account. Currently, we
-      *support matchCriteria of 'NAME' and 'NONE'. 
+      *Deprecated, use accountIdentifier.emailAddress instead 
       */
 	public partial class GetVerifiedStatusRequest	{
 		
@@ -2239,6 +2238,23 @@ namespace PayPal.AdaptiveAccounts.Model
 			set
 			{
 				this.emailAddressField = value;
+			}
+		}
+		
+
+		/**
+          *
+		  */
+		private AccountIdentifierType accountIdentifierField;
+		public AccountIdentifierType accountIdentifier
+		{
+			get
+			{
+				return this.accountIdentifierField;
+			}
+			set
+			{
+				this.accountIdentifierField = value;
 			}
 		}
 		
@@ -2297,10 +2313,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		/**
 	 	  * Constructor with arguments
 	 	  */
-	 	public GetVerifiedStatusRequest(RequestEnvelope requestEnvelope, string emailAddress, string matchCriteria)
+	 	public GetVerifiedStatusRequest(RequestEnvelope requestEnvelope, string matchCriteria)
 	 	{
 			this.requestEnvelope = requestEnvelope;
-			this.emailAddress = emailAddress;
 			this.matchCriteria = matchCriteria;
 		}
 
@@ -2323,6 +2338,11 @@ namespace PayPal.AdaptiveAccounts.Model
 			if (this.emailAddress != null)
 			{
 					sb.Append(prefix).Append("emailAddress").Append("=").Append(HttpUtility.UrlEncode(this.emailAddress, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			if (this.accountIdentifier != null)
+			{
+					string newPrefix = prefix + "accountIdentifier" + ".";
+					sb.Append(this.accountIdentifierField.ToNVPString(newPrefix));
 			}
 			if (this.matchCriteria != null)
 			{
@@ -4876,6 +4896,251 @@ namespace PayPal.AdaptiveAccounts.Model
 	/**
       *
       */
+	public partial class UpdateComplianceStatusRequest	{
+		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
+		/**
+          *
+		  */
+		private RequestEnvelope requestEnvelopeField;
+		public RequestEnvelope requestEnvelope
+		{
+			get
+			{
+				return this.requestEnvelopeField;
+			}
+			set
+			{
+				this.requestEnvelopeField = value;
+			}
+		}
+		
+
+		/**
+          *
+		  */
+		private AuditeeInfoType auditeeInfoField;
+		public AuditeeInfoType auditeeInfo
+		{
+			get
+			{
+				return this.auditeeInfoField;
+			}
+			set
+			{
+				this.auditeeInfoField = value;
+			}
+		}
+		
+
+		/**
+          *
+		  */
+		private AuditorList auditorListField;
+		public AuditorList auditorList
+		{
+			get
+			{
+				return this.auditorListField;
+			}
+			set
+			{
+				this.auditorListField = value;
+			}
+		}
+		
+
+		/**
+          *
+		  */
+		private AuditDetailsType auditDetailsField;
+		public AuditDetailsType auditDetails
+		{
+			get
+			{
+				return this.auditDetailsField;
+			}
+			set
+			{
+				this.auditDetailsField = value;
+			}
+		}
+		
+
+		/**
+	 	  * Constructor with arguments
+	 	  */
+	 	public UpdateComplianceStatusRequest(RequestEnvelope requestEnvelope, AuditeeInfoType auditeeInfo, AuditDetailsType auditDetails)
+	 	{
+			this.requestEnvelope = requestEnvelope;
+			this.auditeeInfo = auditeeInfo;
+			this.auditDetails = auditDetails;
+		}
+
+		/**
+	 	  * Default Constructor
+	 	  */
+	 	public UpdateComplianceStatusRequest()
+	 	{
+		}
+
+
+		public string ToNVPString(string prefix)
+		{
+			StringBuilder sb = new StringBuilder();
+			if (this.requestEnvelope != null)
+			{
+					string newPrefix = prefix + "requestEnvelope" + ".";
+					sb.Append(this.requestEnvelopeField.ToNVPString(newPrefix));
+			}
+			if (this.auditeeInfo != null)
+			{
+					string newPrefix = prefix + "auditeeInfo" + ".";
+					sb.Append(this.auditeeInfoField.ToNVPString(newPrefix));
+			}
+			if (this.auditorList != null)
+			{
+					string newPrefix = prefix + "auditorList" + ".";
+					sb.Append(this.auditorListField.ToNVPString(newPrefix));
+			}
+			if (this.auditDetails != null)
+			{
+					string newPrefix = prefix + "auditDetails" + ".";
+					sb.Append(this.auditDetailsField.ToNVPString(newPrefix));
+			}
+			return sb.ToString();
+		}
+	}
+
+
+
+
+	/**
+      *
+      */
+	public partial class UpdateComplianceStatusResponse	{
+		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
+		/**
+          *
+		  */
+		private ResponseEnvelope responseEnvelopeField;
+		public ResponseEnvelope responseEnvelope
+		{
+			get
+			{
+				return this.responseEnvelopeField;
+			}
+			set
+			{
+				this.responseEnvelopeField = value;
+			}
+		}
+		
+
+		/**
+          *
+		  */
+		private string execStatusField;
+		public string execStatus
+		{
+			get
+			{
+				return this.execStatusField;
+			}
+			set
+			{
+				this.execStatusField = value;
+			}
+		}
+		
+
+		/**
+          *
+		  */
+		private List<ErrorData> errorField = new List<ErrorData>();
+		public List<ErrorData> error
+		{
+			get
+			{
+				return this.errorField;
+			}
+			set
+			{
+				this.errorField = value;
+			}
+		}
+		
+
+		/**
+	 	  * Default Constructor
+	 	  */
+	 	public UpdateComplianceStatusResponse()
+	 	{
+		}
+
+
+
+		public static UpdateComplianceStatusResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
+		{
+			UpdateComplianceStatusResponse updateComplianceStatusResponse = null;
+			string key;
+			int i = 0;
+			if(index != -1)
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.CreateInstance(map, prefix + "responseEnvelope", -1);
+			if (responseEnvelope != null)
+			{
+				updateComplianceStatusResponse = (updateComplianceStatusResponse == null) ? new UpdateComplianceStatusResponse() : updateComplianceStatusResponse;
+				updateComplianceStatusResponse.responseEnvelope = responseEnvelope;
+			}
+			key = prefix + "execStatus";
+			if (map.ContainsKey(key))
+			{
+				updateComplianceStatusResponse = (updateComplianceStatusResponse == null) ? new UpdateComplianceStatusResponse() : updateComplianceStatusResponse;
+				updateComplianceStatusResponse.execStatus = map[key];
+			}
+			i = 0;
+			while(true)
+			{
+				ErrorData error =  ErrorData.CreateInstance(map, prefix + "error", i);
+				if (error != null)
+				{
+					updateComplianceStatusResponse = (updateComplianceStatusResponse == null) ? new UpdateComplianceStatusResponse() : updateComplianceStatusResponse;
+					updateComplianceStatusResponse.error.Add(error);
+					i++;
+				} 
+				else
+				{
+					break;
+				}
+			}
+			return updateComplianceStatusResponse;
+		}
+	}
+
+
+
+
+	/**
+      *
+      */
 	public partial class NameType	{
 		
 		// Default US culture info
@@ -6540,6 +6805,569 @@ namespace PayPal.AdaptiveAccounts.Model
 			if (this.year != null)
 			{
 					sb.Append(prefix).Append("year").Append("=").Append(this.year).Append("&");
+			}
+			return sb.ToString();
+		}
+	}
+
+
+
+
+	/**
+      *
+      */
+	public partial class Auditor	{
+		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
+		/**
+          *
+		  */
+		private string idField;
+		public string id
+		{
+			get
+			{
+				return this.idField;
+			}
+			set
+			{
+				this.idField = value;
+			}
+		}
+		
+
+		/**
+          *
+		  */
+		private string nameField;
+		public string name
+		{
+			get
+			{
+				return this.nameField;
+			}
+			set
+			{
+				this.nameField = value;
+			}
+		}
+		
+
+		/**
+          *
+		  */
+		private string actionField;
+		public string action
+		{
+			get
+			{
+				return this.actionField;
+			}
+			set
+			{
+				this.actionField = value;
+			}
+		}
+		
+
+		/**
+          *
+		  */
+		private string notesField;
+		public string notes
+		{
+			get
+			{
+				return this.notesField;
+			}
+			set
+			{
+				this.notesField = value;
+			}
+		}
+		
+
+		/**
+	 	  * Constructor with arguments
+	 	  */
+	 	public Auditor(string id, string name, string action)
+	 	{
+			this.id = id;
+			this.name = name;
+			this.action = action;
+		}
+
+		/**
+	 	  * Default Constructor
+	 	  */
+	 	public Auditor()
+	 	{
+		}
+
+
+		public string ToNVPString(string prefix)
+		{
+			StringBuilder sb = new StringBuilder();
+			if (this.id != null)
+			{
+					sb.Append(prefix).Append("id").Append("=").Append(HttpUtility.UrlEncode(this.id, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			if (this.name != null)
+			{
+					sb.Append(prefix).Append("name").Append("=").Append(HttpUtility.UrlEncode(this.name, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			if (this.action != null)
+			{
+					sb.Append(prefix).Append("action").Append("=").Append(HttpUtility.UrlEncode(this.action, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			if (this.notes != null)
+			{
+					sb.Append(prefix).Append("notes").Append("=").Append(HttpUtility.UrlEncode(this.notes, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			return sb.ToString();
+		}
+	}
+
+
+
+
+	/**
+      *
+      */
+	public partial class TupleType	{
+		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
+		/**
+          *
+		  */
+		private string nameField;
+		public string name
+		{
+			get
+			{
+				return this.nameField;
+			}
+			set
+			{
+				this.nameField = value;
+			}
+		}
+		
+
+		/**
+          *
+		  */
+		private string valueField;
+		public string value
+		{
+			get
+			{
+				return this.valueField;
+			}
+			set
+			{
+				this.valueField = value;
+			}
+		}
+		
+
+		/**
+	 	  * Constructor with arguments
+	 	  */
+	 	public TupleType(string name, string value)
+	 	{
+			this.name = name;
+			this.value = value;
+		}
+
+		/**
+	 	  * Default Constructor
+	 	  */
+	 	public TupleType()
+	 	{
+		}
+
+
+		public string ToNVPString(string prefix)
+		{
+			StringBuilder sb = new StringBuilder();
+			if (this.name != null)
+			{
+					sb.Append(prefix).Append("name").Append("=").Append(HttpUtility.UrlEncode(this.name, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			if (this.value != null)
+			{
+					sb.Append(prefix).Append("value").Append("=").Append(HttpUtility.UrlEncode(this.value, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			return sb.ToString();
+		}
+	}
+
+
+
+
+	/**
+      *
+      */
+	public partial class DocumentType	{
+		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
+		/**
+          *
+		  */
+		private string typeField;
+		public string type
+		{
+			get
+			{
+				return this.typeField;
+			}
+			set
+			{
+				this.typeField = value;
+			}
+		}
+		
+
+		/**
+          *
+		  */
+		private List<string> filenameField = new List<string>();
+		public List<string> filename
+		{
+			get
+			{
+				return this.filenameField;
+			}
+			set
+			{
+				this.filenameField = value;
+			}
+		}
+		
+
+		/**
+	 	  * Constructor with arguments
+	 	  */
+	 	public DocumentType(string type, List<string> filename)
+	 	{
+			this.type = type;
+			this.filename = filename;
+		}
+
+		/**
+	 	  * Default Constructor
+	 	  */
+	 	public DocumentType()
+	 	{
+		}
+
+
+		public string ToNVPString(string prefix)
+		{
+			StringBuilder sb = new StringBuilder();
+			if (this.type != null)
+			{
+					sb.Append(prefix).Append("type").Append("=").Append(HttpUtility.UrlEncode(this.type, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			for (int i = 0; i < this.filename.Count; i++)
+			{
+				if (this.filename[i] != null)
+				{
+					sb.Append(prefix).Append("filename").Append("(").Append(i).Append(")").Append("=").Append(HttpUtility.UrlEncode(this.filename[i], BaseConstants.ENCODING_FORMAT)).Append("&");
+				}
+			}
+			return sb.ToString();
+		}
+	}
+
+
+
+
+	/**
+      *
+      */
+	public partial class AuditorList	{
+		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
+		/**
+          *
+		  */
+		private List<Auditor> auditorField = new List<Auditor>();
+		public List<Auditor> auditor
+		{
+			get
+			{
+				return this.auditorField;
+			}
+			set
+			{
+				this.auditorField = value;
+			}
+		}
+		
+
+		/**
+	 	  * Constructor with arguments
+	 	  */
+	 	public AuditorList(List<Auditor> auditor)
+	 	{
+			this.auditor = auditor;
+		}
+
+		/**
+	 	  * Default Constructor
+	 	  */
+	 	public AuditorList()
+	 	{
+		}
+
+
+		public string ToNVPString(string prefix)
+		{
+			StringBuilder sb = new StringBuilder();
+			for (int i = 0; i < this.auditor.Count; i++)
+			{
+				if (this.auditor[i] != null)
+				{
+					string newPrefix = prefix + "auditor" + "(" + i + ").";
+					sb.Append(this.auditor[i].ToNVPString(newPrefix));
+				}
+			}
+			return sb.ToString();
+		}
+	}
+
+
+
+
+	/**
+      *
+      */
+	public partial class AuditeeInfoType	{
+		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
+		/**
+          *
+		  */
+		private AccountIdentifierType accountIdentifierField;
+		public AccountIdentifierType accountIdentifier
+		{
+			get
+			{
+				return this.accountIdentifierField;
+			}
+			set
+			{
+				this.accountIdentifierField = value;
+			}
+		}
+		
+
+		/**
+          *
+		  */
+		private List<DocumentType> documentField = new List<DocumentType>();
+		public List<DocumentType> document
+		{
+			get
+			{
+				return this.documentField;
+			}
+			set
+			{
+				this.documentField = value;
+			}
+		}
+		
+
+		/**
+          *
+		  */
+		private List<TupleType> dataField = new List<TupleType>();
+		public List<TupleType> data
+		{
+			get
+			{
+				return this.dataField;
+			}
+			set
+			{
+				this.dataField = value;
+			}
+		}
+		
+
+		/**
+	 	  * Constructor with arguments
+	 	  */
+	 	public AuditeeInfoType(AccountIdentifierType accountIdentifier)
+	 	{
+			this.accountIdentifier = accountIdentifier;
+		}
+
+		/**
+	 	  * Default Constructor
+	 	  */
+	 	public AuditeeInfoType()
+	 	{
+		}
+
+
+		public string ToNVPString(string prefix)
+		{
+			StringBuilder sb = new StringBuilder();
+			if (this.accountIdentifier != null)
+			{
+					string newPrefix = prefix + "accountIdentifier" + ".";
+					sb.Append(this.accountIdentifierField.ToNVPString(newPrefix));
+			}
+			for (int i = 0; i < this.document.Count; i++)
+			{
+				if (this.document[i] != null)
+				{
+					string newPrefix = prefix + "document" + "(" + i + ").";
+					sb.Append(this.document[i].ToNVPString(newPrefix));
+				}
+			}
+			for (int i = 0; i < this.data.Count; i++)
+			{
+				if (this.data[i] != null)
+				{
+					string newPrefix = prefix + "data" + "(" + i + ").";
+					sb.Append(this.data[i].ToNVPString(newPrefix));
+				}
+			}
+			return sb.ToString();
+		}
+	}
+
+
+
+
+	/**
+      *
+      */
+	public partial class AuditDetailsType	{
+		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
+		/**
+          *
+		  */
+		private string statusField;
+		public string status
+		{
+			get
+			{
+				return this.statusField;
+			}
+			set
+			{
+				this.statusField = value;
+			}
+		}
+		
+
+		/**
+          *
+		  */
+		private string levelField;
+		public string level
+		{
+			get
+			{
+				return this.levelField;
+			}
+			set
+			{
+				this.levelField = value;
+			}
+		}
+		
+
+		/**
+          *
+		  */
+		private string methodField;
+		public string method
+		{
+			get
+			{
+				return this.methodField;
+			}
+			set
+			{
+				this.methodField = value;
+			}
+		}
+		
+
+		/**
+          *
+		  */
+		private string reasonField;
+		public string reason
+		{
+			get
+			{
+				return this.reasonField;
+			}
+			set
+			{
+				this.reasonField = value;
+			}
+		}
+		
+
+		/**
+	 	  * Constructor with arguments
+	 	  */
+	 	public AuditDetailsType(string status, string level, string method, string reason)
+	 	{
+			this.status = status;
+			this.level = level;
+			this.method = method;
+			this.reason = reason;
+		}
+
+		/**
+	 	  * Default Constructor
+	 	  */
+	 	public AuditDetailsType()
+	 	{
+		}
+
+
+		public string ToNVPString(string prefix)
+		{
+			StringBuilder sb = new StringBuilder();
+			if (this.status != null)
+			{
+					sb.Append(prefix).Append("status").Append("=").Append(HttpUtility.UrlEncode(this.status, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			if (this.level != null)
+			{
+					sb.Append(prefix).Append("level").Append("=").Append(HttpUtility.UrlEncode(this.level, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			if (this.method != null)
+			{
+					sb.Append(prefix).Append("method").Append("=").Append(HttpUtility.UrlEncode(this.method, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			if (this.reason != null)
+			{
+					sb.Append(prefix).Append("reason").Append("=").Append(HttpUtility.UrlEncode(this.reason, BaseConstants.ENCODING_FORMAT)).Append("&");
 			}
 			return sb.ToString();
 		}

@@ -64,36 +64,36 @@ namespace AdaptiveAccountsSampleApp
             NameValueCollection parameters = context.Request.Params;
 
             NameType nameOnCard = new NameType(parameters["firstName"], parameters["lastName"]);
-            if (parameters["salutation"] != "")
+            if (parameters["salutation"] != string.Empty)
                 nameOnCard.salutation = parameters["salutation"];
-            if (parameters["middleName"] != "")
+            if (parameters["middleName"] != string.Empty)
                 nameOnCard.middleName = parameters["middleName"];
-            if (parameters["suffix"] != "")
+            if (parameters["suffix"] != string.Empty)
                 nameOnCard.suffix = parameters["suffix"];
 
             AddressType address = new AddressType(parameters["line1"], parameters["countryCode"]);
-            if (parameters["line2"] != "")
+            if (parameters["line2"] != string.Empty)
                 address.line2 = parameters["line2"];
-            if (parameters["city"] != "")
+            if (parameters["city"] != string.Empty)
                 address.city = parameters["city"];
-            if (parameters["state"] != "")
+            if (parameters["state"] != string.Empty)
                 address.state = parameters["state"];
-            if (parameters["postalCode"] != "")
+            if (parameters["postalCode"] != string.Empty)
                 address.postalCode = parameters["postalCode"];
 
             CreateAccountRequest req = new CreateAccountRequest(new RequestEnvelope(), nameOnCard, address,
                 parameters["preferredLanguageCode"]);
             
             // set optional parameters
-            if(parameters["contactPhoneNumber"] != "")
+            if(parameters["contactPhoneNumber"] != string.Empty)
                 req.contactPhoneNumber = parameters["contactPhoneNumber"];
-            if (parameters["homePhoneNumber"] != "")
+            if (parameters["homePhoneNumber"] != string.Empty)
                 req.homePhoneNumber = parameters["homePhoneNumber"];
-            if (parameters["mobilePhoneNumber"] != "")
+            if (parameters["mobilePhoneNumber"] != string.Empty)
                 req.mobilePhoneNumber = parameters["mobilePhoneNumber"];
-            if (parameters["emailAddress"] != "")
+            if (parameters["emailAddress"] != string.Empty)
                 req.emailAddress = parameters["emailAddress"];
-            if (parameters["currencyCode"] != "")
+            if (parameters["currencyCode"] != string.Empty)
                 req.currencyCode = parameters["currencyCode"];
             req.citizenshipCountryCode = parameters["citizenshipCountryCode"];
             req.registrationType = parameters["registrationType"];
@@ -103,22 +103,22 @@ namespace AdaptiveAccountsSampleApp
                 req.notificationURL = parameters["notificationUrl"];
             }
 
-            if (parameters["returnUrl"] != "" || parameters["returnUrlDescription"] != ""
-                || parameters["showAddCreditCard"] != "" || parameters["showMobileConfirm"] != ""
-                || parameters["useMiniBrowser"] != "")
+            if (parameters["returnUrl"] != string.Empty || parameters["returnUrlDescription"] != string.Empty
+                || parameters["showAddCreditCard"] != string.Empty || parameters["showMobileConfirm"] != string.Empty
+                || parameters["useMiniBrowser"] != string.Empty)
             {
                 CreateAccountWebOptionsType webOptions = new CreateAccountWebOptionsType();
                 req.createAccountWebOptions = webOptions;
 
-                if (parameters["returnUrl"] != "")
+                if (parameters["returnUrl"] != string.Empty)
                     webOptions.returnUrl = parameters["returnUrl"];
-                if (parameters["returnUrlDescription"] != "")
+                if (parameters["returnUrlDescription"] != string.Empty)
                     webOptions.returnUrlDescription = parameters["returnUrlDescription"];
-                if (parameters["showAddCreditCard"] != "")
+                if (parameters["showAddCreditCard"] != string.Empty)
                     webOptions.showAddCreditCard = Boolean.Parse(parameters["showAddCreditCard"]);
-                if (parameters["showMobileConfirm"] != "")
+                if (parameters["showMobileConfirm"] != string.Empty)
                     webOptions.showMobileConfirm = Boolean.Parse(parameters["showMobileConfirm"]);
-                if (parameters["useMiniBrowser"] != "")
+                if (parameters["useMiniBrowser"] != string.Empty)
                     webOptions.useMiniBrowser = Boolean.Parse(parameters["useMiniBrowser"]);
             }            
             
@@ -169,63 +169,63 @@ namespace AdaptiveAccountsSampleApp
                 new RequestEnvelope(), parameters["bankCountryCode"], confirmationType);
             
             // set optional parameters
-            if (parameters["accountId"] != "")
+            if (parameters["accountId"] != string.Empty)
                 req.accountId = parameters["accountId"];
-            if (parameters["emailAddress"] != "")
+            if (parameters["emailAddress"] != string.Empty)
                 req.emailAddress = parameters["emailAddress"];
-            if (parameters["createAccountKey"] != "")
+            if (parameters["createAccountKey"] != string.Empty)
                 req.createAccountKey = parameters["createAccountKey"];            
-            if (parameters["bankName"] != "")
+            if (parameters["bankName"] != string.Empty)
                 req.bankName = parameters["bankName"];
-            if (parameters["routingNumber"] != "")
+            if (parameters["routingNumber"] != string.Empty)
                 req.routingNumber = parameters["routingNumber"];
-            if (parameters["bankAccountType"] != "")
+            if (parameters["bankAccountType"] != string.Empty)
                 req.bankAccountType = 
                     (BankAccountType) Enum.Parse( typeof(BankAccountType), parameters["bankAccountType"]);
-            if (parameters["bankAccountNumber"] != "")
+            if (parameters["bankAccountNumber"] != string.Empty)
                 req.bankAccountNumber = parameters["bankAccountNumber"];
-            if (parameters["iban"] != "")
+            if (parameters["iban"] != string.Empty)
                 req.iban = parameters["iban"];
-            if (parameters["clabe"] != "")
+            if (parameters["clabe"] != string.Empty)
                 req.clabe = parameters["clabe"];
-            if (parameters["bsbNumber"] != "")
+            if (parameters["bsbNumber"] != string.Empty)
                 req.bsbNumber = parameters["bsbNumber"];
-            if (parameters["branchLocation"] != "")
+            if (parameters["branchLocation"] != string.Empty)
                 req.branchLocation = parameters["branchLocation"];
-            if (parameters["sortCode"] != "")
+            if (parameters["sortCode"] != string.Empty)
                 req.sortCode = parameters["sortCode"];
-            if (parameters["bankTransitNumber"] != "")
+            if (parameters["bankTransitNumber"] != string.Empty)
                 req.bankTransitNumber = parameters["bankTransitNumber"];
-            if (parameters["institutionNumber"] != "")
+            if (parameters["institutionNumber"] != string.Empty)
                 req.institutionNumber = parameters["institutionNumber"];
-            if (parameters["branchCode"] != "")
+            if (parameters["branchCode"] != string.Empty)
                 req.branchCode = parameters["branchCode"];
-            if (parameters["agencyNumber"] != "")
+            if (parameters["agencyNumber"] != string.Empty)
                 req.agencyNumber = parameters["agencyNumber"];
-            if (parameters["bankCode"] != "")
+            if (parameters["bankCode"] != string.Empty)
                 req.bankCode = parameters["bankCode"];
-            if (parameters["ribKey"] != "")
+            if (parameters["ribKey"] != string.Empty)
                 req.ribKey = parameters["ribKey"];
-            if (parameters["controlDigit"] != "")
+            if (parameters["controlDigit"] != string.Empty)
                 req.controlDigit = parameters["controlDigit"];
-            if (parameters["taxIdType"] != "")
+            if (parameters["taxIdType"] != string.Empty)
                 req.taxIdType = parameters["taxIdType"];
-            if (parameters["taxIdNumber"] != "")
+            if (parameters["taxIdNumber"] != string.Empty)
                 req.taxIdNumber = parameters["taxIdNumber"];
-            if (parameters["accountHolderDateOfBirth"] != "")
+            if (parameters["accountHolderDateOfBirth"] != string.Empty)
                 req.accountHolderDateOfBirth = parameters["accountHolderDateOfBirth"];
             if ( confirmationType == ConfirmationType.WEB &&
-                (parameters["returnURL"] != "" || parameters["returnURLDescription"] != ""
-                || parameters["cancelURL"] != "" || parameters["cancelURLDescription"] != ""))
+                (parameters["returnURL"] != string.Empty || parameters["returnURLDescription"] != string.Empty
+                || parameters["cancelURL"] != string.Empty || parameters["cancelURLDescription"] != string.Empty))
             {
                 req.webOptions = new WebOptionsType();
-                if (parameters["returnURL"] != "")
+                if (parameters["returnURL"] != string.Empty)
                     req.webOptions.returnUrl = parameters["returnURL"];
-                if (parameters["returnURLDescription"] != "")
+                if (parameters["returnURLDescription"] != string.Empty)
                     req.webOptions.returnUrlDescription = parameters["returnURLDescription"];
-                if (parameters["cancelURL"] != "")
+                if (parameters["cancelURL"] != string.Empty)
                     req.webOptions.cancelUrl = parameters["cancelURL"];
-                if (parameters["cancelURLDescription"] != "")
+                if (parameters["cancelURLDescription"] != string.Empty)
                     req.webOptions.cancelUrlDescription = parameters["cancelURLDescription"];
             }           
 
@@ -269,21 +269,21 @@ namespace AdaptiveAccountsSampleApp
             NameValueCollection parameters = context.Request.Params;
 
             NameType nameOnCard = new NameType(parameters["firstName"], parameters["lastName"]);
-            if (parameters["salutation"] != "")
+            if (parameters["salutation"] != string.Empty)
                 nameOnCard.salutation = parameters["salutation"];
-            if (parameters["middleName"] != "")
+            if (parameters["middleName"] != string.Empty)
                 nameOnCard.middleName = parameters["middleName"];
-            if (parameters["suffix"] != "")
+            if (parameters["suffix"] != string.Empty)
                 nameOnCard.suffix = parameters["suffix"];
 
             AddressType billingAddress = new AddressType(parameters["line1"], parameters["countryCode"]);
-            if (parameters["line2"] != "")
+            if (parameters["line2"] != string.Empty)
                 billingAddress.line2 = parameters["line2"];
-            if (parameters["city"] != "")
+            if (parameters["city"] != string.Empty)
                 billingAddress.city = parameters["city"];
-            if (parameters["state"] != "")
+            if (parameters["state"] != string.Empty)
                 billingAddress.state = parameters["state"];
-            if (parameters["postalCode"] != "")
+            if (parameters["postalCode"] != string.Empty)
                 billingAddress.postalCode = parameters["postalCode"];
             
             CardTypeType cardType = 
@@ -296,42 +296,42 @@ namespace AdaptiveAccountsSampleApp
                     parameters["cardNumber"], cardType, confirmationType);
            
             // set optional parameters
-            if (parameters["accountId"] != "")
+            if (parameters["accountId"] != string.Empty)
                 req.accountId = parameters["accountId"];
-            if (parameters["emailAddress"] != "")
+            if (parameters["emailAddress"] != string.Empty)
                 req.emailAddress = parameters["emailAddress"];
-            if (parameters["createAccountKey"] != "")
+            if (parameters["createAccountKey"] != string.Empty)
                 req.createAccountKey = parameters["createAccountKey"];
-            if (parameters["cardOwnerDateOfBirth"] != "")
+            if (parameters["cardOwnerDateOfBirth"] != string.Empty)
                 req.cardOwnerDateOfBirth = parameters["cardOwnerDateOfBirth"];
-            if (parameters["expirationMonth"] != "" && parameters["expirationYear"] != "")
+            if (parameters["expirationMonth"] != string.Empty && parameters["expirationYear"] != string.Empty)
             {
                 req.expirationDate = new CardDateType(
                     int.Parse(parameters["expirationMonth"]),
                     int.Parse(parameters["expirationYear"]));
             }
-            if (parameters["cardVerificationNumber"] != "")
+            if (parameters["cardVerificationNumber"] != string.Empty)
                 req.cardVerificationNumber = parameters["cardVerificationNumber"];
-            if (parameters["startMonth"] != "" && parameters["startYear"] != "")
+            if (parameters["startMonth"] != string.Empty && parameters["startYear"] != string.Empty)
             {
                 req.startDate = new CardDateType(
                     int.Parse(parameters["startMonth"]),
                     int.Parse(parameters["startYear"]));
             }            
-            if (parameters["issueNumber"] != "")
+            if (parameters["issueNumber"] != string.Empty)
                 req.issueNumber = parameters["issueNumber"];
             if (confirmationType == ConfirmationType.WEB &&
-                (parameters["returnURL"] != "" || parameters["returnURLDescription"] != ""
-                || parameters["cancelURL"] != "" || parameters["cancelURLDescription"] != ""))
+                (parameters["returnURL"] != string.Empty || parameters["returnURLDescription"] != string.Empty
+                || parameters["cancelURL"] != string.Empty || parameters["cancelURLDescription"] != string.Empty))
             {
                 req.webOptions = new WebOptionsType();
-                if (parameters["returnURL"] != "")
+                if (parameters["returnURL"] != string.Empty)
                     req.webOptions.returnUrl = parameters["returnURL"];
-                if (parameters["returnURLDescription"] != "")
+                if (parameters["returnURLDescription"] != string.Empty)
                     req.webOptions.returnUrlDescription = parameters["returnURLDescription"];
-                if (parameters["cancelURL"] != "")
+                if (parameters["cancelURL"] != string.Empty)
                     req.webOptions.cancelUrl = parameters["cancelURL"];
-                if (parameters["cancelURLDescription"] != "")
+                if (parameters["cancelURLDescription"] != string.Empty)
                     req.webOptions.cancelUrlDescription = parameters["cancelURLDescription"];
             }
 
@@ -373,13 +373,24 @@ namespace AdaptiveAccountsSampleApp
         private void GetVerifiedStatus(HttpContext context)
         {
             NameValueCollection parameters = context.Request.Params;
-            GetVerifiedStatusRequest req = new GetVerifiedStatusRequest(
-                new RequestEnvelope(), parameters["emailAddress"], parameters["matchCriteria"]);
+            GetVerifiedStatusRequest req = new GetVerifiedStatusRequest(new RequestEnvelope(), parameters["matchCriteria"]);
             // set optional parameters
-            if (parameters["firstName"] != "")
+            if (parameters["firstName"] != string.Empty)
+            {
                 req.firstName = parameters["firstName"];
-            if (parameters["lastName"] != "")
+            }
+
+            if (parameters["lastName"] != string.Empty)
+            {
                 req.lastName = parameters["lastName"];
+            }
+
+            if (parameters["emailAddress"] != string.Empty)
+            {
+                AccountIdentifierType accntIdentifierType = new AccountIdentifierType();
+                accntIdentifierType.emailAddress = parameters["emailAddress"];
+                req.accountIdentifier = accntIdentifierType;
+            }
 
             // All set. Fire the request            
             AdaptiveAccountsService service = new AdaptiveAccountsService();
@@ -424,15 +435,15 @@ namespace AdaptiveAccountsSampleApp
             GetUserAgreementRequest req = new GetUserAgreementRequest(new RequestEnvelope());
             
             // set optional parameters
-            if (parameters["createAccountKey"] != "")
+            if (parameters["createAccountKey"] != string.Empty)
             {
                 req.createAccountKey = parameters["createAccountKey"];
             }
-            if (parameters["countryCode"] != "")
+            if (parameters["countryCode"] != string.Empty)
             {
                 req.countryCode = parameters["countryCode"];
             }
-            if (parameters["languageCode"] != "")
+            if (parameters["languageCode"] != string.Empty)
             {
                 req.languageCode = parameters["languageCode"];
             }
@@ -476,9 +487,9 @@ namespace AdaptiveAccountsSampleApp
             SetFundingSourceConfirmedRequest req =
                 new SetFundingSourceConfirmedRequest(new RequestEnvelope(), parameters["fundingSourceKey"]);
             // set optional parameters
-            if (parameters["accountId"] != "")
+            if (parameters["accountId"] != string.Empty)
                 req.accountId = parameters["accountId"];
-            if (parameters["emailAddress"] != "")
+            if (parameters["emailAddress"] != string.Empty)
                 req.emailAddress = parameters["emailAddress"];
             
             // All set. Fire the request            
