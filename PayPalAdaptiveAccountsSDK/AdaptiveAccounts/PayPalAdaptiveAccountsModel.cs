@@ -1,7 +1,7 @@
-/**
-  * Stub objects for AdaptiveAccounts 
-  * AUTO_GENERATED_CODE 
-  */
+/*
+ * Stub objects for AdaptiveAccounts 
+ * AUTO_GENERATED_CODE 
+ */
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,8 +16,14 @@ using PayPal.Util;
 namespace PayPal.AdaptiveAccounts.Model
 {
 
+	/// <summary>
+	/// Utility class for Enums with descriptions
+	/// </summary>
 	public static class EnumUtils
 	{
+		/// <summary>
+		/// Get description for a give enum value
+		/// </summary>	
 		public static string GetDescription(Enum value)
 		{
 			string description = "";
@@ -29,6 +35,9 @@ namespace PayPal.AdaptiveAccounts.Model
 			return description;
 		}
 		
+		/// <summary>
+		/// Convert a string to an enum object
+		/// </summary>	
 		public static object GetValue(string value,Type enumType)
 		{
 			string[] names = Enum.GetNames(enumType);
@@ -44,18 +53,18 @@ namespace PayPal.AdaptiveAccounts.Model
 	}
 
 
-	/**
-      *This type contains the detailed error information resulting
-      *from the service operation. 
-      */
+	/// <summary>
+	/// This type contains the detailed error information resulting
+	/// from the service operation. 
+    /// </summary>
 	public partial class ErrorData	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private int? errorIdField;
 		public int? errorId
 		{
@@ -70,9 +79,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string domainField;
 		public string domain
 		{
@@ -87,9 +96,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string subdomainField;
 		public string subdomain
 		{
@@ -104,9 +113,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private ErrorSeverity? severityField;
 		public ErrorSeverity? severity
 		{
@@ -121,9 +130,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private ErrorCategory? categoryField;
 		public ErrorCategory? category
 		{
@@ -138,9 +147,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string messageField;
 		public string message
 		{
@@ -155,9 +164,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string exceptionIdField;
 		public string exceptionId
 		{
@@ -172,9 +181,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<ErrorParameter> parameterField = new List<ErrorParameter>();
 		public List<ErrorParameter> parameter
 		{
@@ -189,15 +198,23 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public ErrorData()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new ErrorData object created from the passed in NVP map
+	 	/// </returns>
 		public static ErrorData CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			ErrorData errorData = null;
@@ -281,17 +298,17 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      *
-      */
+	/// <summary>
+	/// 
+    /// </summary>
 	public partial class ErrorParameter	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string nameField;
 		public string name
 		{
@@ -306,9 +323,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string valueField;
 		public string value
 		{
@@ -323,15 +340,23 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public ErrorParameter()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new ErrorParameter object created from the passed in NVP map
+	 	/// </returns>
 		public static ErrorParameter CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			ErrorParameter errorParameter = null;
@@ -370,18 +395,18 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      *This specifies the list of parameters with every request to
-      *the service. 
-      */
+	/// <summary>
+	/// This specifies the list of parameters with every request to
+	/// the service. 
+    /// </summary>
 	public partial class RequestEnvelope	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private DetailLevelCode? detailLevelField;
 		public DetailLevelCode? detailLevel
 		{
@@ -396,9 +421,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string errorLanguageField;
 		public string errorLanguage
 		{
@@ -413,9 +438,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public RequestEnvelope()
 	 	{
 		}
@@ -440,18 +465,18 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      *This specifies a list of parameters with every response from
-      *a service. 
-      */
+	/// <summary>
+	/// This specifies a list of parameters with every response from
+	/// a service. 
+    /// </summary>
 	public partial class ResponseEnvelope	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string timestampField;
 		public string timestamp
 		{
@@ -466,9 +491,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private AckCode? ackField;
 		public AckCode? ack
 		{
@@ -483,9 +508,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string correlationIdField;
 		public string correlationId
 		{
@@ -500,9 +525,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string buildField;
 		public string build
 		{
@@ -517,15 +542,23 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public ResponseEnvelope()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new ResponseEnvelope object created from the passed in NVP map
+	 	/// </returns>
 		public static ResponseEnvelope CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			ResponseEnvelope responseEnvelope = null;
@@ -576,18 +609,18 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      *This elements in this type refers to the end user of the
-      *application invoking this service. 
-      */
+	/// <summary>
+	/// This elements in this type refers to the end user of the
+	/// application invoking this service. 
+    /// </summary>
 	public partial class ClientDetailsType	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string ipAddressField;
 		public string ipAddress
 		{
@@ -602,9 +635,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string deviceIdField;
 		public string deviceId
 		{
@@ -619,9 +652,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string applicationIdField;
 		public string applicationId
 		{
@@ -636,9 +669,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string modelField;
 		public string model
 		{
@@ -653,9 +686,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string geoLocationField;
 		public string geoLocation
 		{
@@ -670,9 +703,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string customerTypeField;
 		public string customerType
 		{
@@ -687,9 +720,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string partnerNameField;
 		public string partnerName
 		{
@@ -704,9 +737,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string customerIdField;
 		public string customerId
 		{
@@ -721,9 +754,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public ClientDetailsType()
 	 	{
 		}
@@ -771,18 +804,18 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      *This specifies a fault, encapsulating error data, with
-      *specific error codes. 
-      */
+	/// <summary>
+	/// This specifies a fault, encapsulating error data, with
+	/// specific error codes. 
+    /// </summary>
 	public partial class FaultMessage	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private ResponseEnvelope responseEnvelopeField;
 		public ResponseEnvelope responseEnvelope
 		{
@@ -797,9 +830,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<ErrorData> errorField = new List<ErrorData>();
 		public List<ErrorData> error
 		{
@@ -814,15 +847,23 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public FaultMessage()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new FaultMessage object created from the passed in NVP map
+	 	/// </returns>
 		public static FaultMessage CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			FaultMessage faultMessage = null;
@@ -870,9 +911,9 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      *
-      */
+	/// <summary>
+	/// 
+	/// </summary>
     [Serializable]
 	public enum ErrorSeverity {
 		[Description("Error")]ERROR,	
@@ -882,9 +923,9 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      *
-      */
+	/// <summary>
+	/// 
+	/// </summary>
     [Serializable]
 	public enum ErrorCategory {
 		[Description("System")]SYSTEM,	
@@ -895,15 +936,15 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      * AckCodeType This code identifies the
-      * acknowledgement code types that could be used to
-      * communicate the status of processing a (request)
-      * message to an application. This code would be
-      * used as part of a response message that contains
-      * an application level acknowledgement element.
-      * 
-      */
+	/// <summary>
+	/// AckCodeType This code identifies the
+	///  acknowledgement code types that could be used to
+	///  communicate the status of processing a (request)
+	///  message to an application. This code would be
+	///  used as part of a response message that contains
+	///  an application level acknowledgement element.
+	///  
+	/// </summary>
     [Serializable]
 	public enum AckCode {
 		[Description("Success")]SUCCESS,	
@@ -916,10 +957,10 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      * DetailLevelCodeType
-      * 
-      */
+	/// <summary>
+	/// DetailLevelCodeType
+	///  
+	/// </summary>
     [Serializable]
 	public enum DetailLevelCode {
 		[Description("ReturnAll")]RETURNALL,	
@@ -929,12 +970,12 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      * Bank account type should be CHECKING,
-      * SAVINGS,BUSINESS_CHECKING,
-      * BUSINESS_SAVINGS,NORMAL, or UNKNOWN.
-      * 
-      */
+	/// <summary>
+	/// Bank account type should be CHECKING,
+	///  SAVINGS,BUSINESS_CHECKING,
+	///  BUSINESS_SAVINGS,NORMAL, or UNKNOWN.
+	///  
+	/// </summary>
     [Serializable]
 	public enum BankAccountType {
 		[Description("CHECKING")]CHECKING,	
@@ -948,13 +989,13 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      * API confirmation type currently
-      * Valid values are: NONE, MOBILE and
-      * WEB. WEB: Returns a URL to complete the
-      * registration.
-      * 
-      */
+	/// <summary>
+	/// API confirmation type currently
+	///  Valid values are: NONE, MOBILE and
+	///  WEB. WEB: Returns a URL to complete the
+	///  registration.
+	///  
+	/// </summary>
     [Serializable]
 	public enum ConfirmationType {
 		[Description("WEB")]WEB,	
@@ -965,10 +1006,10 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      * Business Types
-      * 
-      */
+	/// <summary>
+	/// Business Types
+	///  
+	/// </summary>
     [Serializable]
 	public enum BusinessType {
 		[Description("ASSOCIATION")]ASSOCIATION,	
@@ -997,15 +1038,15 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      * Subtype required only for Business Type GOVERNMENT and
-      *ASSOCIATION 
-      * GOVERNMENT: ENTITY, EMANATION,ESTD_COMMONWEALTH,
-      *ESTD_UNDER_STATE_TERRITORY, 
-      * ESTD_UNDER_FOREIGN_COUNTRY 
-      * ASSOCIATION: INCORPORATED, NON_INCORPORATED
-      * 
-      */
+	/// <summary>
+	/// Subtype required only for Business Type GOVERNMENT and
+	/// ASSOCIATION 
+	///  GOVERNMENT: ENTITY, EMANATION,ESTD_COMMONWEALTH,
+	/// ESTD_UNDER_STATE_TERRITORY, 
+	///  ESTD_UNDER_FOREIGN_COUNTRY 
+	///  ASSOCIATION: INCORPORATED, NON_INCORPORATED
+	///  
+	/// </summary>
     [Serializable]
 	public enum BusinessSubtypeType {
 		[Description("ENTITY")]ENTITY,	
@@ -1020,10 +1061,10 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      * Sales venue / store front type
-      * 
-      */
+	/// <summary>
+	/// Sales venue / store front type
+	///  
+	/// </summary>
     [Serializable]
 	public enum SalesVenueType {
 		[Description("WEB")]WEB,	
@@ -1035,10 +1076,10 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      * Stake holder role 
-      * 
-      */
+	/// <summary>
+	/// Stake holder role 
+	///  
+	/// </summary>
     [Serializable]
 	public enum StakeholderRoleType {
 		[Description("CHAIRMAN")]CHAIRMAN,	
@@ -1056,10 +1097,10 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      * SwitchMaestro, deprecated card type, use UKMaestro instead
-      *             
-      */
+	/// <summary>
+	/// SwitchMaestro, deprecated card type, use UKMaestro instead
+	///              
+	/// </summary>
     [Serializable]
 	public enum CardTypeType {
 		[Description("Visa")]VISA,	
@@ -1081,9 +1122,9 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      *
-      */
+	/// <summary>
+	/// 
+	/// </summary>
     [Serializable]
 	public enum ProductActivationErrors {
 		[Description("NOT_ALLOWED")]NOTALLOWED,	
@@ -1099,19 +1140,19 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      *Identifies a PayPal account to which this request is
-      *targeted. Caller of this API has to provide ONLY one of
-      *these inputs: emailAddress, accountId or phoneNumber. 
-      */
+	/// <summary>
+	/// Identifies a PayPal account to which this request is
+	/// targeted. Caller of this API has to provide ONLY one of
+	/// these inputs: emailAddress, accountId or phoneNumber. 
+    /// </summary>
 	public partial class AccountIdentifierType	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string emailAddressField;
 		public string emailAddress
 		{
@@ -1126,9 +1167,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string mobilePhoneNumberField;
 		public string mobilePhoneNumber
 		{
@@ -1143,9 +1184,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string accountIdField;
 		public string accountId
 		{
@@ -1160,9 +1201,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public AccountIdentifierType(string emailAddress, string mobilePhoneNumber, string accountId)
 	 	{
 			this.emailAddress = emailAddress;
@@ -1170,9 +1211,9 @@ namespace PayPal.AdaptiveAccounts.Model
 			this.accountId = accountId;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public AccountIdentifierType()
 	 	{
 		}
@@ -1200,19 +1241,19 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      *Valid values are: Personal, Premier, and Business. Flag="2"
-      *corresponds to java.util.regex.Pattern.CASE_INSENSITIVE,
-      *meaning the strings are not case-sensitive 
-      */
+	/// <summary>
+	/// Valid values are: Personal, Premier, and Business. Flag="2"
+	/// corresponds to java.util.regex.Pattern.CASE_INSENSITIVE,
+	/// meaning the strings are not case-sensitive 
+    /// </summary>
 	public partial class CreateAccountRequest	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private RequestEnvelope requestEnvelopeField;
 		public RequestEnvelope requestEnvelope
 		{
@@ -1227,9 +1268,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private ClientDetailsType clientDetailsField;
 		public ClientDetailsType clientDetails
 		{
@@ -1244,9 +1285,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string accountTypeField;
 		public string accountType
 		{
@@ -1261,9 +1302,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private NameType nameField;
 		public NameType name
 		{
@@ -1278,9 +1319,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string dateOfBirthField;
 		public string dateOfBirth
 		{
@@ -1295,9 +1336,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private AddressType addressField;
 		public AddressType address
 		{
@@ -1312,9 +1353,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string contactPhoneNumberField;
 		public string contactPhoneNumber
 		{
@@ -1329,9 +1370,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string homePhoneNumberField;
 		public string homePhoneNumber
 		{
@@ -1346,9 +1387,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string mobilePhoneNumberField;
 		public string mobilePhoneNumber
 		{
@@ -1363,9 +1404,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string currencyCodeField;
 		public string currencyCode
 		{
@@ -1380,9 +1421,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string citizenshipCountryCodeField;
 		public string citizenshipCountryCode
 		{
@@ -1397,9 +1438,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string preferredLanguageCodeField;
 		public string preferredLanguageCode
 		{
@@ -1414,9 +1455,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string notificationURLField;
 		public string notificationURL
 		{
@@ -1431,9 +1472,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string emailAddressField;
 		public string emailAddress
 		{
@@ -1448,9 +1489,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string registrationTypeField;
 		public string registrationType
 		{
@@ -1465,9 +1506,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private CreateAccountWebOptionsType createAccountWebOptionsField;
 		public CreateAccountWebOptionsType createAccountWebOptions
 		{
@@ -1482,9 +1523,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private bool? suppressWelcomeEmailField;
 		public bool? suppressWelcomeEmail
 		{
@@ -1499,9 +1540,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private bool? performExtraVettingOnThisAccountField;
 		public bool? performExtraVettingOnThisAccount
 		{
@@ -1516,9 +1557,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string taxIdField;
 		public string taxId
 		{
@@ -1533,9 +1574,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string partnerField1Field;
 		public string partnerField1
 		{
@@ -1550,9 +1591,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string partnerField2Field;
 		public string partnerField2
 		{
@@ -1567,9 +1608,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string partnerField3Field;
 		public string partnerField3
 		{
@@ -1584,9 +1625,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string partnerField4Field;
 		public string partnerField4
 		{
@@ -1601,9 +1642,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string partnerField5Field;
 		public string partnerField5
 		{
@@ -1618,9 +1659,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private BusinessInfoType businessInfoField;
 		public BusinessInfoType businessInfo
 		{
@@ -1635,9 +1676,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public CreateAccountRequest(RequestEnvelope requestEnvelope, NameType name, AddressType address, string preferredLanguageCode)
 	 	{
 			this.requestEnvelope = requestEnvelope;
@@ -1646,9 +1687,9 @@ namespace PayPal.AdaptiveAccounts.Model
 			this.preferredLanguageCode = preferredLanguageCode;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public CreateAccountRequest()
 	 	{
 		}
@@ -1770,17 +1811,17 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      *Valid values are: COMPLETED 
-      */
+	/// <summary>
+	/// Valid values are: COMPLETED 
+    /// </summary>
 	public partial class CreateAccountResponse	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private ResponseEnvelope responseEnvelopeField;
 		public ResponseEnvelope responseEnvelope
 		{
@@ -1795,9 +1836,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string createAccountKeyField;
 		public string createAccountKey
 		{
@@ -1812,9 +1853,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string execStatusField;
 		public string execStatus
 		{
@@ -1829,9 +1870,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string redirectURLField;
 		public string redirectURL
 		{
@@ -1846,9 +1887,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string accountIdField;
 		public string accountId
 		{
@@ -1863,9 +1904,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<ErrorData> errorField = new List<ErrorData>();
 		public List<ErrorData> error
 		{
@@ -1880,15 +1921,23 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public CreateAccountResponse()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new CreateAccountResponse object created from the passed in NVP map
+	 	/// </returns>
 		public static CreateAccountResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			CreateAccountResponse createAccountResponse = null;
@@ -1960,17 +2009,17 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      *
-      */
+	/// <summary>
+	/// 
+    /// </summary>
 	public partial class GetUserAgreementRequest	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private RequestEnvelope requestEnvelopeField;
 		public RequestEnvelope requestEnvelope
 		{
@@ -1985,9 +2034,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string createAccountKeyField;
 		public string createAccountKey
 		{
@@ -2002,9 +2051,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string countryCodeField;
 		public string countryCode
 		{
@@ -2019,9 +2068,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string languageCodeField;
 		public string languageCode
 		{
@@ -2036,17 +2085,17 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public GetUserAgreementRequest(RequestEnvelope requestEnvelope)
 	 	{
 			this.requestEnvelope = requestEnvelope;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public GetUserAgreementRequest()
 	 	{
 		}
@@ -2079,17 +2128,17 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      *
-      */
+	/// <summary>
+	/// 
+    /// </summary>
 	public partial class GetUserAgreementResponse	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private ResponseEnvelope responseEnvelopeField;
 		public ResponseEnvelope responseEnvelope
 		{
@@ -2104,9 +2153,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string agreementField;
 		public string agreement
 		{
@@ -2121,9 +2170,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<ErrorData> errorField = new List<ErrorData>();
 		public List<ErrorData> error
 		{
@@ -2138,15 +2187,23 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public GetUserAgreementResponse()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new GetUserAgreementResponse object created from the passed in NVP map
+	 	/// </returns>
 		public static GetUserAgreementResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			GetUserAgreementResponse getUserAgreementResponse = null;
@@ -2200,17 +2257,17 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      *Deprecated, use accountIdentifier.emailAddress instead 
-      */
+	/// <summary>
+	/// Deprecated, use accountIdentifier.emailAddress instead 
+    /// </summary>
 	public partial class GetVerifiedStatusRequest	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private RequestEnvelope requestEnvelopeField;
 		public RequestEnvelope requestEnvelope
 		{
@@ -2225,9 +2282,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string emailAddressField;
 		public string emailAddress
 		{
@@ -2242,9 +2299,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private AccountIdentifierType accountIdentifierField;
 		public AccountIdentifierType accountIdentifier
 		{
@@ -2259,9 +2316,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string matchCriteriaField;
 		public string matchCriteria
 		{
@@ -2276,9 +2333,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string firstNameField;
 		public string firstName
 		{
@@ -2293,9 +2350,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string lastNameField;
 		public string lastName
 		{
@@ -2310,18 +2367,18 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public GetVerifiedStatusRequest(RequestEnvelope requestEnvelope, string matchCriteria)
 	 	{
 			this.requestEnvelope = requestEnvelope;
 			this.matchCriteria = matchCriteria;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public GetVerifiedStatusRequest()
 	 	{
 		}
@@ -2363,17 +2420,17 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      *Returned values are: VERIFIED|UNVERIFIED. 
-      */
+	/// <summary>
+	/// Returned values are: VERIFIED|UNVERIFIED. 
+    /// </summary>
 	public partial class GetVerifiedStatusResponse	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private ResponseEnvelope responseEnvelopeField;
 		public ResponseEnvelope responseEnvelope
 		{
@@ -2388,9 +2445,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string accountStatusField;
 		public string accountStatus
 		{
@@ -2405,9 +2462,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string countryCodeField;
 		public string countryCode
 		{
@@ -2422,9 +2479,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private UserInfoType userInfoField;
 		public UserInfoType userInfo
 		{
@@ -2439,9 +2496,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<ErrorData> errorField = new List<ErrorData>();
 		public List<ErrorData> error
 		{
@@ -2456,15 +2513,23 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public GetVerifiedStatusResponse()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new GetVerifiedStatusResponse object created from the passed in NVP map
+	 	/// </returns>
 		public static GetVerifiedStatusResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			GetVerifiedStatusResponse getVerifiedStatusResponse = null;
@@ -2530,19 +2595,19 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      *Identifying the PayPal account to which this request is
-      *targetted to. Caller of this API has to either provided an
-      *emailAddress or an accountId. 
-      */
+	/// <summary>
+	/// Identifying the PayPal account to which this request is
+	/// targetted to. Caller of this API has to either provided an
+	/// emailAddress or an accountId. 
+    /// </summary>
 	public partial class AddBankAccountRequest	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private RequestEnvelope requestEnvelopeField;
 		public RequestEnvelope requestEnvelope
 		{
@@ -2557,9 +2622,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string emailAddressField;
 		public string emailAddress
 		{
@@ -2574,9 +2639,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string accountIdField;
 		public string accountId
 		{
@@ -2591,9 +2656,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string createAccountKeyField;
 		public string createAccountKey
 		{
@@ -2608,9 +2673,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string bankCountryCodeField;
 		public string bankCountryCode
 		{
@@ -2625,9 +2690,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string bankNameField;
 		public string bankName
 		{
@@ -2642,9 +2707,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string routingNumberField;
 		public string routingNumber
 		{
@@ -2659,9 +2724,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private BankAccountType? bankAccountTypeField;
 		public BankAccountType? bankAccountType
 		{
@@ -2676,9 +2741,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string bankAccountNumberField;
 		public string bankAccountNumber
 		{
@@ -2693,9 +2758,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string ibanField;
 		public string iban
 		{
@@ -2710,9 +2775,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string clabeField;
 		public string clabe
 		{
@@ -2727,9 +2792,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string bsbNumberField;
 		public string bsbNumber
 		{
@@ -2744,9 +2809,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string branchLocationField;
 		public string branchLocation
 		{
@@ -2761,9 +2826,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string sortCodeField;
 		public string sortCode
 		{
@@ -2778,9 +2843,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string bankTransitNumberField;
 		public string bankTransitNumber
 		{
@@ -2795,9 +2860,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string institutionNumberField;
 		public string institutionNumber
 		{
@@ -2812,9 +2877,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string branchCodeField;
 		public string branchCode
 		{
@@ -2829,9 +2894,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string agencyNumberField;
 		public string agencyNumber
 		{
@@ -2846,9 +2911,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string bankCodeField;
 		public string bankCode
 		{
@@ -2863,9 +2928,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string ribKeyField;
 		public string ribKey
 		{
@@ -2880,9 +2945,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string controlDigitField;
 		public string controlDigit
 		{
@@ -2897,9 +2962,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string taxIdTypeField;
 		public string taxIdType
 		{
@@ -2914,9 +2979,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string taxIdNumberField;
 		public string taxIdNumber
 		{
@@ -2931,9 +2996,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string accountHolderDateOfBirthField;
 		public string accountHolderDateOfBirth
 		{
@@ -2948,9 +3013,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private ConfirmationType? confirmationTypeField;
 		public ConfirmationType? confirmationType
 		{
@@ -2965,9 +3030,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private WebOptionsType webOptionsField;
 		public WebOptionsType webOptions
 		{
@@ -2982,9 +3047,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public AddBankAccountRequest(RequestEnvelope requestEnvelope, string bankCountryCode, ConfirmationType? confirmationType)
 	 	{
 			this.requestEnvelope = requestEnvelope;
@@ -2992,9 +3057,9 @@ namespace PayPal.AdaptiveAccounts.Model
 			this.confirmationType = confirmationType;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public AddBankAccountRequest()
 	 	{
 		}
@@ -3118,18 +3183,18 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      *Valid values are: FUNDING_SOURCE_ADDED,
-      *WEB_URL_VERIFICATION_NEEDED 
-      */
+	/// <summary>
+	/// Valid values are: FUNDING_SOURCE_ADDED,
+	/// WEB_URL_VERIFICATION_NEEDED 
+    /// </summary>
 	public partial class AddBankAccountResponse	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private ResponseEnvelope responseEnvelopeField;
 		public ResponseEnvelope responseEnvelope
 		{
@@ -3144,9 +3209,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string execStatusField;
 		public string execStatus
 		{
@@ -3161,9 +3226,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string redirectURLField;
 		public string redirectURL
 		{
@@ -3178,9 +3243,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string fundingSourceKeyField;
 		public string fundingSourceKey
 		{
@@ -3195,9 +3260,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<ErrorData> errorField = new List<ErrorData>();
 		public List<ErrorData> error
 		{
@@ -3212,15 +3277,23 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public AddBankAccountResponse()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new AddBankAccountResponse object created from the passed in NVP map
+	 	/// </returns>
 		public static AddBankAccountResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			AddBankAccountResponse addBankAccountResponse = null;
@@ -3286,19 +3359,19 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      *Identifying the PayPal account to which this request is
-      *targetted to. Caller of this API has to either provided an
-      *emailAddress or an accountId. 
-      */
+	/// <summary>
+	/// Identifying the PayPal account to which this request is
+	/// targetted to. Caller of this API has to either provided an
+	/// emailAddress or an accountId. 
+    /// </summary>
 	public partial class AddPaymentCardRequest	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private RequestEnvelope requestEnvelopeField;
 		public RequestEnvelope requestEnvelope
 		{
@@ -3313,9 +3386,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string emailAddressField;
 		public string emailAddress
 		{
@@ -3330,9 +3403,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string accountIdField;
 		public string accountId
 		{
@@ -3347,9 +3420,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string createAccountKeyField;
 		public string createAccountKey
 		{
@@ -3364,9 +3437,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private NameType nameOnCardField;
 		public NameType nameOnCard
 		{
@@ -3381,9 +3454,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private AddressType billingAddressField;
 		public AddressType billingAddress
 		{
@@ -3398,9 +3471,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string cardOwnerDateOfBirthField;
 		public string cardOwnerDateOfBirth
 		{
@@ -3415,9 +3488,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string cardNumberField;
 		public string cardNumber
 		{
@@ -3432,9 +3505,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private CardTypeType? cardTypeField;
 		public CardTypeType? cardType
 		{
@@ -3449,9 +3522,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private CardDateType expirationDateField;
 		public CardDateType expirationDate
 		{
@@ -3466,9 +3539,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string cardVerificationNumberField;
 		public string cardVerificationNumber
 		{
@@ -3483,9 +3556,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private CardDateType startDateField;
 		public CardDateType startDate
 		{
@@ -3500,9 +3573,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string issueNumberField;
 		public string issueNumber
 		{
@@ -3517,9 +3590,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private ConfirmationType? confirmationTypeField;
 		public ConfirmationType? confirmationType
 		{
@@ -3534,9 +3607,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private WebOptionsType webOptionsField;
 		public WebOptionsType webOptions
 		{
@@ -3551,9 +3624,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public AddPaymentCardRequest(RequestEnvelope requestEnvelope, NameType nameOnCard, AddressType billingAddress, string cardNumber, CardTypeType? cardType, ConfirmationType? confirmationType)
 	 	{
 			this.requestEnvelope = requestEnvelope;
@@ -3564,9 +3637,9 @@ namespace PayPal.AdaptiveAccounts.Model
 			this.confirmationType = confirmationType;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public AddPaymentCardRequest()
 	 	{
 		}
@@ -3650,18 +3723,18 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      *Valid values are: FUNDING_SOURCE_ADDED,
-      *WEB_URL_VERIFICATION_NEEDED 
-      */
+	/// <summary>
+	/// Valid values are: FUNDING_SOURCE_ADDED,
+	/// WEB_URL_VERIFICATION_NEEDED 
+    /// </summary>
 	public partial class AddPaymentCardResponse	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private ResponseEnvelope responseEnvelopeField;
 		public ResponseEnvelope responseEnvelope
 		{
@@ -3676,9 +3749,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string execStatusField;
 		public string execStatus
 		{
@@ -3693,9 +3766,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string redirectURLField;
 		public string redirectURL
 		{
@@ -3710,9 +3783,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string fundingSourceKeyField;
 		public string fundingSourceKey
 		{
@@ -3727,9 +3800,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<ErrorData> errorField = new List<ErrorData>();
 		public List<ErrorData> error
 		{
@@ -3744,15 +3817,23 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public AddPaymentCardResponse()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new AddPaymentCardResponse object created from the passed in NVP map
+	 	/// </returns>
 		public static AddPaymentCardResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			AddPaymentCardResponse addPaymentCardResponse = null;
@@ -3818,18 +3899,18 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      *This not considered when
-      *financialProductCategory=PRE_PAID_CARD 
-      */
+	/// <summary>
+	/// This not considered when
+	/// financialProductCategory=PRE_PAID_CARD 
+    /// </summary>
 	public partial class AddPartnerFinancialProductRequest	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private RequestEnvelope requestEnvelopeField;
 		public RequestEnvelope requestEnvelope
 		{
@@ -3844,9 +3925,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private AccountIdentifierType accountIdentifierField;
 		public AccountIdentifierType accountIdentifier
 		{
@@ -3861,9 +3942,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private NameType nameOnCardField;
 		public NameType nameOnCard
 		{
@@ -3878,9 +3959,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private AddressType billingAddressField;
 		public AddressType billingAddress
 		{
@@ -3895,9 +3976,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string cardOwnerDateOfBirthField;
 		public string cardOwnerDateOfBirth
 		{
@@ -3912,9 +3993,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string cardNumberField;
 		public string cardNumber
 		{
@@ -3929,9 +4010,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string financialProductCategoryField;
 		public string financialProductCategory
 		{
@@ -3946,9 +4027,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private CardDateType expirationDateField;
 		public CardDateType expirationDate
 		{
@@ -3963,9 +4044,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string cardVerificationNumberField;
 		public string cardVerificationNumber
 		{
@@ -3980,9 +4061,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private CardDateType startDateField;
 		public CardDateType startDate
 		{
@@ -3997,9 +4078,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string issueNumberField;
 		public string issueNumber
 		{
@@ -4014,9 +4095,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public AddPartnerFinancialProductRequest(RequestEnvelope requestEnvelope, AccountIdentifierType accountIdentifier, string cardNumber, string financialProductCategory, CardDateType expirationDate)
 	 	{
 			this.requestEnvelope = requestEnvelope;
@@ -4026,9 +4107,9 @@ namespace PayPal.AdaptiveAccounts.Model
 			this.expirationDate = expirationDate;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public AddPartnerFinancialProductRequest()
 	 	{
 		}
@@ -4094,17 +4175,17 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      *Valid values are: CARD_ADDED 
-      */
+	/// <summary>
+	/// Valid values are: CARD_ADDED 
+    /// </summary>
 	public partial class AddPartnerFinancialProductResponse	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private ResponseEnvelope responseEnvelopeField;
 		public ResponseEnvelope responseEnvelope
 		{
@@ -4119,9 +4200,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string execStatusField;
 		public string execStatus
 		{
@@ -4136,9 +4217,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<ErrorData> errorField = new List<ErrorData>();
 		public List<ErrorData> error
 		{
@@ -4153,15 +4234,23 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public AddPartnerFinancialProductResponse()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new AddPartnerFinancialProductResponse object created from the passed in NVP map
+	 	/// </returns>
 		public static AddPartnerFinancialProductResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			AddPartnerFinancialProductResponse addPartnerFinancialProductResponse = null;
@@ -4215,19 +4304,19 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      *Identifying the PayPal account to which this request is
-      *targetted to. Caller of this API has to either provided an
-      *emailAddress or an accountId. 
-      */
+	/// <summary>
+	/// Identifying the PayPal account to which this request is
+	/// targetted to. Caller of this API has to either provided an
+	/// emailAddress or an accountId. 
+    /// </summary>
 	public partial class SetFundingSourceConfirmedRequest	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private RequestEnvelope requestEnvelopeField;
 		public RequestEnvelope requestEnvelope
 		{
@@ -4242,9 +4331,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string emailAddressField;
 		public string emailAddress
 		{
@@ -4259,9 +4348,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string accountIdField;
 		public string accountId
 		{
@@ -4276,9 +4365,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string fundingSourceKeyField;
 		public string fundingSourceKey
 		{
@@ -4293,18 +4382,18 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public SetFundingSourceConfirmedRequest(RequestEnvelope requestEnvelope, string fundingSourceKey)
 	 	{
 			this.requestEnvelope = requestEnvelope;
 			this.fundingSourceKey = fundingSourceKey;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public SetFundingSourceConfirmedRequest()
 	 	{
 		}
@@ -4337,17 +4426,17 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      *
-      */
+	/// <summary>
+	/// 
+    /// </summary>
 	public partial class SetFundingSourceConfirmedResponse	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private ResponseEnvelope responseEnvelopeField;
 		public ResponseEnvelope responseEnvelope
 		{
@@ -4362,9 +4451,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<ErrorData> errorField = new List<ErrorData>();
 		public List<ErrorData> error
 		{
@@ -4379,15 +4468,23 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public SetFundingSourceConfirmedResponse()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new SetFundingSourceConfirmedResponse object created from the passed in NVP map
+	 	/// </returns>
 		public static SetFundingSourceConfirmedResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			SetFundingSourceConfirmedResponse setFundingSourceConfirmedResponse = null;
@@ -4435,19 +4532,19 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      *Identifies a PayPal account to which this request is
-      *targeted. Caller of this API has to provide ONLY one of
-      *these inputs: emailAddress, accountId or phoneNumber. 
-      */
+	/// <summary>
+	/// Identifies a PayPal account to which this request is
+	/// targeted. Caller of this API has to provide ONLY one of
+	/// these inputs: emailAddress, accountId or phoneNumber. 
+    /// </summary>
 	public partial class CheckComplianceStatusRequest	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private RequestEnvelope requestEnvelopeField;
 		public RequestEnvelope requestEnvelope
 		{
@@ -4462,9 +4559,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private AccountIdentifierType accountIdentifierField;
 		public AccountIdentifierType accountIdentifier
 		{
@@ -4479,18 +4576,18 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public CheckComplianceStatusRequest(RequestEnvelope requestEnvelope, AccountIdentifierType accountIdentifier)
 	 	{
 			this.requestEnvelope = requestEnvelope;
 			this.accountIdentifier = accountIdentifier;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public CheckComplianceStatusRequest()
 	 	{
 		}
@@ -4516,17 +4613,17 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      *Returned values are: ALLOW|DENY 
-      */
+	/// <summary>
+	/// Returned values are: ALLOW|DENY 
+    /// </summary>
 	public partial class CheckComplianceStatusResponse	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private ResponseEnvelope responseEnvelopeField;
 		public ResponseEnvelope responseEnvelope
 		{
@@ -4541,9 +4638,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string execStatusField;
 		public string execStatus
 		{
@@ -4558,9 +4655,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string denialReasonField;
 		public string denialReason
 		{
@@ -4575,9 +4672,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<ErrorData> errorField = new List<ErrorData>();
 		public List<ErrorData> error
 		{
@@ -4592,15 +4689,23 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public CheckComplianceStatusResponse()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new CheckComplianceStatusResponse object created from the passed in NVP map
+	 	/// </returns>
 		public static CheckComplianceStatusResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			CheckComplianceStatusResponse checkComplianceStatusResponse = null;
@@ -4660,18 +4765,18 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      *This operation is for internal purposes developed for a POC.
-      *
-      */
+	/// <summary>
+	/// This operation is for internal purposes developed for a POC.
+	/// 
+    /// </summary>
 	public partial class ActivateProductRequest	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private RequestEnvelope requestEnvelopeField;
 		public RequestEnvelope requestEnvelope
 		{
@@ -4686,9 +4791,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private AccountIdentifierType accountIdentifierField;
 		public AccountIdentifierType accountIdentifier
 		{
@@ -4703,18 +4808,18 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public ActivateProductRequest(RequestEnvelope requestEnvelope, AccountIdentifierType accountIdentifier)
 	 	{
 			this.requestEnvelope = requestEnvelope;
 			this.accountIdentifier = accountIdentifier;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public ActivateProductRequest()
 	 	{
 		}
@@ -4740,17 +4845,17 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      *Valid values are: SUCCESS, FAILED 
-      */
+	/// <summary>
+	/// Valid values are: SUCCESS, FAILED 
+    /// </summary>
 	public partial class ActivateProductResponse	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private ResponseEnvelope responseEnvelopeField;
 		public ResponseEnvelope responseEnvelope
 		{
@@ -4765,9 +4870,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string execStatusField;
 		public string execStatus
 		{
@@ -4782,9 +4887,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<ProductActivationErrors?> productActivationErrorsField = new List<ProductActivationErrors?>();
 		public List<ProductActivationErrors?> productActivationErrors
 		{
@@ -4799,9 +4904,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<ErrorData> errorField = new List<ErrorData>();
 		public List<ErrorData> error
 		{
@@ -4816,15 +4921,23 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public ActivateProductResponse()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new ActivateProductResponse object created from the passed in NVP map
+	 	/// </returns>
 		public static ActivateProductResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			ActivateProductResponse activateProductResponse = null;
@@ -4893,17 +5006,17 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      *
-      */
+	/// <summary>
+	/// 
+    /// </summary>
 	public partial class UpdateComplianceStatusRequest	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private RequestEnvelope requestEnvelopeField;
 		public RequestEnvelope requestEnvelope
 		{
@@ -4918,9 +5031,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private AuditeeInfoType auditeeInfoField;
 		public AuditeeInfoType auditeeInfo
 		{
@@ -4935,9 +5048,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private AuditorList auditorListField;
 		public AuditorList auditorList
 		{
@@ -4952,9 +5065,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private AuditDetailsType auditDetailsField;
 		public AuditDetailsType auditDetails
 		{
@@ -4969,9 +5082,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public UpdateComplianceStatusRequest(RequestEnvelope requestEnvelope, AuditeeInfoType auditeeInfo, AuditDetailsType auditDetails)
 	 	{
 			this.requestEnvelope = requestEnvelope;
@@ -4979,9 +5092,9 @@ namespace PayPal.AdaptiveAccounts.Model
 			this.auditDetails = auditDetails;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public UpdateComplianceStatusRequest()
 	 	{
 		}
@@ -5017,17 +5130,17 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      *
-      */
+	/// <summary>
+	/// 
+    /// </summary>
 	public partial class UpdateComplianceStatusResponse	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private ResponseEnvelope responseEnvelopeField;
 		public ResponseEnvelope responseEnvelope
 		{
@@ -5042,9 +5155,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string execStatusField;
 		public string execStatus
 		{
@@ -5059,9 +5172,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<ErrorData> errorField = new List<ErrorData>();
 		public List<ErrorData> error
 		{
@@ -5076,15 +5189,23 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public UpdateComplianceStatusResponse()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new UpdateComplianceStatusResponse object created from the passed in NVP map
+	 	/// </returns>
 		public static UpdateComplianceStatusResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			UpdateComplianceStatusResponse updateComplianceStatusResponse = null;
@@ -5138,17 +5259,17 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      *
-      */
+	/// <summary>
+	/// 
+    /// </summary>
 	public partial class NameType	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string salutationField;
 		public string salutation
 		{
@@ -5163,9 +5284,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string firstNameField;
 		public string firstName
 		{
@@ -5180,9 +5301,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string middleNameField;
 		public string middleName
 		{
@@ -5197,9 +5318,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string lastNameField;
 		public string lastName
 		{
@@ -5214,9 +5335,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string suffixField;
 		public string suffix
 		{
@@ -5231,18 +5352,18 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public NameType(string firstName, string lastName)
 	 	{
 			this.firstName = firstName;
 			this.lastName = lastName;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public NameType()
 	 	{
 		}
@@ -5273,7 +5394,15 @@ namespace PayPal.AdaptiveAccounts.Model
 			}
 			return sb.ToString();
 		}
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new NameType object created from the passed in NVP map
+	 	/// </returns>
 		public static NameType CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			NameType nameType = null;
@@ -5330,17 +5459,17 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      *
-      */
+	/// <summary>
+	/// 
+    /// </summary>
 	public partial class AddressType	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string line1Field;
 		public string line1
 		{
@@ -5355,9 +5484,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string line2Field;
 		public string line2
 		{
@@ -5372,9 +5501,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string cityField;
 		public string city
 		{
@@ -5389,9 +5518,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string stateField;
 		public string state
 		{
@@ -5406,9 +5535,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string postalCodeField;
 		public string postalCode
 		{
@@ -5423,9 +5552,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string countryCodeField;
 		public string countryCode
 		{
@@ -5440,18 +5569,18 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public AddressType(string line1, string countryCode)
 	 	{
 			this.line1 = line1;
 			this.countryCode = countryCode;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public AddressType()
 	 	{
 		}
@@ -5491,19 +5620,19 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      *Ask end-user to also initiate confirmation of their mobile
-      *phone. This number must be supplied by the API caller (using
-      *mobilePhoneNumber) Default=false. 
-      */
+	/// <summary>
+	/// Ask end-user to also initiate confirmation of their mobile
+	/// phone. This number must be supplied by the API caller (using
+	/// mobilePhoneNumber) Default=false. 
+    /// </summary>
 	public partial class CreateAccountWebOptionsType	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string returnUrlField;
 		public string returnUrl
 		{
@@ -5518,9 +5647,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private bool? showAddCreditCardField;
 		public bool? showAddCreditCard
 		{
@@ -5535,9 +5664,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private bool? showMobileConfirmField;
 		public bool? showMobileConfirm
 		{
@@ -5552,9 +5681,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string returnUrlDescriptionField;
 		public string returnUrlDescription
 		{
@@ -5569,9 +5698,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private bool? useMiniBrowserField;
 		public bool? useMiniBrowser
 		{
@@ -5586,9 +5715,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string reminderEmailFrequencyField;
 		public string reminderEmailFrequency
 		{
@@ -5603,9 +5732,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string confirmEmailField;
 		public string confirmEmail
 		{
@@ -5620,9 +5749,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public CreateAccountWebOptionsType()
 	 	{
 		}
@@ -5666,17 +5795,17 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      *PayPal Business Category. i.e., baby - 1004 
-      */
+	/// <summary>
+	/// PayPal Business Category. i.e., baby - 1004 
+    /// </summary>
 	public partial class BusinessInfoType	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string businessNameField;
 		public string businessName
 		{
@@ -5691,9 +5820,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private AddressType businessAddressField;
 		public AddressType businessAddress
 		{
@@ -5708,9 +5837,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string workPhoneField;
 		public string workPhone
 		{
@@ -5725,9 +5854,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private int? categoryField;
 		public int? category
 		{
@@ -5742,9 +5871,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private int? subCategoryField;
 		public int? subCategory
 		{
@@ -5759,9 +5888,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private int? merchantCategoryCodeField;
 		public int? merchantCategoryCode
 		{
@@ -5776,9 +5905,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string doingBusinessAsField;
 		public string doingBusinessAs
 		{
@@ -5793,9 +5922,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string customerServicePhoneField;
 		public string customerServicePhone
 		{
@@ -5810,9 +5939,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string customerServiceEmailField;
 		public string customerServiceEmail
 		{
@@ -5827,9 +5956,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string disputeEmailField;
 		public string disputeEmail
 		{
@@ -5844,9 +5973,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string webSiteField;
 		public string webSite
 		{
@@ -5861,9 +5990,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string companyIdField;
 		public string companyId
 		{
@@ -5878,9 +6007,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string dateOfEstablishmentField;
 		public string dateOfEstablishment
 		{
@@ -5895,9 +6024,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private BusinessType? businessTypeField;
 		public BusinessType? businessType
 		{
@@ -5912,9 +6041,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private BusinessSubtypeType? businessSubtypeField;
 		public BusinessSubtypeType? businessSubtype
 		{
@@ -5929,9 +6058,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string incorporationIdField;
 		public string incorporationId
 		{
@@ -5946,9 +6075,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private decimal? averagePriceField;
 		public decimal? averagePrice
 		{
@@ -5963,9 +6092,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private decimal? averageMonthlyVolumeField;
 		public decimal? averageMonthlyVolume
 		{
@@ -5980,9 +6109,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private int? percentageRevenueFromOnlineField;
 		public int? percentageRevenueFromOnline
 		{
@@ -5997,9 +6126,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<SalesVenueType?> salesVenueField = new List<SalesVenueType?>();
 		public List<SalesVenueType?> salesVenue
 		{
@@ -6014,9 +6143,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string salesVenueDescField;
 		public string salesVenueDesc
 		{
@@ -6031,9 +6160,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string vatIdField;
 		public string vatId
 		{
@@ -6048,9 +6177,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string vatCountryCodeField;
 		public string vatCountryCode
 		{
@@ -6065,9 +6194,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string commercialRegistrationLocationField;
 		public string commercialRegistrationLocation
 		{
@@ -6082,9 +6211,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private AddressType principalPlaceOfBusinessAddressField;
 		public AddressType principalPlaceOfBusinessAddress
 		{
@@ -6099,9 +6228,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private AddressType registeredOfficeAddressField;
 		public AddressType registeredOfficeAddress
 		{
@@ -6116,9 +6245,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string establishmentCountryCodeField;
 		public string establishmentCountryCode
 		{
@@ -6133,9 +6262,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string establishmentStateField;
 		public string establishmentState
 		{
@@ -6150,9 +6279,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<BusinessStakeholderType> businessStakeholderField = new List<BusinessStakeholderType>();
 		public List<BusinessStakeholderType> businessStakeholder
 		{
@@ -6167,9 +6296,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public BusinessInfoType(string businessName, AddressType businessAddress, string workPhone)
 	 	{
 			this.businessName = businessName;
@@ -6177,9 +6306,9 @@ namespace PayPal.AdaptiveAccounts.Model
 			this.workPhone = workPhone;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public BusinessInfoType()
 	 	{
 		}
@@ -6324,18 +6453,18 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      *Info about Stakeholders such as partner, beneficial, owner,
-      *director etc. 
-      */
+	/// <summary>
+	/// Info about Stakeholders such as partner, beneficial, owner,
+	/// director etc. 
+    /// </summary>
 	public partial class BusinessStakeholderType	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private StakeholderRoleType? roleField;
 		public StakeholderRoleType? role
 		{
@@ -6350,9 +6479,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private NameType nameField;
 		public NameType name
 		{
@@ -6367,9 +6496,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string fullLegalNameField;
 		public string fullLegalName
 		{
@@ -6384,9 +6513,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private AddressType addressField;
 		public AddressType address
 		{
@@ -6401,9 +6530,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string dateOfBirthField;
 		public string dateOfBirth
 		{
@@ -6418,17 +6547,17 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public BusinessStakeholderType(StakeholderRoleType? role)
 	 	{
 			this.role = role;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public BusinessStakeholderType()
 	 	{
 		}
@@ -6467,18 +6596,18 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      *Info about PayPal user such as emailAddress, accountId,
-      *firstName, lastName etc. 
-      */
+	/// <summary>
+	/// Info about PayPal user such as emailAddress, accountId,
+	/// firstName, lastName etc. 
+    /// </summary>
 	public partial class UserInfoType	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string emailAddressField;
 		public string emailAddress
 		{
@@ -6493,9 +6622,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string accountTypeField;
 		public string accountType
 		{
@@ -6510,9 +6639,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string accountIdField;
 		public string accountId
 		{
@@ -6527,9 +6656,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private NameType nameField;
 		public NameType name
 		{
@@ -6544,9 +6673,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string businessNameField;
 		public string businessName
 		{
@@ -6561,15 +6690,23 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public UserInfoType()
 	 	{
 		}
 
 
-
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new UserInfoType object created from the passed in NVP map
+	 	/// </returns>
 		public static UserInfoType CreateInstance(Dictionary<string, string> map, string prefix, int index)
 		{
 			UserInfoType userInfoType = null;
@@ -6626,17 +6763,17 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      *
-      */
+	/// <summary>
+	/// 
+    /// </summary>
 	public partial class WebOptionsType	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string returnUrlField;
 		public string returnUrl
 		{
@@ -6651,9 +6788,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string cancelUrlField;
 		public string cancelUrl
 		{
@@ -6668,9 +6805,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string returnUrlDescriptionField;
 		public string returnUrlDescription
 		{
@@ -6685,9 +6822,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string cancelUrlDescriptionField;
 		public string cancelUrlDescription
 		{
@@ -6702,9 +6839,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public WebOptionsType()
 	 	{
 		}
@@ -6736,17 +6873,17 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      *Month in integer format, between 1 and 12 
-      */
+	/// <summary>
+	/// Month in integer format, between 1 and 12 
+    /// </summary>
 	public partial class CardDateType	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private int? monthField;
 		public int? month
 		{
@@ -6761,9 +6898,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private int? yearField;
 		public int? year
 		{
@@ -6778,18 +6915,18 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public CardDateType(int? month, int? year)
 	 	{
 			this.month = month;
 			this.year = year;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public CardDateType()
 	 	{
 		}
@@ -6813,17 +6950,17 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      *
-      */
+	/// <summary>
+	/// 
+    /// </summary>
 	public partial class Auditor	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string idField;
 		public string id
 		{
@@ -6838,9 +6975,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string nameField;
 		public string name
 		{
@@ -6855,9 +6992,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string actionField;
 		public string action
 		{
@@ -6872,9 +7009,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string notesField;
 		public string notes
 		{
@@ -6889,9 +7026,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public Auditor(string id, string name, string action)
 	 	{
 			this.id = id;
@@ -6899,9 +7036,9 @@ namespace PayPal.AdaptiveAccounts.Model
 			this.action = action;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public Auditor()
 	 	{
 		}
@@ -6933,17 +7070,17 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      *
-      */
+	/// <summary>
+	/// 
+    /// </summary>
 	public partial class TupleType	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string nameField;
 		public string name
 		{
@@ -6958,9 +7095,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string valueField;
 		public string value
 		{
@@ -6975,18 +7112,18 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public TupleType(string name, string value)
 	 	{
 			this.name = name;
 			this.value = value;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public TupleType()
 	 	{
 		}
@@ -7010,17 +7147,17 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      *
-      */
+	/// <summary>
+	/// 
+    /// </summary>
 	public partial class DocumentType	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string typeField;
 		public string type
 		{
@@ -7035,9 +7172,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<string> filenameField = new List<string>();
 		public List<string> filename
 		{
@@ -7052,18 +7189,18 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public DocumentType(string type, List<string> filename)
 	 	{
 			this.type = type;
 			this.filename = filename;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public DocumentType()
 	 	{
 		}
@@ -7090,17 +7227,17 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      *
-      */
+	/// <summary>
+	/// 
+    /// </summary>
 	public partial class AuditorList	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<Auditor> auditorField = new List<Auditor>();
 		public List<Auditor> auditor
 		{
@@ -7115,17 +7252,17 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public AuditorList(List<Auditor> auditor)
 	 	{
 			this.auditor = auditor;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public AuditorList()
 	 	{
 		}
@@ -7149,17 +7286,17 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      *
-      */
+	/// <summary>
+	/// 
+    /// </summary>
 	public partial class AuditeeInfoType	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private AccountIdentifierType accountIdentifierField;
 		public AccountIdentifierType accountIdentifier
 		{
@@ -7174,9 +7311,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<DocumentType> documentField = new List<DocumentType>();
 		public List<DocumentType> document
 		{
@@ -7191,9 +7328,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private List<TupleType> dataField = new List<TupleType>();
 		public List<TupleType> data
 		{
@@ -7208,17 +7345,17 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public AuditeeInfoType(AccountIdentifierType accountIdentifier)
 	 	{
 			this.accountIdentifier = accountIdentifier;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public AuditeeInfoType()
 	 	{
 		}
@@ -7255,17 +7392,17 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 
-	/**
-      *
-      */
+	/// <summary>
+	/// 
+    /// </summary>
 	public partial class AuditDetailsType	{
 		
 		// Default US culture info
 		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string statusField;
 		public string status
 		{
@@ -7280,9 +7417,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string levelField;
 		public string level
 		{
@@ -7297,9 +7434,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string methodField;
 		public string method
 		{
@@ -7314,9 +7451,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-          *
-		  */
+		/// <summary>
+		/// 
+		/// </summary>
 		private string reasonField;
 		public string reason
 		{
@@ -7331,9 +7468,9 @@ namespace PayPal.AdaptiveAccounts.Model
 		}
 		
 
-		/**
-	 	  * Constructor with arguments
-	 	  */
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
 	 	public AuditDetailsType(string status, string level, string method, string reason)
 	 	{
 			this.status = status;
@@ -7342,9 +7479,9 @@ namespace PayPal.AdaptiveAccounts.Model
 			this.reason = reason;
 		}
 
-		/**
-	 	  * Default Constructor
-	 	  */
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
 	 	public AuditDetailsType()
 	 	{
 		}
