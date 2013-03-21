@@ -44,8 +44,8 @@ The PayPal Adaptive Accounts API lets you build applications that create PayPal 
 	    .....
 	</settings>
 	<accounts>
-	    <account apiUsername="jb-us-seller_api1.paypal.com" apiPassword="..." apiSignature="..."/>
-	    <account apiUsername="enduser_biz_api1.gmail.com" apiPassword="..." apiCertificate="..." privateKeyPassword="..."/>
+	    <account apiUsername="jb-us-seller_api1.paypal.com" apiPassword="..." apiSignature="..." applicationId='...' />
+	    <account apiUsername="enduser_biz_api1.gmail.com" apiPassword="..." apiCertificate="..." privateKeyPassword="..." applicationId='...' />
 	</accounts>
 	</paypal>
     ```
@@ -59,6 +59,7 @@ The PayPal Adaptive Accounts API lets you build applications that create PayPal 
     config.Add("account1.apiUsername", "jb-us-seller_api1.paypal.com");
     config.Add("account1.apiPassword", "...");
     config.Add("account1.apiSignature", "...");
+    config.Add("account1.applicationId", "...");
 
     AdaptiveAccountsService service = new  AdaptiveAccountsService(config);
     ```
