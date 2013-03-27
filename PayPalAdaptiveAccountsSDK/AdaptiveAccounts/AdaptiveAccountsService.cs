@@ -31,7 +31,7 @@ namespace PayPal.AdaptiveAccounts
 		/// <summary>
 		/// SDK Version
 		/// </summary>
-		private const string SDKVersion = "2.2.98";
+		private const string SDKVersion = "2.4.100";
 
 		/// <summary>
 		/// Default constructor for loading configuration from *.Config file
