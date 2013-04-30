@@ -16,7 +16,7 @@ namespace PayPal.AdaptiveAccounts
 		/// <summary>
 		/// Service Version
 		/// </summary>
-		private const string ServiceVersion = "1.1.0";
+		private const string ServiceVersion = "1.2.0";
 
 		/// <summary>
 		/// Service Name
@@ -31,7 +31,7 @@ namespace PayPal.AdaptiveAccounts
 		/// <summary>
 		/// SDK Version
 		/// </summary>
-		private const string SDKVersion = "2.4.100";
+		private const string SDKVersion = "2.4.101";
 
 		/// <summary>
 		/// Default constructor for loading configuration from *.Config file

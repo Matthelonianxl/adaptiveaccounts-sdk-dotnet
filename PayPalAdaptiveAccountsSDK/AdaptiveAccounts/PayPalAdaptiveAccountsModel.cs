@@ -1123,6 +1123,43 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 	/// <summary>
+	/// Generic Yes or No input validation type.
+	///  
+	/// </summary>
+    [Serializable]
+	public enum YesNoType {
+		[Description("YES")]YES,	
+		[Description("NO")]NO	
+	}
+
+
+
+
+	/// <summary>
+	/// Government ID Types 
+	///  
+	/// </summary>
+    [Serializable]
+	public enum GovernmentIDTypes {
+		[Description("SIN")]SIN	
+	}
+
+
+
+
+	/// <summary>
+	/// Legal Agreement Types 
+	///  
+	/// </summary>
+    [Serializable]
+	public enum LegalAgreementTypes {
+		[Description("FINANCIAL_BINDING_AUTHORITY")]FINANCIALBINDINGAUTHORITY	
+	}
+
+
+
+
+	/// <summary>
 	/// 
 	/// </summary>
     [Serializable]
@@ -1677,6 +1714,108 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/// <summary>
+		/// 
+		/// </summary>
+		private List<GovernmentIDPair> governmentIdField = new List<GovernmentIDPair>();
+		public List<GovernmentIDPair> governmentId
+		{
+			get
+			{
+				return this.governmentIdField;
+			}
+			set
+			{
+				this.governmentIdField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private string professionField;
+		public string profession
+		{
+			get
+			{
+				return this.professionField;
+			}
+			set
+			{
+				this.professionField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private string occupationField;
+		public string occupation
+		{
+			get
+			{
+				return this.occupationField;
+			}
+			set
+			{
+				this.occupationField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private string functionalAreaField;
+		public string functionalArea
+		{
+			get
+			{
+				return this.functionalAreaField;
+			}
+			set
+			{
+				this.functionalAreaField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private LegalAgreementType legalAgreementField;
+		public LegalAgreementType legalAgreement
+		{
+			get
+			{
+				return this.legalAgreementField;
+			}
+			set
+			{
+				this.legalAgreementField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private string purposeOfAccountField;
+		public string purposeOfAccount
+		{
+			get
+			{
+				return this.purposeOfAccountField;
+			}
+			set
+			{
+				this.purposeOfAccountField = value;
+			}
+		}
+		
+
+		/// <summary>
 		/// Constructor with arguments
 	 	/// </summary>
 	 	public CreateAccountRequest(RequestEnvelope requestEnvelope, NameType name, AddressType address, string preferredLanguageCode)
@@ -1803,6 +1942,35 @@ namespace PayPal.AdaptiveAccounts.Model
 			{
 					string newPrefix = prefix + "businessInfo" + ".";
 					sb.Append(this.businessInfoField.ToNVPString(newPrefix));
+			}
+			for (int i = 0; i < this.governmentId.Count; i++)
+			{
+				if (this.governmentId[i] != null)
+				{
+					string newPrefix = prefix + "governmentId" + "(" + i + ").";
+					sb.Append(this.governmentId[i].ToNVPString(newPrefix));
+				}
+			}
+			if (this.profession != null)
+			{
+					sb.Append(prefix).Append("profession").Append("=").Append(HttpUtility.UrlEncode(this.profession, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			if (this.occupation != null)
+			{
+					sb.Append(prefix).Append("occupation").Append("=").Append(HttpUtility.UrlEncode(this.occupation, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			if (this.functionalArea != null)
+			{
+					sb.Append(prefix).Append("functionalArea").Append("=").Append(HttpUtility.UrlEncode(this.functionalArea, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			if (this.legalAgreement != null)
+			{
+					string newPrefix = prefix + "legalAgreement" + ".";
+					sb.Append(this.legalAgreementField.ToNVPString(newPrefix));
+			}
+			if (this.purposeOfAccount != null)
+			{
+					sb.Append(prefix).Append("purposeOfAccount").Append("=").Append(HttpUtility.UrlEncode(this.purposeOfAccount, BaseConstants.ENCODING_FORMAT)).Append("&");
 			}
 			return sb.ToString();
 		}
@@ -4535,7 +4703,7 @@ namespace PayPal.AdaptiveAccounts.Model
 	/// <summary>
 	/// Identifies a PayPal account to which this request is
 	/// targeted. Caller of this API has to provide ONLY one of
-	/// these inputs: emailAddress, accountId or phoneNumber. 
+	/// these inputs: emailAddress, accountId or mobilePhoneNumber. 
     /// </summary>
 	public partial class CheckComplianceStatusRequest	{
 		
@@ -6297,6 +6465,74 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/// <summary>
+		/// 
+		/// </summary>
+		private BusinessEntityForThirdPartyType businessEntityForThirdPartyField;
+		public BusinessEntityForThirdPartyType businessEntityForThirdParty
+		{
+			get
+			{
+				return this.businessEntityForThirdPartyField;
+			}
+			set
+			{
+				this.businessEntityForThirdPartyField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private YesNoType? hasDirectorsField;
+		public YesNoType? hasDirectors
+		{
+			get
+			{
+				return this.hasDirectorsField;
+			}
+			set
+			{
+				this.hasDirectorsField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private YesNoType? hasBeneficialOwnersField;
+		public YesNoType? hasBeneficialOwners
+		{
+			get
+			{
+				return this.hasBeneficialOwnersField;
+			}
+			set
+			{
+				this.hasBeneficialOwnersField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private YesNoType? hasThirdPartyAssociatesField;
+		public YesNoType? hasThirdPartyAssociates
+		{
+			get
+			{
+				return this.hasThirdPartyAssociatesField;
+			}
+			set
+			{
+				this.hasThirdPartyAssociatesField = value;
+			}
+		}
+		
+
+		/// <summary>
 		/// Constructor with arguments
 	 	/// </summary>
 	 	public BusinessInfoType(string businessName, AddressType businessAddress, string workPhone)
@@ -6446,6 +6682,26 @@ namespace PayPal.AdaptiveAccounts.Model
 					sb.Append(this.businessStakeholder[i].ToNVPString(newPrefix));
 				}
 			}
+			if (this.businessEntityForThirdParty != null)
+			{
+					string newPrefix = prefix + "businessEntityForThirdParty" + ".";
+					sb.Append(this.businessEntityForThirdPartyField.ToNVPString(newPrefix));
+			}
+			if (this.hasDirectors != null)
+			{
+					sb.Append(prefix).Append("hasDirectors").Append("=").Append(EnumUtils.GetDescription(this.hasDirectors));
+					sb.Append("&");
+			}
+			if (this.hasBeneficialOwners != null)
+			{
+					sb.Append(prefix).Append("hasBeneficialOwners").Append("=").Append(EnumUtils.GetDescription(this.hasBeneficialOwners));
+					sb.Append("&");
+			}
+			if (this.hasThirdPartyAssociates != null)
+			{
+					sb.Append(prefix).Append("hasThirdPartyAssociates").Append("=").Append(EnumUtils.GetDescription(this.hasThirdPartyAssociates));
+					sb.Append("&");
+			}
 			return sb.ToString();
 		}
 	}
@@ -6548,6 +6804,23 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/// <summary>
+		/// 
+		/// </summary>
+		private string occupationField;
+		public string occupation
+		{
+			get
+			{
+				return this.occupationField;
+			}
+			set
+			{
+				this.occupationField = value;
+			}
+		}
+		
+
+		/// <summary>
 		/// Constructor with arguments
 	 	/// </summary>
 	 	public BusinessStakeholderType(StakeholderRoleType? role)
@@ -6588,6 +6861,10 @@ namespace PayPal.AdaptiveAccounts.Model
 			if (this.dateOfBirth != null)
 			{
 					sb.Append(prefix).Append("dateOfBirth").Append("=").Append(this.dateOfBirth).Append("&");
+			}
+			if (this.occupation != null)
+			{
+					sb.Append(prefix).Append("occupation").Append("=").Append(HttpUtility.UrlEncode(this.occupation, BaseConstants.ENCODING_FORMAT)).Append("&");
 			}
 			return sb.ToString();
 		}
@@ -6942,6 +7219,402 @@ namespace PayPal.AdaptiveAccounts.Model
 			if (this.year != null)
 			{
 					sb.Append(prefix).Append("year").Append("=").Append(this.year).Append("&");
+			}
+			return sb.ToString();
+		}
+	}
+
+
+
+
+	/// <summary>
+	/// Third party type: Individual or Business. 
+    /// </summary>
+	public partial class BusinessEntityForThirdPartyType	{
+		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private string thirdPartyTypeField;
+		public string thirdPartyType
+		{
+			get
+			{
+				return this.thirdPartyTypeField;
+			}
+			set
+			{
+				this.thirdPartyTypeField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private string nameField;
+		public string name
+		{
+			get
+			{
+				return this.nameField;
+			}
+			set
+			{
+				this.nameField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private string dateOfBirthField;
+		public string dateOfBirth
+		{
+			get
+			{
+				return this.dateOfBirthField;
+			}
+			set
+			{
+				this.dateOfBirthField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private AddressType addressField;
+		public AddressType address
+		{
+			get
+			{
+				return this.addressField;
+			}
+			set
+			{
+				this.addressField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private string professionField;
+		public string profession
+		{
+			get
+			{
+				return this.professionField;
+			}
+			set
+			{
+				this.professionField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private string relationshipWithThirdPartyField;
+		public string relationshipWithThirdParty
+		{
+			get
+			{
+				return this.relationshipWithThirdPartyField;
+			}
+			set
+			{
+				this.relationshipWithThirdPartyField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private string natureOfBusinessField;
+		public string natureOfBusiness
+		{
+			get
+			{
+				return this.natureOfBusinessField;
+			}
+			set
+			{
+				this.natureOfBusinessField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private string nameOfBusinessField;
+		public string nameOfBusiness
+		{
+			get
+			{
+				return this.nameOfBusinessField;
+			}
+			set
+			{
+				this.nameOfBusinessField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private string businessTypeField;
+		public string businessType
+		{
+			get
+			{
+				return this.businessTypeField;
+			}
+			set
+			{
+				this.businessTypeField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private string incorporationIdField;
+		public string incorporationId
+		{
+			get
+			{
+				return this.incorporationIdField;
+			}
+			set
+			{
+				this.incorporationIdField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private string incorporationPlaceOfIssueField;
+		public string incorporationPlaceOfIssue
+		{
+			get
+			{
+				return this.incorporationPlaceOfIssueField;
+			}
+			set
+			{
+				this.incorporationPlaceOfIssueField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
+	 	public BusinessEntityForThirdPartyType()
+	 	{
+		}
+
+
+		public string ToNVPString(string prefix)
+		{
+			StringBuilder sb = new StringBuilder();
+			if (this.thirdPartyType != null)
+			{
+					sb.Append(prefix).Append("thirdPartyType").Append("=").Append(HttpUtility.UrlEncode(this.thirdPartyType, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			if (this.name != null)
+			{
+					sb.Append(prefix).Append("name").Append("=").Append(HttpUtility.UrlEncode(this.name, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			if (this.dateOfBirth != null)
+			{
+					sb.Append(prefix).Append("dateOfBirth").Append("=").Append(this.dateOfBirth).Append("&");
+			}
+			if (this.address != null)
+			{
+					string newPrefix = prefix + "address" + ".";
+					sb.Append(this.addressField.ToNVPString(newPrefix));
+			}
+			if (this.profession != null)
+			{
+					sb.Append(prefix).Append("profession").Append("=").Append(HttpUtility.UrlEncode(this.profession, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			if (this.relationshipWithThirdParty != null)
+			{
+					sb.Append(prefix).Append("relationshipWithThirdParty").Append("=").Append(HttpUtility.UrlEncode(this.relationshipWithThirdParty, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			if (this.natureOfBusiness != null)
+			{
+					sb.Append(prefix).Append("natureOfBusiness").Append("=").Append(HttpUtility.UrlEncode(this.natureOfBusiness, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			if (this.nameOfBusiness != null)
+			{
+					sb.Append(prefix).Append("nameOfBusiness").Append("=").Append(HttpUtility.UrlEncode(this.nameOfBusiness, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			if (this.businessType != null)
+			{
+					sb.Append(prefix).Append("businessType").Append("=").Append(HttpUtility.UrlEncode(this.businessType, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			if (this.incorporationId != null)
+			{
+					sb.Append(prefix).Append("incorporationId").Append("=").Append(HttpUtility.UrlEncode(this.incorporationId, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			if (this.incorporationPlaceOfIssue != null)
+			{
+					sb.Append(prefix).Append("incorporationPlaceOfIssue").Append("=").Append(HttpUtility.UrlEncode(this.incorporationPlaceOfIssue, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			return sb.ToString();
+		}
+	}
+
+
+
+
+	/// <summary>
+	/// 
+    /// </summary>
+	public partial class GovernmentIDPair	{
+		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private string valueField;
+		public string value
+		{
+			get
+			{
+				return this.valueField;
+			}
+			set
+			{
+				this.valueField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private GovernmentIDTypes? typeField;
+		public GovernmentIDTypes? type
+		{
+			get
+			{
+				return this.typeField;
+			}
+			set
+			{
+				this.typeField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
+	 	public GovernmentIDPair()
+	 	{
+		}
+
+
+		public string ToNVPString(string prefix)
+		{
+			StringBuilder sb = new StringBuilder();
+			if (this.value != null)
+			{
+					sb.Append(prefix).Append("value").Append("=").Append(HttpUtility.UrlEncode(this.value, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			if (this.type != null)
+			{
+					sb.Append(prefix).Append("type").Append("=").Append(EnumUtils.GetDescription(this.type));
+					sb.Append("&");
+			}
+			return sb.ToString();
+		}
+	}
+
+
+
+
+	/// <summary>
+	/// 
+    /// </summary>
+	public partial class LegalAgreementType	{
+		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private string acceptedField;
+		public string accepted
+		{
+			get
+			{
+				return this.acceptedField;
+			}
+			set
+			{
+				this.acceptedField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private LegalAgreementTypes? typeField;
+		public LegalAgreementTypes? type
+		{
+			get
+			{
+				return this.typeField;
+			}
+			set
+			{
+				this.typeField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
+	 	public LegalAgreementType()
+	 	{
+		}
+
+
+		public string ToNVPString(string prefix)
+		{
+			StringBuilder sb = new StringBuilder();
+			if (this.accepted != null)
+			{
+					sb.Append(prefix).Append("accepted").Append("=").Append(HttpUtility.UrlEncode(this.accepted, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			if (this.type != null)
+			{
+					sb.Append(prefix).Append("type").Append("=").Append(EnumUtils.GetDescription(this.type));
+					sb.Append("&");
 			}
 			return sb.ToString();
 		}
@@ -7469,6 +8142,40 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/// <summary>
+		/// 
+		/// </summary>
+		private List<TupleType> dataField = new List<TupleType>();
+		public List<TupleType> data
+		{
+			get
+			{
+				return this.dataField;
+			}
+			set
+			{
+				this.dataField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private string policyVersionField;
+		public string policyVersion
+		{
+			get
+			{
+				return this.policyVersionField;
+			}
+			set
+			{
+				this.policyVersionField = value;
+			}
+		}
+		
+
+		/// <summary>
 		/// Constructor with arguments
 	 	/// </summary>
 	 	public AuditDetailsType(string status, string level, string method, string reason)
@@ -7505,6 +8212,18 @@ namespace PayPal.AdaptiveAccounts.Model
 			if (this.reason != null)
 			{
 					sb.Append(prefix).Append("reason").Append("=").Append(HttpUtility.UrlEncode(this.reason, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			for (int i = 0; i < this.data.Count; i++)
+			{
+				if (this.data[i] != null)
+				{
+					string newPrefix = prefix + "data" + "(" + i + ").";
+					sb.Append(this.data[i].ToNVPString(newPrefix));
+				}
+			}
+			if (this.policyVersion != null)
+			{
+					sb.Append(prefix).Append("policyVersion").Append("=").Append(HttpUtility.UrlEncode(this.policyVersion, BaseConstants.ENCODING_FORMAT)).Append("&");
 			}
 			return sb.ToString();
 		}
