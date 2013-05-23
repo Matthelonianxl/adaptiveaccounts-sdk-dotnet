@@ -1784,8 +1784,8 @@ namespace PayPal.AdaptiveAccounts.Model
 		/// <summary>
 		/// 
 		/// </summary>
-		private LegalAgreementType legalAgreementField;
-		public LegalAgreementType legalAgreement
+		private List<LegalAgreementType> legalAgreementField = new List<LegalAgreementType>();
+		public List<LegalAgreementType> legalAgreement
 		{
 			get
 			{
@@ -1963,10 +1963,13 @@ namespace PayPal.AdaptiveAccounts.Model
 			{
 					sb.Append(prefix).Append("functionalArea").Append("=").Append(HttpUtility.UrlEncode(this.functionalArea, BaseConstants.ENCODING_FORMAT)).Append("&");
 			}
-			if (this.legalAgreement != null)
+			for (int i = 0; i < this.legalAgreement.Count; i++)
 			{
-					string newPrefix = prefix + "legalAgreement" + ".";
-					sb.Append(this.legalAgreementField.ToNVPString(newPrefix));
+				if (this.legalAgreement[i] != null)
+				{
+					string newPrefix = prefix + "legalAgreement" + "(" + i + ").";
+					sb.Append(this.legalAgreement[i].ToNVPString(newPrefix));
+				}
 			}
 			if (this.purposeOfAccount != null)
 			{
@@ -7255,8 +7258,8 @@ namespace PayPal.AdaptiveAccounts.Model
 		/// <summary>
 		/// 
 		/// </summary>
-		private string nameField;
-		public string name
+		private NameType nameField;
+		public NameType name
 		{
 			get
 			{
@@ -7408,16 +7411,33 @@ namespace PayPal.AdaptiveAccounts.Model
 		/// <summary>
 		/// 
 		/// </summary>
-		private string incorporationPlaceOfIssueField;
-		public string incorporationPlaceOfIssue
+		private string incorporationCountryField;
+		public string incorporationCountry
 		{
 			get
 			{
-				return this.incorporationPlaceOfIssueField;
+				return this.incorporationCountryField;
 			}
 			set
 			{
-				this.incorporationPlaceOfIssueField = value;
+				this.incorporationCountryField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private string incorporationStateField;
+		public string incorporationState
+		{
+			get
+			{
+				return this.incorporationStateField;
+			}
+			set
+			{
+				this.incorporationStateField = value;
 			}
 		}
 		
@@ -7439,7 +7459,8 @@ namespace PayPal.AdaptiveAccounts.Model
 			}
 			if (this.name != null)
 			{
-					sb.Append(prefix).Append("name").Append("=").Append(HttpUtility.UrlEncode(this.name, BaseConstants.ENCODING_FORMAT)).Append("&");
+					string newPrefix = prefix + "name" + ".";
+					sb.Append(this.nameField.ToNVPString(newPrefix));
 			}
 			if (this.dateOfBirth != null)
 			{
@@ -7474,9 +7495,13 @@ namespace PayPal.AdaptiveAccounts.Model
 			{
 					sb.Append(prefix).Append("incorporationId").Append("=").Append(HttpUtility.UrlEncode(this.incorporationId, BaseConstants.ENCODING_FORMAT)).Append("&");
 			}
-			if (this.incorporationPlaceOfIssue != null)
+			if (this.incorporationCountry != null)
 			{
-					sb.Append(prefix).Append("incorporationPlaceOfIssue").Append("=").Append(HttpUtility.UrlEncode(this.incorporationPlaceOfIssue, BaseConstants.ENCODING_FORMAT)).Append("&");
+					sb.Append(prefix).Append("incorporationCountry").Append("=").Append(HttpUtility.UrlEncode(this.incorporationCountry, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			if (this.incorporationState != null)
+			{
+					sb.Append(prefix).Append("incorporationState").Append("=").Append(HttpUtility.UrlEncode(this.incorporationState, BaseConstants.ENCODING_FORMAT)).Append("&");
 			}
 			return sb.ToString();
 		}
