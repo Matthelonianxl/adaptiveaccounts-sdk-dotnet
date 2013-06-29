@@ -66,6 +66,7 @@
       <DependentUpon>AddPaymentCard.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Code\Message.cs" />
+    <Compile Include="Configuration.cs" />
     <Compile Include="CreateAccount.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>CreateAccount.aspx</DependentUpon>
