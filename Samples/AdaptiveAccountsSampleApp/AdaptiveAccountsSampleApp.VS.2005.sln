@@ -1,11 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 9.00
 # Visual Studio 2005
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdaptiveAccountsSampleApp", "AdaptiveAccountsSampleApp.csproj", "{0E9F2A72-AADB-48EE-9E4D-D7AF4863CF46}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdaptiveAccountsSampleApp.VS.2005", "AdaptiveAccountsSampleApp.VS.2005.csproj", "{0E9F2A72-AADB-48EE-9E4D-D7AF4863CF46}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
