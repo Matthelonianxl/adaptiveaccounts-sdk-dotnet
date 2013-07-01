@@ -1,17 +1,9 @@
 using System;
-using System.Data;
 using System.Web;
-using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Web.Services;
-using System.Web.Services.Protocols;
-using PayPal;
 using PayPal.AdaptiveAccounts;
 using PayPal.AdaptiveAccounts.Model;
-using PayPal.Util;
-using PayPal.Exception;
-using System.Configuration;
 
 namespace AdaptiveAccountsSampleApp
 {
@@ -23,7 +15,7 @@ namespace AdaptiveAccountsSampleApp
         public void ProcessRequest(HttpContext context)
         {
             context.Response.ContentType = "text/html";
-            String strCall = context.Request.Params["AdaptiveAccountsBtn"];
+            string strCall = context.Request.Params["AdaptiveAccountsBtn"];
 
             if (strCall.Equals("CreateAccount"))
             {
@@ -207,10 +199,19 @@ namespace AdaptiveAccountsSampleApp
 
 
             // Create the AdaptiveAccounts service object to make the API call
-            AdaptiveAccountsService service = new AdaptiveAccountsService();
+            AdaptiveAccountsService service = null;
             CreateAccountResponse resp = null;
             try
             {
+                // Configuration map containing signature credentials and other required configuration.
+                // For a full list of configuration parameters refer at 
+                // (https://github.com/paypal/adaptiveaccounts-sdk-java/wiki/SDK-Configuration-Parameters)
+                Dictionary<string, string> configurationMap = Configuration.GetSignatureConfig();
+
+                // Creating service wrapper object to make an API call and loading
+                // configuration map for your credentials and endpoint
+                service = new AdaptiveAccountsService(configurationMap);
+
                 // # API call 
                 // Invoke the CreateAccount method in service wrapper object    	
                 resp = service.CreateAccount(req);
@@ -370,10 +371,19 @@ namespace AdaptiveAccountsSampleApp
             }           
 
             // Create the AdaptiveAccounts service object to make the API call           
-            AdaptiveAccountsService service = new AdaptiveAccountsService();
+            AdaptiveAccountsService service = null;
             AddBankAccountResponse resp = null;
             try
             {
+                // Configuration map containing signature credentials and other required configuration.
+                // For a full list of configuration parameters refer at 
+                // (https://github.com/paypal/adaptiveaccounts-sdk-java/wiki/SDK-Configuration-Parameters)
+                Dictionary<string, string> configurationMap = Configuration.GetSignatureConfig();
+
+                // Creating service wrapper object to make an API call and loading
+                // configuration map for your credentials and endpoint
+                service = new AdaptiveAccountsService(configurationMap);
+
                 // # API call 
                 // Invoke the CreateAccount method in service wrapper object   
                 resp = service.AddBankAccount(req);
@@ -540,10 +550,19 @@ namespace AdaptiveAccountsSampleApp
             }
 
             // Create the AdaptiveAccounts service object to make the API call          
-            AdaptiveAccountsService service = new AdaptiveAccountsService();
+            AdaptiveAccountsService service = null;
             AddPaymentCardResponse resp = null;
             try
             {
+                // Configuration map containing signature credentials and other required configuration.
+                // For a full list of configuration parameters refer at 
+                // (https://github.com/paypal/adaptiveaccounts-sdk-java/wiki/SDK-Configuration-Parameters)
+                Dictionary<string, string> configurationMap = Configuration.GetSignatureConfig();
+
+                // Creating service wrapper object to make an API call and loading
+                // configuration map for your credentials and endpoint
+                service = new AdaptiveAccountsService(configurationMap);
+
                 // # API call 
                 // Invoke the CreateAccount method in service wrapper object   
                 resp = service.AddPaymentCard(req);
@@ -612,10 +631,19 @@ namespace AdaptiveAccountsSampleApp
             }
 
             // Create the AdaptiveAccounts service object to make the API call            
-            AdaptiveAccountsService service = new AdaptiveAccountsService();
+            AdaptiveAccountsService service = null;
             GetVerifiedStatusResponse resp = null;
             try
             {
+                // Configuration map containing signature credentials and other required configuration.
+                // For a full list of configuration parameters refer at 
+                // (https://github.com/paypal/adaptiveaccounts-sdk-java/wiki/SDK-Configuration-Parameters)
+                Dictionary<string, string> configurationMap = Configuration.GetSignatureConfig();
+
+                // Creating service wrapper object to make an API call and loading
+                // configuration map for your credentials and endpoint
+                service = new AdaptiveAccountsService(configurationMap);
+
                 // # API call 
                 // Invoke the CreateAccount method in service wrapper object 
                 resp = service.GetVerifiedStatus(req);
@@ -682,10 +710,19 @@ namespace AdaptiveAccountsSampleApp
             }
 
             // Create the AdaptiveAccounts service object to make the API call         
-            AdaptiveAccountsService service = new AdaptiveAccountsService();
+            AdaptiveAccountsService service = null;
             GetUserAgreementResponse resp = null;
             try
             {
+                // Configuration map containing signature credentials and other required configuration.
+                // For a full list of configuration parameters refer at 
+                // (https://github.com/paypal/adaptiveaccounts-sdk-java/wiki/SDK-Configuration-Parameters)
+                Dictionary<string, string> configurationMap = Configuration.GetSignatureConfig();
+
+                // Creating service wrapper object to make an API call and loading
+                // configuration map for your credentials and endpoint
+                service = new AdaptiveAccountsService(configurationMap);
+
                 // # API call 
                 // Invoke the CreateAccount method in service wrapper object 
                 resp = service.GetUserAgreement(req);
@@ -742,10 +779,19 @@ namespace AdaptiveAccountsSampleApp
                 req.emailAddress = parameters["emailAddress"];
 
             // Create the AdaptiveAccounts service object to make the API call           
-            AdaptiveAccountsService service = new AdaptiveAccountsService();
+            AdaptiveAccountsService service = null;
             SetFundingSourceConfirmedResponse resp = null;
             try
             {
+                // Configuration map containing signature credentials and other required configuration.
+                // For a full list of configuration parameters refer at 
+                // (https://github.com/paypal/adaptiveaccounts-sdk-java/wiki/SDK-Configuration-Parameters)
+                Dictionary<string, string> configurationMap = Configuration.GetSignatureConfig();
+
+                // Creating service wrapper object to make an API call and loading
+                // configuration map for your credentials and endpoint
+                service = new AdaptiveAccountsService(configurationMap);
+
                 // # API call 
                 // Invoke the CreateAccount method in service wrapper object    	
                 resp = service.SetFundingSourceConfirmed(req);
@@ -806,7 +852,7 @@ namespace AdaptiveAccountsSampleApp
             context.Response.Write("<div class='note'>Consult response object and reference doc for complete list of response values.</div><table>");
 
             //Selenium Test Case            
-            foreach (KeyValuePair<String, String> entry in responseValues)
+            foreach (KeyValuePair<string, string> entry in responseValues)
             {
 
                 context.Response.Write("<tr><td class='label'>");
