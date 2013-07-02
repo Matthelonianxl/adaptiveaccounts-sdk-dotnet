@@ -68,8 +68,8 @@
     <Content Include="Default.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="adaptiveaccountshandler.ashx.cs">
-      <DependentUpon>adaptiveaccountshandler.ashx</DependentUpon>
+    <Compile Include="AdaptiveAccountsHandler.ashx.cs">
+      <DependentUpon>AdaptiveAccountsHandler.ashx</DependentUpon>
     </Compile>
     <Compile Include="AddBankAccount.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
@@ -143,7 +143,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="adaptiveaccountshandler.ashx" />
     <Content Include="AddBankAccount.aspx" />
     <Content Include="AddPaymentCard.aspx" />
     <Content Include="Content\jquery-1.3.2.min.js" />
@@ -156,6 +155,7 @@
     <Content Include="SetFundingSourcesConfirmed.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdaptiveAccountsHandler.ashx" />
     <None Include="IPN-README.md" />
     <None Include="README.md" />
     <Content Include="Web.config" />
