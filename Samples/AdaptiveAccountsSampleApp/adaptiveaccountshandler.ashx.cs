@@ -182,19 +182,19 @@ namespace AdaptiveAccountsSampleApp
                 //    true - Show the option (default)
                 //    false - Do not show the option
                 if (parameters["showAddCreditCard"] != string.Empty)
-                    webOptions.showAddCreditCard = Boolean.Parse(parameters["showAddCreditCard"]);
+                    webOptions.showAddCreditCard = Convert.ToBoolean( parameters["showAddCreditCard"]);
 
                 // (Optional) Defines whether the "mobile confirmation" option is included in the PayPal account registration flow.
                 //	    true - Show the option
                 //	    false - Do not show the option (default)
                 if (parameters["showMobileConfirm"] != string.Empty)
-                    webOptions.showMobileConfirm = Boolean.Parse(parameters["showMobileConfirm"]);
+                    webOptions.showMobileConfirm = Convert.ToBoolean(parameters["showMobileConfirm"]);
 
                 // (Optional) Defines whether to use the minibrowser account registration flow or the traditional account registration flow.
                 //    true - Use the minibrowser flow
                 //    false - Use the traditional flow (default)
                 if (parameters["useMiniBrowser"] != string.Empty)
-                    webOptions.useMiniBrowser = Boolean.Parse(parameters["useMiniBrowser"]);
+                    webOptions.useMiniBrowser = Convert.ToBoolean(parameters["useMiniBrowser"]);
             }
 
 
@@ -205,7 +205,7 @@ namespace AdaptiveAccountsSampleApp
             {
                 // Configuration map containing signature credentials and other required configuration.
                 // For a full list of configuration parameters refer at 
-                // (https://github.com/paypal/adaptiveaccounts-sdk-java/wiki/SDK-Configuration-Parameters)
+                // (https://github.com/paypal/adaptiveaccounts-sdk-dotnet/wiki/SDK-Configuration-Parameters)
                 Dictionary<string, string> configurationMap = Configuration.GetSignatureConfig();
 
                 // Creating service wrapper object to make an API call and loading
@@ -377,7 +377,7 @@ namespace AdaptiveAccountsSampleApp
             {
                 // Configuration map containing signature credentials and other required configuration.
                 // For a full list of configuration parameters refer at 
-                // (https://github.com/paypal/adaptiveaccounts-sdk-java/wiki/SDK-Configuration-Parameters)
+                // (https://github.com/paypal/adaptiveaccounts-sdk-dotnet/wiki/SDK-Configuration-Parameters)
                 Dictionary<string, string> configurationMap = Configuration.GetSignatureConfig();
 
                 // Creating service wrapper object to make an API call and loading
@@ -500,8 +500,8 @@ namespace AdaptiveAccountsSampleApp
             if (parameters["expirationMonth"] != string.Empty && parameters["expirationYear"] != string.Empty)
             {
                 req.expirationDate = new CardDateType(
-                    int.Parse(parameters["expirationMonth"]),
-                    int.Parse(parameters["expirationYear"]));
+                  Convert.ToInt32(parameters["expirationMonth"]),
+                    Convert.ToInt32(parameters["expirationYear"]));
             }
 
             // The verification code of the payment card. This parameter is
@@ -515,8 +515,8 @@ namespace AdaptiveAccountsSampleApp
             if (parameters["startMonth"] != string.Empty && parameters["startYear"] != string.Empty)
             {
                 req.startDate = new CardDateType(
-                    int.Parse(parameters["startMonth"]),
-                    int.Parse(parameters["startYear"]));
+                     Convert.ToInt32(parameters["startMonth"]),
+                    Convert.ToInt32(parameters["startYear"]));
             }
 
             // (Optional) 2-digit issue number of the payment card (for
@@ -556,7 +556,7 @@ namespace AdaptiveAccountsSampleApp
             {
                 // Configuration map containing signature credentials and other required configuration.
                 // For a full list of configuration parameters refer at 
-                // (https://github.com/paypal/adaptiveaccounts-sdk-java/wiki/SDK-Configuration-Parameters)
+                // (https://github.com/paypal/adaptiveaccounts-sdk-dotnet/wiki/SDK-Configuration-Parameters)
                 Dictionary<string, string> configurationMap = Configuration.GetSignatureConfig();
 
                 // Creating service wrapper object to make an API call and loading
@@ -637,7 +637,7 @@ namespace AdaptiveAccountsSampleApp
             {
                 // Configuration map containing signature credentials and other required configuration.
                 // For a full list of configuration parameters refer at 
-                // (https://github.com/paypal/adaptiveaccounts-sdk-java/wiki/SDK-Configuration-Parameters)
+                // (https://github.com/paypal/adaptiveaccounts-sdk-dotnet/wiki/SDK-Configuration-Parameters)
                 Dictionary<string, string> configurationMap = Configuration.GetSignatureConfig();
 
                 // Creating service wrapper object to make an API call and loading
@@ -716,7 +716,7 @@ namespace AdaptiveAccountsSampleApp
             {
                 // Configuration map containing signature credentials and other required configuration.
                 // For a full list of configuration parameters refer at 
-                // (https://github.com/paypal/adaptiveaccounts-sdk-java/wiki/SDK-Configuration-Parameters)
+                // (https://github.com/paypal/adaptiveaccounts-sdk-dotnet/wiki/SDK-Configuration-Parameters)
                 Dictionary<string, string> configurationMap = Configuration.GetSignatureConfig();
 
                 // Creating service wrapper object to make an API call and loading
@@ -785,7 +785,7 @@ namespace AdaptiveAccountsSampleApp
             {
                 // Configuration map containing signature credentials and other required configuration.
                 // For a full list of configuration parameters refer at 
-                // (https://github.com/paypal/adaptiveaccounts-sdk-java/wiki/SDK-Configuration-Parameters)
+                // (https://github.com/paypal/adaptiveaccounts-sdk-dotnet/wiki/SDK-Configuration-Parameters)
                 Dictionary<string, string> configurationMap = Configuration.GetSignatureConfig();
 
                 // Creating service wrapper object to make an API call and loading

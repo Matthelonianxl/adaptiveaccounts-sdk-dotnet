@@ -25,7 +25,7 @@ namespace AdaptiveAccountsSampleApp
                 {
                     // Configuration map containing signature credentials and other required configuration.
                     // For a full list of configuration parameters refer at 
-                    // (https://github.com/paypal/adaptiveaccounts-sdk-java/wiki/SDK-Configuration-Parameters)
+                    // (https://github.com/paypal/adaptiveaccounts-sdk-dotnet/wiki/SDK-Configuration-Parameters)
                     Dictionary<string, string> configurationMap = Configuration.GetSignatureConfig();
 
                     IPNMessage ipn = new IPNMessage(configurationMap, parameters);
