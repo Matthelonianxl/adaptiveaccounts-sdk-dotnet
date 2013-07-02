@@ -21,7 +21,7 @@
                 when an account is linked to a verified funding source. Verified status serves to
                 indicate a trust relationship.</div>
         </div>
-        <form method="post" action="adaptiveaccountshandler.ashx" runat="server">
+        <form method="post" action="AdaptiveAccountsHandler.ashx" runat="server">
             <div id="request_form">
                 <div class="params">
                     <div class="param_name">
@@ -57,7 +57,7 @@
                     </div>
                 </div>
                 <div class="submit">
-                    <asp:Button ID="AdaptiveAccountsBtn" Text="GetVerifiedStatus" runat="server" PostBackUrl="adaptiveaccountshandler.ashx" />
+                    <asp:Button ID="AdaptiveAccountsBtn" Text="GetVerifiedStatus" runat="server" PostBackUrl="AdaptiveAccountsHandler.ashx" />
                 </div>
             </div>
         </form>

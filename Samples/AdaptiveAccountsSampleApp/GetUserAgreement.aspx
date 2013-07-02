@@ -19,7 +19,7 @@
                 The GetUserAgreement method lets you retrieve the user agreement for the customer
                 to approve the new PayPal account.</div>
         </div>
-        <form method="post" action="adaptiveaccountshandler.ashx" runat="server">
+        <form method="post" action="AdaptiveAccountsHandler.ashx" runat="server">
             <div id="request_form">
                 <div class="note">
                     If you specify CreateAccount key, do not pass a country code or language code. Doing
@@ -70,7 +70,7 @@
                     </div>
                 </div>
                 <div class="submit">
-                    <asp:Button ID="AdaptiveAccountsBtn" Text="GetUserAgreement" runat="server" PostBackUrl="adaptiveaccountshandler.ashx" />
+                    <asp:Button ID="AdaptiveAccountsBtn" Text="GetUserAgreement" runat="server" PostBackUrl="AdaptiveAccountsHandler.ashx" />
                 </div>
             </div>
         </form>

@@ -18,7 +18,7 @@
             <div id="apidetails">
                 Set up credit cards as funding sources for PayPal accounts.</div>
         </div>
-        <form method="post" action="adaptiveaccountshandler.ashx" runat="server">
+        <form method="post" action="AdaptiveAccountsHandler.ashx" runat="server">
             <div id="request_form">
                 <div class="input_header">
                     Account ID or email Address of your paypal account *</div>
@@ -262,7 +262,7 @@
                     </tr>
                 </table>
                 <div class="submit">
-                    <asp:Button ID="AdaptiveAccountsBtn" Text="AddPaymentCard" runat="server" PostBackUrl="adaptiveaccountshandler.ashx" />
+                    <asp:Button ID="AdaptiveAccountsBtn" Text="AddPaymentCard" runat="server" PostBackUrl="AdaptiveAccountsHandler.ashx" />
                 </div>
             </div>
         </form>

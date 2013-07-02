@@ -17,7 +17,7 @@
                 The SetFundingSourceConfirmed method lets your application set up bank accounts
                 as funding sources for PayPal accounts.</div>
         </div>
-        <form method="post" action="adaptiveaccountshandler.ashx" runat="server">
+        <form method="post" action="AdaptiveAccountsHandler.ashx" runat="server">
             <div id="request_form">
                 <div class="input_header">
                     Account Id or email address of the account to which the funding source is to be
@@ -48,7 +48,7 @@
                 </div>
                 <div class="submit">
                     <asp:Button ID="AdaptiveAccountsBtn" Text="SetFundingSourceConfirmed" runat="server"
-                        PostBackUrl="adaptiveaccountshandler.ashx" />
+                        PostBackUrl="AdaptiveAccountsHandler.ashx" />
                 </div>
             </div>
         </form>
