@@ -1,7 +1,7 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdaptiveAccountsSampleApp.VS.2008", "AdaptiveAccountsSampleApp.VS.2008.csproj", "{0E9F2A72-AADB-48EE-9E4D-D7AF4863CF46}"
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdaptiveAccountsSampleApp.VS.2012", "AdaptiveAccountsSampleApp\AdaptiveAccountsSampleApp.VS.2012.csproj", "{0E9F2A72-AADB-48EE-9E4D-D7AF4863CF46}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
