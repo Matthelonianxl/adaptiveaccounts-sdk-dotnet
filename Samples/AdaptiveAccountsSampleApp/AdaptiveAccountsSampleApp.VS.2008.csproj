@@ -156,8 +156,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdaptiveAccountsHandler.ashx" />
-    <None Include="IPN-README.md" />
-    <None Include="README.md" />
     <Content Include="Web.config" />
     <Content Include="IPNListener.aspx" />
     <Content Include="lib\PayPalAdaptiveAccountsSDK.dll" />

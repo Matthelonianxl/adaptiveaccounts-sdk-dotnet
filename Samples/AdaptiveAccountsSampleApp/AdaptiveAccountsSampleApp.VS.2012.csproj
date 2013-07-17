@@ -158,8 +158,6 @@
     <Content Include="SetFundingSourcesConfirmed.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="IPN-README.md" />
-    <None Include="README.md" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

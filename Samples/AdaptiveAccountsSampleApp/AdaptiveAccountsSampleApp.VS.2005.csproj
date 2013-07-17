@@ -136,8 +136,6 @@
     <Content Include="SetFundingSourcesConfirmed.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="IPN-README.md" />
-    <None Include="README.md" />
     <Content Include="IPNListener.aspx" />
     <Content Include="lib\PayPalAdaptiveAccountsSDK.dll" />
     <Content Include="lib\PayPalCoreSDK.dll" />
