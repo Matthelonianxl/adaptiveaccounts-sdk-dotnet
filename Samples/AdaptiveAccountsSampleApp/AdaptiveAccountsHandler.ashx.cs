@@ -206,7 +206,7 @@ namespace AdaptiveAccountsSampleApp
                 // Configuration map containing signature credentials and other required configuration.
                 // For a full list of configuration parameters refer at 
                 // (https://github.com/paypal/adaptiveaccounts-sdk-dotnet/wiki/SDK-Configuration-Parameters)
-                Dictionary<string, string> configurationMap = Configuration.GetSignatureConfig();
+                Dictionary<string, string> configurationMap = Configuration.GetAcctAndConfig();
 
                 // Creating service wrapper object to make an API call and loading
                 // configuration map for your credentials and endpoint
@@ -378,7 +378,7 @@ namespace AdaptiveAccountsSampleApp
                 // Configuration map containing signature credentials and other required configuration.
                 // For a full list of configuration parameters refer at 
                 // (https://github.com/paypal/adaptiveaccounts-sdk-dotnet/wiki/SDK-Configuration-Parameters)
-                Dictionary<string, string> configurationMap = Configuration.GetSignatureConfig();
+                Dictionary<string, string> configurationMap = Configuration.GetAcctAndConfig();
 
                 // Creating service wrapper object to make an API call and loading
                 // configuration map for your credentials and endpoint
@@ -557,7 +557,7 @@ namespace AdaptiveAccountsSampleApp
                 // Configuration map containing signature credentials and other required configuration.
                 // For a full list of configuration parameters refer at 
                 // (https://github.com/paypal/adaptiveaccounts-sdk-dotnet/wiki/SDK-Configuration-Parameters)
-                Dictionary<string, string> configurationMap = Configuration.GetSignatureConfig();
+                Dictionary<string, string> configurationMap = Configuration.GetAcctAndConfig();
 
                 // Creating service wrapper object to make an API call and loading
                 // configuration map for your credentials and endpoint
@@ -638,7 +638,7 @@ namespace AdaptiveAccountsSampleApp
                 // Configuration map containing signature credentials and other required configuration.
                 // For a full list of configuration parameters refer at 
                 // (https://github.com/paypal/adaptiveaccounts-sdk-dotnet/wiki/SDK-Configuration-Parameters)
-                Dictionary<string, string> configurationMap = Configuration.GetSignatureConfig();
+                Dictionary<string, string> configurationMap = Configuration.GetAcctAndConfig();
 
                 // Creating service wrapper object to make an API call and loading
                 // configuration map for your credentials and endpoint
@@ -717,7 +717,7 @@ namespace AdaptiveAccountsSampleApp
                 // Configuration map containing signature credentials and other required configuration.
                 // For a full list of configuration parameters refer at 
                 // (https://github.com/paypal/adaptiveaccounts-sdk-dotnet/wiki/SDK-Configuration-Parameters)
-                Dictionary<string, string> configurationMap = Configuration.GetSignatureConfig();
+                Dictionary<string, string> configurationMap = Configuration.GetAcctAndConfig();
 
                 // Creating service wrapper object to make an API call and loading
                 // configuration map for your credentials and endpoint
@@ -786,7 +786,7 @@ namespace AdaptiveAccountsSampleApp
                 // Configuration map containing signature credentials and other required configuration.
                 // For a full list of configuration parameters refer at 
                 // (https://github.com/paypal/adaptiveaccounts-sdk-dotnet/wiki/SDK-Configuration-Parameters)
-                Dictionary<string, string> configurationMap = Configuration.GetSignatureConfig();
+                Dictionary<string, string> configurationMap = Configuration.GetAcctAndConfig();
 
                 // Creating service wrapper object to make an API call and loading
                 // configuration map for your credentials and endpoint
