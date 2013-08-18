@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace AdaptiveAccountsSampleApp
 {
-    // For a full list of configuration parameters refer at [https://github.com/paypal/permissions-sdk-dotnet/wiki/SDK-Configuration-Parameters]
+    // For a full list of configuration parameters refer at [https://github.com/paypal/adaptiveaccounts-sdk-dotnet/wiki/SDK-Configuration-Parameters]
     public static class Configuration
     {
         // Creates a configuration map containing credentials and other required configuration parameters
