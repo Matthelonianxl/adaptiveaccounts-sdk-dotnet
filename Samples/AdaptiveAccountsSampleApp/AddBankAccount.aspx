@@ -11,6 +11,7 @@
 
 </head>
 <body>
+	<img src="https://devtools-paypal.com/image/bdg_payments_by_pp_2line.png" alt="PAYMENTS BY PayPal" />
     <div id="wrapper">
         <div id="header">
             <h3>
@@ -18,7 +19,7 @@
             <div id="apidetails">
                 Set up bank accounts as funding sources for PayPal accounts.</div>
         </div>
-        <form method="post" action="adaptiveaccountshandler.ashx" runat="server">
+        <form method="post" action="AdaptiveAccountsHandler.ashx" runat="server">
             <div id="request_form">
                 <div class="input_header">
                     Account ID or email Address of your paypal account *</div>
@@ -232,7 +233,7 @@
                     </tr>
                 </table>
                 <div class="submit">
-                    <asp:Button ID="AdaptiveAccountsBtn" Text="AddBankAccount" runat="server" PostBackUrl="adaptiveaccountshandler.ashx" />
+                    <asp:Button ID="AdaptiveAccountsBtn" Text="AddBankAccount" runat="server" PostBackUrl="AdaptiveAccountsHandler.ashx" />
                 </div>
             </div>
         </form>

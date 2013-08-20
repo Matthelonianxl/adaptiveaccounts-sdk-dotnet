@@ -11,6 +11,7 @@
 
 </head>
 <body>
+	<img src="https://devtools-paypal.com/image/bdg_payments_by_pp_2line.png" alt="PAYMENTS BY PayPal" />
     <div id="wrapper">
         <div id="header">
             <h3>
@@ -19,7 +20,7 @@
                 The CreateAccount API operation enables you to create a PayPal account on behalf
                 of a third party.</div>
         </div>
-        <form method="post" action="adaptiveaccountshandler.ashx" runat="server">
+        <form method="post" action="AdaptiveAccountsHandler.ashx" runat="server">
             <div id="request_form">
                 <div class="params">
                     <div class="param_name">
@@ -665,7 +666,7 @@
                     </div>
                 </div>
                 <div class="submit">
-                    <asp:Button ID="AdaptiveAccountsBtn" Text="CreateAccount" runat="server" PostBackUrl="adaptiveaccountshandler.ashx" />
+                    <asp:Button ID="AdaptiveAccountsBtn" Text="CreateAccount" runat="server" PostBackUrl="AdaptiveAccountsHandler.ashx" />
                 </div>
             </div>
         </form>

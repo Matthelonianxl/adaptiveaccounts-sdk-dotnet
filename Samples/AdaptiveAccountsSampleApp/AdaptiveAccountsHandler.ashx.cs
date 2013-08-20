@@ -1,29 +1,21 @@
 using System;
-using System.Data;
 using System.Web;
-using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Web.Services;
-using System.Web.Services.Protocols;
-using PayPal;
 using PayPal.AdaptiveAccounts;
 using PayPal.AdaptiveAccounts.Model;
-using PayPal.Util;
-using PayPal.Exception;
-using System.Configuration;
 
 namespace AdaptiveAccountsSampleApp
 {
     /// <summary>
     /// Summary description for $codebehindclassname$
     /// </summary>    
-    public class adaptiveaccountshandler : IHttpHandler
+    public class AdaptiveAccountsHandler : IHttpHandler
     {
         public void ProcessRequest(HttpContext context)
         {
             context.Response.ContentType = "text/html";
-            String strCall = context.Request.Params["AdaptiveAccountsBtn"];
+            string strCall = context.Request.Params["AdaptiveAccountsBtn"];
 
             if (strCall.Equals("CreateAccount"))
             {
@@ -190,27 +182,36 @@ namespace AdaptiveAccountsSampleApp
                 //    true - Show the option (default)
                 //    false - Do not show the option
                 if (parameters["showAddCreditCard"] != string.Empty)
-                    webOptions.showAddCreditCard = Boolean.Parse(parameters["showAddCreditCard"]);
+                    webOptions.showAddCreditCard = Convert.ToBoolean( parameters["showAddCreditCard"]);
 
                 // (Optional) Defines whether the "mobile confirmation" option is included in the PayPal account registration flow.
                 //	    true - Show the option
                 //	    false - Do not show the option (default)
                 if (parameters["showMobileConfirm"] != string.Empty)
-                    webOptions.showMobileConfirm = Boolean.Parse(parameters["showMobileConfirm"]);
+                    webOptions.showMobileConfirm = Convert.ToBoolean(parameters["showMobileConfirm"]);
 
                 // (Optional) Defines whether to use the minibrowser account registration flow or the traditional account registration flow.
                 //    true - Use the minibrowser flow
                 //    false - Use the traditional flow (default)
                 if (parameters["useMiniBrowser"] != string.Empty)
-                    webOptions.useMiniBrowser = Boolean.Parse(parameters["useMiniBrowser"]);
+                    webOptions.useMiniBrowser = Convert.ToBoolean(parameters["useMiniBrowser"]);
             }
 
 
             // Create the AdaptiveAccounts service object to make the API call
-            AdaptiveAccountsService service = new AdaptiveAccountsService();
+            AdaptiveAccountsService service = null;
             CreateAccountResponse resp = null;
             try
             {
+                // Configuration map containing signature credentials and other required configuration.
+                // For a full list of configuration parameters refer in wiki page 
+                // (https://github.com/paypal/sdk-core-dotnet/wiki/SDK-Configuration-Parameters)
+                Dictionary<string, string> configurationMap = Configuration.GetAcctAndConfig();
+
+                // Creating service wrapper object to make an API call and loading
+                // configuration map for your credentials and endpoint
+                service = new AdaptiveAccountsService(configurationMap);
+
                 // # API call 
                 // Invoke the CreateAccount method in service wrapper object    	
                 resp = service.CreateAccount(req);
@@ -370,10 +371,19 @@ namespace AdaptiveAccountsSampleApp
             }           
 
             // Create the AdaptiveAccounts service object to make the API call           
-            AdaptiveAccountsService service = new AdaptiveAccountsService();
+            AdaptiveAccountsService service = null;
             AddBankAccountResponse resp = null;
             try
             {
+                // Configuration map containing signature credentials and other required configuration.
+                // For a full list of configuration parameters refer in wiki page 
+                // (https://github.com/paypal/sdk-core-dotnet/wiki/SDK-Configuration-Parameters)
+                Dictionary<string, string> configurationMap = Configuration.GetAcctAndConfig();
+
+                // Creating service wrapper object to make an API call and loading
+                // configuration map for your credentials and endpoint
+                service = new AdaptiveAccountsService(configurationMap);
+
                 // # API call 
                 // Invoke the CreateAccount method in service wrapper object   
                 resp = service.AddBankAccount(req);
@@ -490,8 +500,8 @@ namespace AdaptiveAccountsSampleApp
             if (parameters["expirationMonth"] != string.Empty && parameters["expirationYear"] != string.Empty)
             {
                 req.expirationDate = new CardDateType(
-                    int.Parse(parameters["expirationMonth"]),
-                    int.Parse(parameters["expirationYear"]));
+                  Convert.ToInt32(parameters["expirationMonth"]),
+                    Convert.ToInt32(parameters["expirationYear"]));
             }
 
             // The verification code of the payment card. This parameter is
@@ -505,8 +515,8 @@ namespace AdaptiveAccountsSampleApp
             if (parameters["startMonth"] != string.Empty && parameters["startYear"] != string.Empty)
             {
                 req.startDate = new CardDateType(
-                    int.Parse(parameters["startMonth"]),
-                    int.Parse(parameters["startYear"]));
+                     Convert.ToInt32(parameters["startMonth"]),
+                    Convert.ToInt32(parameters["startYear"]));
             }
 
             // (Optional) 2-digit issue number of the payment card (for
@@ -540,10 +550,19 @@ namespace AdaptiveAccountsSampleApp
             }
 
             // Create the AdaptiveAccounts service object to make the API call          
-            AdaptiveAccountsService service = new AdaptiveAccountsService();
+            AdaptiveAccountsService service = null;
             AddPaymentCardResponse resp = null;
             try
             {
+                // Configuration map containing signature credentials and other required configuration.
+                // For a full list of configuration parameters refer in wiki page 
+                // (https://github.com/paypal/sdk-core-dotnet/wiki/SDK-Configuration-Parameters)
+                Dictionary<string, string> configurationMap = Configuration.GetAcctAndConfig();
+
+                // Creating service wrapper object to make an API call and loading
+                // configuration map for your credentials and endpoint
+                service = new AdaptiveAccountsService(configurationMap);
+
                 // # API call 
                 // Invoke the CreateAccount method in service wrapper object   
                 resp = service.AddPaymentCard(req);
@@ -612,10 +631,19 @@ namespace AdaptiveAccountsSampleApp
             }
 
             // Create the AdaptiveAccounts service object to make the API call            
-            AdaptiveAccountsService service = new AdaptiveAccountsService();
+            AdaptiveAccountsService service = null;
             GetVerifiedStatusResponse resp = null;
             try
             {
+                // Configuration map containing signature credentials and other required configuration.
+                // For a full list of configuration parameters refer in wiki page 
+                // (https://github.com/paypal/sdk-core-dotnet/wiki/SDK-Configuration-Parameters)
+                Dictionary<string, string> configurationMap = Configuration.GetAcctAndConfig();
+
+                // Creating service wrapper object to make an API call and loading
+                // configuration map for your credentials and endpoint
+                service = new AdaptiveAccountsService(configurationMap);
+
                 // # API call 
                 // Invoke the CreateAccount method in service wrapper object 
                 resp = service.GetVerifiedStatus(req);
@@ -682,10 +710,19 @@ namespace AdaptiveAccountsSampleApp
             }
 
             // Create the AdaptiveAccounts service object to make the API call         
-            AdaptiveAccountsService service = new AdaptiveAccountsService();
+            AdaptiveAccountsService service = null;
             GetUserAgreementResponse resp = null;
             try
             {
+                // Configuration map containing signature credentials and other required configuration.
+                // For a full list of configuration parameters refer in wiki page 
+                // (https://github.com/paypal/sdk-core-dotnet/wiki/SDK-Configuration-Parameters)
+                Dictionary<string, string> configurationMap = Configuration.GetAcctAndConfig();
+
+                // Creating service wrapper object to make an API call and loading
+                // configuration map for your credentials and endpoint
+                service = new AdaptiveAccountsService(configurationMap);
+
                 // # API call 
                 // Invoke the CreateAccount method in service wrapper object 
                 resp = service.GetUserAgreement(req);
@@ -742,10 +779,19 @@ namespace AdaptiveAccountsSampleApp
                 req.emailAddress = parameters["emailAddress"];
 
             // Create the AdaptiveAccounts service object to make the API call           
-            AdaptiveAccountsService service = new AdaptiveAccountsService();
+            AdaptiveAccountsService service = null;
             SetFundingSourceConfirmedResponse resp = null;
             try
             {
+                // Configuration map containing signature credentials and other required configuration.
+                // For a full list of configuration parameters refer in wiki page 
+                // (https://github.com/paypal/sdk-core-dotnet/wiki/SDK-Configuration-Parameters)
+                Dictionary<string, string> configurationMap = Configuration.GetAcctAndConfig();
+
+                // Creating service wrapper object to make an API call and loading
+                // configuration map for your credentials and endpoint
+                service = new AdaptiveAccountsService(configurationMap);
+
                 // # API call 
                 // Invoke the CreateAccount method in service wrapper object    	
                 resp = service.SetFundingSourceConfirmed(req);
@@ -806,7 +852,7 @@ namespace AdaptiveAccountsSampleApp
             context.Response.Write("<div class='note'>Consult response object and reference doc for complete list of response values.</div><table>");
 
             //Selenium Test Case            
-            foreach (KeyValuePair<String, String> entry in responseValues)
+            foreach (KeyValuePair<string, string> entry in responseValues)
             {
 
                 context.Response.Write("<tr><td class='label'>");
