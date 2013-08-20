@@ -63,6 +63,8 @@ The PayPal Adaptive Accounts API lets you build applications that create PayPal 
 
     AdaptiveAccountsService service = new  AdaptiveAccountsService(config);
     ```
+	
+	You can refer full list of configuration parameters in [wiki](https://github.com/paypal/sdk-core-dotnet/wiki/SDK-Configuration-Parameters) page.
 
 ## Links
 
