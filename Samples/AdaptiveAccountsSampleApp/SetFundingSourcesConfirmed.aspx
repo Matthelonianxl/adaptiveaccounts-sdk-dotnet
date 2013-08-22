@@ -9,6 +9,7 @@
     <script type="text/javascript" src="Content/sdk_functions.js"></script>
 </head>
 <body>
+	<img src="https://devtools-paypal.com/image/bdg_payments_by_pp_2line.png" alt="PAYMENTS BY PayPal" />
     <div id="wrapper">
         <div id="header">
             <h3>
@@ -17,7 +18,7 @@
                 The SetFundingSourceConfirmed method lets your application set up bank accounts
                 as funding sources for PayPal accounts.</div>
         </div>
-        <form method="post" action="adaptiveaccountshandler.ashx" runat="server">
+        <form method="post" action="AdaptiveAccountsHandler.ashx" runat="server">
             <div id="request_form">
                 <div class="input_header">
                     Account Id or email address of the account to which the funding source is to be
@@ -48,7 +49,7 @@
                 </div>
                 <div class="submit">
                     <asp:Button ID="AdaptiveAccountsBtn" Text="SetFundingSourceConfirmed" runat="server"
-                        PostBackUrl="adaptiveaccountshandler.ashx" />
+                        PostBackUrl="AdaptiveAccountsHandler.ashx" />
                 </div>
             </div>
         </form>
