@@ -31,7 +31,7 @@ namespace PayPal.AdaptiveAccounts
 		/// <summary>
 		/// SDK Version
 		/// </summary>
-		private const string SDKVersion = "2.5.106";
+		private const string SDKVersion = "2.6.109";
 
 		/// <summary>
 		/// Default constructor for loading configuration from *.Config file
@@ -48,28 +48,33 @@ namespace PayPal.AdaptiveAccounts
 		/// Coutries Supported:
 		/// AU - Australia
 		/// CA - Canada
-		/// CY - Cyprus
+		/// CY -
+		/// Cyprus
 		/// CZ - Czech Republic
 		/// DK - Denmark
 		/// EE - Estonia
 		/// FI - Finland
-		/// FR - France
+		/// FR -
+		/// France
 		/// DE - Germany
 		/// GR - Greece
 		/// HU - Hungary
 		/// IT - Italy
 		/// LV - Latvia
-		/// LT - Lithuania
+		/// LT -
+		/// Lithuania
 		/// LU - Luxembourg
 		/// MT - Malta
 		/// NL - Netherlands
 		/// PL - Poland
-		/// PT - Portugal
+		/// PT -
+		/// Portugal
 		/// SK - Slovak Republic
 		/// SI - Slovenia
 		/// ES - Spain
 		/// SE - Sweden
-		/// UK - United Kingdom
+		/// UK -
+		/// United Kingdom
 		/// US - United States
 		/// 
 		/// 
@@ -95,28 +100,33 @@ namespace PayPal.AdaptiveAccounts
 		/// Coutries Supported:
 		/// AU - Australia
 		/// CA - Canada
-		/// CY - Cyprus
+		/// CY -
+		/// Cyprus
 		/// CZ - Czech Republic
 		/// DK - Denmark
 		/// EE - Estonia
 		/// FI - Finland
-		/// FR - France
+		/// FR -
+		/// France
 		/// DE - Germany
 		/// GR - Greece
 		/// HU - Hungary
 		/// IT - Italy
 		/// LV - Latvia
-		/// LT - Lithuania
+		/// LT -
+		/// Lithuania
 		/// LU - Luxembourg
 		/// MT - Malta
 		/// NL - Netherlands
 		/// PL - Poland
-		/// PT - Portugal
+		/// PT -
+		/// Portugal
 		/// SK - Slovak Republic
 		/// SI - Slovenia
 		/// ES - Spain
 		/// SE - Sweden
-		/// UK - United Kingdom
+		/// UK -
+		/// United Kingdom
 		/// US - United States
 		/// 
 		/// 
@@ -135,28 +145,33 @@ namespace PayPal.AdaptiveAccounts
 		/// Coutries Supported:
 		/// AU - Australia
 		/// CA - Canada
-		/// CY - Cyprus
+		/// CY -
+		/// Cyprus
 		/// CZ - Czech Republic
 		/// DK - Denmark
 		/// EE - Estonia
 		/// FI - Finland
-		/// FR - France
+		/// FR -
+		/// France
 		/// DE - Germany
 		/// GR - Greece
 		/// HU - Hungary
 		/// IT - Italy
 		/// LV - Latvia
-		/// LT - Lithuania
+		/// LT -
+		/// Lithuania
 		/// LU - Luxembourg
 		/// MT - Malta
 		/// NL - Netherlands
 		/// PL - Poland
-		/// PT - Portugal
+		/// PT -
+		/// Portugal
 		/// SK - Slovak Republic
 		/// SI - Slovenia
 		/// ES - Spain
 		/// SE - Sweden
-		/// UK - United Kingdom
+		/// UK -
+		/// United Kingdom
 		/// US - United States
 		/// 
 		/// 
@@ -181,29 +196,35 @@ namespace PayPal.AdaptiveAccounts
 		/// <summary>
 		/// Countries Supported:
 		/// AU - Australia
-		/// AT - Austria  
-		/// CA - Canada
+		/// AT - Austria
+		/// CA
+		/// - Canada
 		/// CZ - Czech Republic
 		/// EU - European Union *
 		/// FR - France
-		/// DE - Germany
+		/// DE -
+		/// Germany
 		/// GB - Great Britain
 		/// GR - Greece
 		/// IE - Ireland
 		/// IL - Israel
-		/// IT - Italy
+		/// IT -
+		/// Italy
 		/// JP - Japan
 		/// NL - Netherlands
 		/// NZ - New Zealand (Aotearoa)
-		/// PL - Poland
+		/// PL -
+		/// Poland
 		/// PT - Portugal
 		/// RU - Russian Federation
 		/// SG - Singapore
-		/// ZA - South Africa
+		/// ZA - South
+		/// Africa
 		/// ES - Spain
-		/// CH - Switzerland  
+		/// CH - Switzerland
 		/// US - United States
-		/// * technically a group of countries
+		/// * technically a
+		/// group of countries
 		/// 
 		/// 
 		/// 
@@ -227,29 +248,35 @@ namespace PayPal.AdaptiveAccounts
 	 	/// <summary> 
 		/// Countries Supported:
 		/// AU - Australia
-		/// AT - Austria  
-		/// CA - Canada
+		/// AT - Austria
+		/// CA
+		/// - Canada
 		/// CZ - Czech Republic
 		/// EU - European Union *
 		/// FR - France
-		/// DE - Germany
+		/// DE -
+		/// Germany
 		/// GB - Great Britain
 		/// GR - Greece
 		/// IE - Ireland
 		/// IL - Israel
-		/// IT - Italy
+		/// IT -
+		/// Italy
 		/// JP - Japan
 		/// NL - Netherlands
 		/// NZ - New Zealand (Aotearoa)
-		/// PL - Poland
+		/// PL -
+		/// Poland
 		/// PT - Portugal
 		/// RU - Russian Federation
 		/// SG - Singapore
-		/// ZA - South Africa
+		/// ZA - South
+		/// Africa
 		/// ES - Spain
-		/// CH - Switzerland  
+		/// CH - Switzerland
 		/// US - United States
-		/// * technically a group of countries
+		/// * technically a
+		/// group of countries
 		/// 
 		/// 
 		/// 
@@ -266,29 +293,35 @@ namespace PayPal.AdaptiveAccounts
 	 	/// <summary>
 		/// Countries Supported:
 		/// AU - Australia
-		/// AT - Austria  
-		/// CA - Canada
+		/// AT - Austria
+		/// CA
+		/// - Canada
 		/// CZ - Czech Republic
 		/// EU - European Union *
 		/// FR - France
-		/// DE - Germany
+		/// DE -
+		/// Germany
 		/// GB - Great Britain
 		/// GR - Greece
 		/// IE - Ireland
 		/// IL - Israel
-		/// IT - Italy
+		/// IT -
+		/// Italy
 		/// JP - Japan
 		/// NL - Netherlands
 		/// NZ - New Zealand (Aotearoa)
-		/// PL - Poland
+		/// PL -
+		/// Poland
 		/// PT - Portugal
 		/// RU - Russian Federation
 		/// SG - Singapore
-		/// ZA - South Africa
+		/// ZA - South
+		/// Africa
 		/// ES - Spain
-		/// CH - Switzerland  
+		/// CH - Switzerland
 		/// US - United States
-		/// * technically a group of countries
+		/// * technically a
+		/// group of countries
 		/// 
 		/// 
 		/// 
@@ -372,12 +405,14 @@ namespace PayPal.AdaptiveAccounts
 		/// Countries Supported:
 		/// AU - Australia
 		/// CA - Canada
-		/// FR - France
+		/// FR -
+		/// France
 		/// DE - Germany
 		/// IL - Israel
 		/// IT - Italy
 		/// NL - Netherlands
-		/// UK - United Kingdom
+		/// UK - United
+		/// Kingdom
 		/// US - United States
 		/// 
 		/// 
@@ -403,12 +438,14 @@ namespace PayPal.AdaptiveAccounts
 		/// Countries Supported:
 		/// AU - Australia
 		/// CA - Canada
-		/// FR - France
+		/// FR -
+		/// France
 		/// DE - Germany
 		/// IL - Israel
 		/// IT - Italy
 		/// NL - Netherlands
-		/// UK - United Kingdom
+		/// UK - United
+		/// Kingdom
 		/// US - United States
 		/// 
 		/// 
@@ -427,12 +464,14 @@ namespace PayPal.AdaptiveAccounts
 		/// Countries Supported:
 		/// AU - Australia
 		/// CA - Canada
-		/// FR - France
+		/// FR -
+		/// France
 		/// DE - Germany
 		/// IL - Israel
 		/// IT - Italy
 		/// NL - Netherlands
-		/// UK - United Kingdom
+		/// UK - United
+		/// Kingdom
 		/// US - United States
 		/// 
 		/// 
@@ -457,31 +496,37 @@ namespace PayPal.AdaptiveAccounts
 		/// <summary>
 		/// Countries Supported:
 		/// AU - Australia
-		/// AT - Austria  
-		/// BE - Belgium
+		/// AT - Austria
+		/// BE
+		/// - Belgium
 		/// BR - Brazil
 		/// CA - Canada
 		/// CZ - Czech Republic
 		/// FR - France
-		/// DE - Germany
+		/// DE -
+		/// Germany
 		/// GR - Greece
 		/// HK - Hong Kong
 		/// IE - Ireland
 		/// IT - Italy
 		/// JP - Japan
-		/// LU - Luxembourg
+		/// LU -
+		/// Luxembourg
 		/// MX - Mexico
 		/// NL - Netherlands
 		/// NZ - New Zealand (Aotearoa)
-		/// PL - Poland
+		/// PL -
+		/// Poland
 		/// PT - Portugal
 		/// RU - Russian Federation
 		/// SG - Singapore
-		/// ZA - South Africa
+		/// ZA - South
+		/// Africa
 		/// ES - Spain
-		/// CH - Switzerland  
+		/// CH - Switzerland
 		/// UK - United Kingdom
-		/// US - United States
+		/// US - United
+		/// States
 		/// 
 		/// 
 		/// 
@@ -505,31 +550,37 @@ namespace PayPal.AdaptiveAccounts
 	 	/// <summary> 
 		/// Countries Supported:
 		/// AU - Australia
-		/// AT - Austria  
-		/// BE - Belgium
+		/// AT - Austria
+		/// BE
+		/// - Belgium
 		/// BR - Brazil
 		/// CA - Canada
 		/// CZ - Czech Republic
 		/// FR - France
-		/// DE - Germany
+		/// DE -
+		/// Germany
 		/// GR - Greece
 		/// HK - Hong Kong
 		/// IE - Ireland
 		/// IT - Italy
 		/// JP - Japan
-		/// LU - Luxembourg
+		/// LU -
+		/// Luxembourg
 		/// MX - Mexico
 		/// NL - Netherlands
 		/// NZ - New Zealand (Aotearoa)
-		/// PL - Poland
+		/// PL -
+		/// Poland
 		/// PT - Portugal
 		/// RU - Russian Federation
 		/// SG - Singapore
-		/// ZA - South Africa
+		/// ZA - South
+		/// Africa
 		/// ES - Spain
-		/// CH - Switzerland  
+		/// CH - Switzerland
 		/// UK - United Kingdom
-		/// US - United States
+		/// US - United
+		/// States
 		/// 
 		/// 
 		/// 
@@ -546,31 +597,37 @@ namespace PayPal.AdaptiveAccounts
 	 	/// <summary>
 		/// Countries Supported:
 		/// AU - Australia
-		/// AT - Austria  
-		/// BE - Belgium
+		/// AT - Austria
+		/// BE
+		/// - Belgium
 		/// BR - Brazil
 		/// CA - Canada
 		/// CZ - Czech Republic
 		/// FR - France
-		/// DE - Germany
+		/// DE -
+		/// Germany
 		/// GR - Greece
 		/// HK - Hong Kong
 		/// IE - Ireland
 		/// IT - Italy
 		/// JP - Japan
-		/// LU - Luxembourg
+		/// LU -
+		/// Luxembourg
 		/// MX - Mexico
 		/// NL - Netherlands
 		/// NZ - New Zealand (Aotearoa)
-		/// PL - Poland
+		/// PL -
+		/// Poland
 		/// PT - Portugal
 		/// RU - Russian Federation
 		/// SG - Singapore
-		/// ZA - South Africa
+		/// ZA - South
+		/// Africa
 		/// ES - Spain
-		/// CH - Switzerland  
+		/// CH - Switzerland
 		/// UK - United Kingdom
-		/// US - United States
+		/// US - United
+		/// States
 		/// 
 		/// 
 		/// 
@@ -595,12 +652,13 @@ namespace PayPal.AdaptiveAccounts
 		/// To be updated.
 		/// Countries Supported:
 		/// AU - Australia
-		/// AT - Austria  
+		/// AT - Austria
 		/// BE - Belgium
 		/// BR - Brazil
 		/// CA - Canada
 		/// CZ - Czech Republic
-		/// FR - France
+		/// FR
+		/// - France
 		/// DE - Germany
 		/// GR - Greece
 		/// HK - Hong Kong
@@ -610,15 +668,18 @@ namespace PayPal.AdaptiveAccounts
 		/// LU - Luxembourg
 		/// MX - Mexico
 		/// NL - Netherlands
-		/// NZ - New Zealand (Aotearoa)
+		/// NZ - New Zealand
+		/// (Aotearoa)
 		/// PL - Poland
 		/// PT - Portugal
 		/// RU - Russian Federation
-		/// SG - Singapore
+		/// SG -
+		/// Singapore
 		/// ZA - South Africa
 		/// ES - Spain
-		/// CH - Switzerland  
-		/// UK - United Kingdom
+		/// CH - Switzerland
+		/// UK - United
+		/// Kingdom
 		/// US - United States
 		/// 
 		/// 
@@ -644,12 +705,13 @@ namespace PayPal.AdaptiveAccounts
 		/// To be updated.
 		/// Countries Supported:
 		/// AU - Australia
-		/// AT - Austria  
+		/// AT - Austria
 		/// BE - Belgium
 		/// BR - Brazil
 		/// CA - Canada
 		/// CZ - Czech Republic
-		/// FR - France
+		/// FR
+		/// - France
 		/// DE - Germany
 		/// GR - Greece
 		/// HK - Hong Kong
@@ -659,15 +721,18 @@ namespace PayPal.AdaptiveAccounts
 		/// LU - Luxembourg
 		/// MX - Mexico
 		/// NL - Netherlands
-		/// NZ - New Zealand (Aotearoa)
+		/// NZ - New Zealand
+		/// (Aotearoa)
 		/// PL - Poland
 		/// PT - Portugal
 		/// RU - Russian Federation
-		/// SG - Singapore
+		/// SG -
+		/// Singapore
 		/// ZA - South Africa
 		/// ES - Spain
-		/// CH - Switzerland  
-		/// UK - United Kingdom
+		/// CH - Switzerland
+		/// UK - United
+		/// Kingdom
 		/// US - United States
 		/// 
 		/// 
@@ -686,12 +751,13 @@ namespace PayPal.AdaptiveAccounts
 		/// To be updated.
 		/// Countries Supported:
 		/// AU - Australia
-		/// AT - Austria  
+		/// AT - Austria
 		/// BE - Belgium
 		/// BR - Brazil
 		/// CA - Canada
 		/// CZ - Czech Republic
-		/// FR - France
+		/// FR
+		/// - France
 		/// DE - Germany
 		/// GR - Greece
 		/// HK - Hong Kong
@@ -701,15 +767,18 @@ namespace PayPal.AdaptiveAccounts
 		/// LU - Luxembourg
 		/// MX - Mexico
 		/// NL - Netherlands
-		/// NZ - New Zealand (Aotearoa)
+		/// NZ - New Zealand
+		/// (Aotearoa)
 		/// PL - Poland
 		/// PT - Portugal
 		/// RU - Russian Federation
-		/// SG - Singapore
+		/// SG -
+		/// Singapore
 		/// ZA - South Africa
 		/// ES - Spain
-		/// CH - Switzerland  
-		/// UK - United Kingdom
+		/// CH - Switzerland
+		/// UK - United
+		/// Kingdom
 		/// US - United States
 		/// 
 		/// 
@@ -734,7 +803,8 @@ namespace PayPal.AdaptiveAccounts
 		/// <summary>
 		/// To be updated.
 		/// Countries Supported:
-		/// US - United States
+		/// US - United
+		/// States
 		/// 
 		/// 
 		/// 
@@ -758,7 +828,8 @@ namespace PayPal.AdaptiveAccounts
 	 	/// <summary> 
 		/// To be updated.
 		/// Countries Supported:
-		/// US - United States
+		/// US - United
+		/// States
 		/// 
 		/// 
 		/// 
@@ -775,7 +846,8 @@ namespace PayPal.AdaptiveAccounts
 	 	/// <summary>
 		/// To be updated.
 		/// Countries Supported:
-		/// US - United States
+		/// US - United
+		/// States
 		/// 
 		/// 
 		/// 
@@ -799,9 +871,81 @@ namespace PayPal.AdaptiveAccounts
 		/// <summary>
 		/// To be updated.
 		/// Countries Supported:
-		/// US - United States
-		/// Supported FinancialProduct: PayPal netSpend Master Prepaid
-		/// Card
+		/// US - United
+		/// States
+		/// JP - Japan
+		/// 
+		/// 
+		/// 
+		/// 
+		/// 
+	 	/// </summary>
+		///<param name="checkComplianceCapabilityStatusRequest"></param>
+		///<param name="apiUserName">API Username that you want to authenticate this call against. This username and the corresponding 3-token/certificate credentials must be available in Web.Config/App.Config</param>
+	 	public CheckComplianceCapabilityStatusResponse CheckComplianceCapabilityStatus(CheckComplianceCapabilityStatusRequest checkComplianceCapabilityStatusRequest, string apiUserName)
+	 	{	 		
+			IAPICallPreHandler apiCallPreHandler = new PlatformAPICallPreHandler(this.config, checkComplianceCapabilityStatusRequest.ToNVPString(string.Empty), ServiceName, "CheckComplianceCapabilityStatus", apiUserName, getAccessToken(), getAccessTokenSecret());
+	   	 	((PlatformAPICallPreHandler) apiCallPreHandler).SDKName = SDKName;
+			((PlatformAPICallPreHandler) apiCallPreHandler).SDKVersion = SDKVersion;
+			((PlatformAPICallPreHandler) apiCallPreHandler).PortName = "AdaptiveAccounts";
+			
+			NVPUtil util = new NVPUtil();
+			return CheckComplianceCapabilityStatusResponse.CreateInstance(util.ParseNVPString(Call(apiCallPreHandler)), string.Empty, -1);
+			
+	 	}
+	 
+	 	/// <summary> 
+		/// To be updated.
+		/// Countries Supported:
+		/// US - United
+		/// States
+		/// JP - Japan
+		/// 
+		/// 
+		/// 
+		/// 
+		/// 
+	 	/// </summary>
+		///<param name="checkComplianceCapabilityStatusRequest"></param>
+	 	
+	 	public CheckComplianceCapabilityStatusResponse CheckComplianceCapabilityStatus(CheckComplianceCapabilityStatusRequest checkComplianceCapabilityStatusRequest)
+	 	{
+	 		return CheckComplianceCapabilityStatus(checkComplianceCapabilityStatusRequest,(string) null);
+	 	}
+	 	
+	 	/// <summary>
+		/// To be updated.
+		/// Countries Supported:
+		/// US - United
+		/// States
+		/// JP - Japan
+		/// 
+		/// 
+		/// 
+		/// 
+		/// 
+	 	/// </summary>
+		///<param name="checkComplianceCapabilityStatusRequest"></param>
+		///<param name="credential">An explicit ICredential object that you want to authenticate this call against</param> 
+	 	public CheckComplianceCapabilityStatusResponse CheckComplianceCapabilityStatus(CheckComplianceCapabilityStatusRequest checkComplianceCapabilityStatusRequest, ICredential credential)
+	 	{	 			 		
+			IAPICallPreHandler apiCallPreHandler = new PlatformAPICallPreHandler(this.config, checkComplianceCapabilityStatusRequest.ToNVPString(string.Empty), ServiceName, "CheckComplianceCapabilityStatus", credential);
+	   	 	((PlatformAPICallPreHandler) apiCallPreHandler).SDKName = SDKName;
+			((PlatformAPICallPreHandler) apiCallPreHandler).SDKVersion = SDKVersion;
+			((PlatformAPICallPreHandler) apiCallPreHandler).PortName = "AdaptiveAccounts";
+
+			NVPUtil util = new NVPUtil();
+			return CheckComplianceCapabilityStatusResponse.CreateInstance(util.ParseNVPString(Call(apiCallPreHandler)), string.Empty, -1);
+			
+	 	}
+
+		/// <summary>
+		/// To be updated.
+		/// Countries Supported:
+		/// US - United
+		/// States
+		/// Supported FinancialProduct: PayPal netSpend Master
+		/// Prepaid Card
 		/// 
 		/// 
 		/// 
@@ -825,9 +969,10 @@ namespace PayPal.AdaptiveAccounts
 	 	/// <summary> 
 		/// To be updated.
 		/// Countries Supported:
-		/// US - United States
-		/// Supported FinancialProduct: PayPal netSpend Master Prepaid
-		/// Card
+		/// US - United
+		/// States
+		/// Supported FinancialProduct: PayPal netSpend Master
+		/// Prepaid Card
 		/// 
 		/// 
 		/// 
@@ -844,9 +989,10 @@ namespace PayPal.AdaptiveAccounts
 	 	/// <summary>
 		/// To be updated.
 		/// Countries Supported:
-		/// US - United States
-		/// Supported FinancialProduct: PayPal netSpend Master Prepaid
-		/// Card
+		/// US - United
+		/// States
+		/// Supported FinancialProduct: PayPal netSpend Master
+		/// Prepaid Card
 		/// 
 		/// 
 		/// 
@@ -927,8 +1073,8 @@ namespace PayPal.AdaptiveAccounts
 	 	}
 
 		/// <summary>
-		/// To Update the Compliance Status (CIP, KYC, EDD) called from
-		/// Authorized Third Party Vendor.
+		/// To Update the Compliance Status (CIP, KYC, EDD)
+		/// called from Authorized Third Party Vendor.
 		/// 
 		/// 
 		/// 
@@ -950,8 +1096,8 @@ namespace PayPal.AdaptiveAccounts
 	 	}
 	 
 	 	/// <summary> 
-		/// To Update the Compliance Status (CIP, KYC, EDD) called from
-		/// Authorized Third Party Vendor.
+		/// To Update the Compliance Status (CIP, KYC, EDD)
+		/// called from Authorized Third Party Vendor.
 		/// 
 		/// 
 		/// 
@@ -966,8 +1112,8 @@ namespace PayPal.AdaptiveAccounts
 	 	}
 	 	
 	 	/// <summary>
-		/// To Update the Compliance Status (CIP, KYC, EDD) called from
-		/// Authorized Third Party Vendor.
+		/// To Update the Compliance Status (CIP, KYC, EDD)
+		/// called from Authorized Third Party Vendor.
 		/// 
 		/// 
 		/// 

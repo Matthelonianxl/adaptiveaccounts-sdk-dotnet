@@ -65,8 +65,8 @@ namespace PayPal.AdaptiveAccounts.Model
 		/// <summary>
 		/// 
 		/// </summary>
-		private int? errorIdField;
-		public int? errorId
+		private long? errorIdField;
+		public long? errorId
 		{
 			get
 			{
@@ -238,7 +238,7 @@ namespace PayPal.AdaptiveAccounts.Model
 			if (map.ContainsKey(key))
 			{
 				errorData = (errorData == null) ? new ErrorData() : errorData;
-				errorData.errorId = System.Convert.ToInt32(map[key]);
+				errorData.errorId = System.Convert.ToInt64(map[key], DefaultCulture);
 			}
 			key = prefix + "domain";
 			if (map.ContainsKey(key))
@@ -939,10 +939,13 @@ namespace PayPal.AdaptiveAccounts.Model
 	/// <summary>
 	/// AckCodeType This code identifies the
 	///  acknowledgement code types that could be used to
-	///  communicate the status of processing a (request)
-	///  message to an application. This code would be
+	///  communicate the
+	///  status of processing a (request)
+	///  message to an application. This
+	///  code would be
 	///  used as part of a response message that contains
-	///  an application level acknowledgement element.
+	///  an
+	///  application level acknowledgement element.
 	///  
 	/// </summary>
     [Serializable]
@@ -991,7 +994,8 @@ namespace PayPal.AdaptiveAccounts.Model
 
 	/// <summary>
 	/// API confirmation type currently
-	///  Valid values are: NONE, MOBILE and
+	///  Valid values are:
+	///  NONE, MOBILE and
 	///  WEB. WEB: Returns a URL to complete the
 	///  registration.
 	///  
@@ -1039,12 +1043,13 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 	/// <summary>
-	/// Subtype required only for Business Type GOVERNMENT and
-	/// ASSOCIATION 
-	///  GOVERNMENT: ENTITY, EMANATION,ESTD_COMMONWEALTH,
-	/// ESTD_UNDER_STATE_TERRITORY, 
-	///  ESTD_UNDER_FOREIGN_COUNTRY 
-	///  ASSOCIATION: INCORPORATED, NON_INCORPORATED
+	/// Subtype required only for Business Type
+	///  GOVERNMENT and ASSOCIATION
+	///  GOVERNMENT: ENTITY,
+	///  EMANATION,ESTD_COMMONWEALTH, ESTD_UNDER_STATE_TERRITORY,
+	///  ESTD_UNDER_FOREIGN_COUNTRY
+	///  ASSOCIATION: INCORPORATED,
+	///  NON_INCORPORATED
 	///  
 	/// </summary>
     [Serializable]
@@ -1077,7 +1082,7 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 	/// <summary>
-	/// Stake holder role 
+	/// Stake holder role
 	///  
 	/// </summary>
     [Serializable]
@@ -1098,8 +1103,9 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 	/// <summary>
-	/// SwitchMaestro, deprecated card type, use UKMaestro instead
-	///              
+	/// SwitchMaestro, deprecated card type, use
+	///  UKMaestro instead
+	///  
 	/// </summary>
     [Serializable]
 	public enum CardTypeType {
@@ -1136,7 +1142,7 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 	/// <summary>
-	/// Government ID Types 
+	/// Government ID Types
 	///  
 	/// </summary>
     [Serializable]
@@ -1148,7 +1154,7 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 	/// <summary>
-	/// Legal Agreement Types 
+	/// Legal Agreement Types
 	///  
 	/// </summary>
     [Serializable]
@@ -1172,6 +1178,18 @@ namespace PayPal.AdaptiveAccounts.Model
 		[Description("PRODUCT_EXISTS")]PRODUCTEXISTS,	
 		[Description("UNCONFIRMED_MOBILE")]UNCONFIRMEDMOBILE,	
 		[Description("INTERNAL_ERROR")]INTERNALERROR	
+	}
+
+
+
+
+	/// <summary>
+	/// PayPal Capability
+	///  
+	/// </summary>
+    [Serializable]
+	public enum Capability {
+		[Description("PPH")]PPH	
 	}
 
 
@@ -1908,11 +1926,11 @@ namespace PayPal.AdaptiveAccounts.Model
 			}
 			if (this.suppressWelcomeEmail != null)
 			{
-					sb.Append(prefix).Append("suppressWelcomeEmail").Append("=").Append(this.suppressWelcomeEmail.ToString().ToLower()).Append("&");
+					sb.Append(prefix).Append("suppressWelcomeEmail").Append("=").Append(Convert.ToString(this.suppressWelcomeEmail, DefaultCulture)).Append("&");
 			}
 			if (this.performExtraVettingOnThisAccount != null)
 			{
-					sb.Append(prefix).Append("performExtraVettingOnThisAccount").Append("=").Append(this.performExtraVettingOnThisAccount.ToString().ToLower()).Append("&");
+					sb.Append(prefix).Append("performExtraVettingOnThisAccount").Append("=").Append(Convert.ToString(this.performExtraVettingOnThisAccount, DefaultCulture)).Append("&");
 			}
 			if (this.taxId != null)
 			{
@@ -4937,6 +4955,261 @@ namespace PayPal.AdaptiveAccounts.Model
 
 
 	/// <summary>
+	/// Identifies a PayPal account to which this request is
+	/// targeted. Caller of this API has to provide ONLY one of
+	/// these inputs: emailAddress, accountId or mobilePhoneNumber. 
+    /// </summary>
+	public partial class CheckComplianceCapabilityStatusRequest	{
+		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private RequestEnvelope requestEnvelopeField;
+		public RequestEnvelope requestEnvelope
+		{
+			get
+			{
+				return this.requestEnvelopeField;
+			}
+			set
+			{
+				this.requestEnvelopeField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private AccountIdentifierType accountIdentifierField;
+		public AccountIdentifierType accountIdentifier
+		{
+			get
+			{
+				return this.accountIdentifierField;
+			}
+			set
+			{
+				this.accountIdentifierField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private Capability? capabilityField;
+		public Capability? capability
+		{
+			get
+			{
+				return this.capabilityField;
+			}
+			set
+			{
+				this.capabilityField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// Constructor with arguments
+	 	/// </summary>
+	 	public CheckComplianceCapabilityStatusRequest(RequestEnvelope requestEnvelope, AccountIdentifierType accountIdentifier)
+	 	{
+			this.requestEnvelope = requestEnvelope;
+			this.accountIdentifier = accountIdentifier;
+		}
+
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
+	 	public CheckComplianceCapabilityStatusRequest()
+	 	{
+		}
+
+
+		public string ToNVPString(string prefix)
+		{
+			StringBuilder sb = new StringBuilder();
+			if (this.requestEnvelope != null)
+			{
+					string newPrefix = prefix + "requestEnvelope" + ".";
+					sb.Append(this.requestEnvelopeField.ToNVPString(newPrefix));
+			}
+			if (this.accountIdentifier != null)
+			{
+					string newPrefix = prefix + "accountIdentifier" + ".";
+					sb.Append(this.accountIdentifierField.ToNVPString(newPrefix));
+			}
+			if (this.capability != null)
+			{
+					sb.Append(prefix).Append("capability").Append("=").Append(EnumUtils.GetDescription(this.capability));
+					sb.Append("&");
+			}
+			return sb.ToString();
+		}
+	}
+
+
+
+
+	/// <summary>
+	/// Returned values are: ALLOW|DENY 
+    /// </summary>
+	public partial class CheckComplianceCapabilityStatusResponse	{
+		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private ResponseEnvelope responseEnvelopeField;
+		public ResponseEnvelope responseEnvelope
+		{
+			get
+			{
+				return this.responseEnvelopeField;
+			}
+			set
+			{
+				this.responseEnvelopeField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private string execStatusField;
+		public string execStatus
+		{
+			get
+			{
+				return this.execStatusField;
+			}
+			set
+			{
+				this.execStatusField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private string denialReasonField;
+		public string denialReason
+		{
+			get
+			{
+				return this.denialReasonField;
+			}
+			set
+			{
+				this.denialReasonField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private List<ErrorData> errorField = new List<ErrorData>();
+		public List<ErrorData> error
+		{
+			get
+			{
+				return this.errorField;
+			}
+			set
+			{
+				this.errorField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
+	 	public CheckComplianceCapabilityStatusResponse()
+	 	{
+		}
+
+
+		/// <summary>
+		/// Factory method for creating new object instances. For use by the de-serialization classes only.
+	 	/// </summary>
+	 	/// <param name="map">NVP map as returned by an API call</param>
+	 	/// <param name="prefix">NVP prefix for this class in the response</param>
+	 	/// <param name="index">For array elements, index of this element in the response</param>
+	 	/// <returns>
+	 	/// A new CheckComplianceCapabilityStatusResponse object created from the passed in NVP map
+	 	/// </returns>
+		public static CheckComplianceCapabilityStatusResponse CreateInstance(Dictionary<string, string> map, string prefix, int index)
+		{
+			CheckComplianceCapabilityStatusResponse checkComplianceCapabilityStatusResponse = null;
+			string key;
+			int i = 0;
+			if(index != -1)
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + "(" + index + ").";
+				}
+			} 
+			else
+			{
+				if (prefix.Length > 0 && !prefix.EndsWith("."))
+				{
+					prefix = prefix + ".";
+				}
+			}
+			ResponseEnvelope responseEnvelope =  ResponseEnvelope.CreateInstance(map, prefix + "responseEnvelope", -1);
+			if (responseEnvelope != null)
+			{
+				checkComplianceCapabilityStatusResponse = (checkComplianceCapabilityStatusResponse == null) ? new CheckComplianceCapabilityStatusResponse() : checkComplianceCapabilityStatusResponse;
+				checkComplianceCapabilityStatusResponse.responseEnvelope = responseEnvelope;
+			}
+			key = prefix + "execStatus";
+			if (map.ContainsKey(key))
+			{
+				checkComplianceCapabilityStatusResponse = (checkComplianceCapabilityStatusResponse == null) ? new CheckComplianceCapabilityStatusResponse() : checkComplianceCapabilityStatusResponse;
+				checkComplianceCapabilityStatusResponse.execStatus = map[key];
+			}
+			key = prefix + "denialReason";
+			if (map.ContainsKey(key))
+			{
+				checkComplianceCapabilityStatusResponse = (checkComplianceCapabilityStatusResponse == null) ? new CheckComplianceCapabilityStatusResponse() : checkComplianceCapabilityStatusResponse;
+				checkComplianceCapabilityStatusResponse.denialReason = map[key];
+			}
+			i = 0;
+			while(true)
+			{
+				ErrorData error =  ErrorData.CreateInstance(map, prefix + "error", i);
+				if (error != null)
+				{
+					checkComplianceCapabilityStatusResponse = (checkComplianceCapabilityStatusResponse == null) ? new CheckComplianceCapabilityStatusResponse() : checkComplianceCapabilityStatusResponse;
+					checkComplianceCapabilityStatusResponse.error.Add(error);
+					i++;
+				} 
+				else
+				{
+					break;
+				}
+			}
+			return checkComplianceCapabilityStatusResponse;
+		}
+	}
+
+
+
+
+	/// <summary>
 	/// This operation is for internal purposes developed for a POC.
 	/// 
     /// </summary>
@@ -5254,6 +5527,23 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/// <summary>
+		/// 
+		/// </summary>
+		private AccountInfoForUpdate accountInfoForUpdateField;
+		public AccountInfoForUpdate AccountInfoForUpdate
+		{
+			get
+			{
+				return this.accountInfoForUpdateField;
+			}
+			set
+			{
+				this.accountInfoForUpdateField = value;
+			}
+		}
+		
+
+		/// <summary>
 		/// Constructor with arguments
 	 	/// </summary>
 	 	public UpdateComplianceStatusRequest(RequestEnvelope requestEnvelope, AuditeeInfoType auditeeInfo, AuditDetailsType auditDetails)
@@ -5293,6 +5583,11 @@ namespace PayPal.AdaptiveAccounts.Model
 			{
 					string newPrefix = prefix + "auditDetails" + ".";
 					sb.Append(this.auditDetailsField.ToNVPString(newPrefix));
+			}
+			if (this.AccountInfoForUpdate != null)
+			{
+					string newPrefix = prefix + "AccountInfoForUpdate" + ".";
+					sb.Append(this.accountInfoForUpdateField.ToNVPString(newPrefix));
 			}
 			return sb.ToString();
 		}
@@ -5937,11 +6232,11 @@ namespace PayPal.AdaptiveAccounts.Model
 			}
 			if (this.showAddCreditCard != null)
 			{
-					sb.Append(prefix).Append("showAddCreditCard").Append("=").Append(this.showAddCreditCard.ToString().ToLower()).Append("&");
+					sb.Append(prefix).Append("showAddCreditCard").Append("=").Append(Convert.ToString(this.showAddCreditCard, DefaultCulture)).Append("&");
 			}
 			if (this.showMobileConfirm != null)
 			{
-					sb.Append(prefix).Append("showMobileConfirm").Append("=").Append(this.showMobileConfirm.ToString().ToLower()).Append("&");
+					sb.Append(prefix).Append("showMobileConfirm").Append("=").Append(Convert.ToString(this.showMobileConfirm, DefaultCulture)).Append("&");
 			}
 			if (this.returnUrlDescription != null)
 			{
@@ -5949,7 +6244,7 @@ namespace PayPal.AdaptiveAccounts.Model
 			}
 			if (this.useMiniBrowser != null)
 			{
-					sb.Append(prefix).Append("useMiniBrowser").Append("=").Append(this.useMiniBrowser.ToString().ToLower()).Append("&");
+					sb.Append(prefix).Append("useMiniBrowser").Append("=").Append(Convert.ToString(this.useMiniBrowser, DefaultCulture)).Append("&");
 			}
 			if (this.reminderEmailFrequency != null)
 			{
@@ -6571,15 +6866,15 @@ namespace PayPal.AdaptiveAccounts.Model
 			}
 			if (this.category != null)
 			{
-					sb.Append(prefix).Append("category").Append("=").Append(this.category).Append("&");
+					sb.Append(prefix).Append("category").Append("=").Append(Convert.ToString(this.category, DefaultCulture)).Append("&");
 			}
 			if (this.subCategory != null)
 			{
-					sb.Append(prefix).Append("subCategory").Append("=").Append(this.subCategory).Append("&");
+					sb.Append(prefix).Append("subCategory").Append("=").Append(Convert.ToString(this.subCategory, DefaultCulture)).Append("&");
 			}
 			if (this.merchantCategoryCode != null)
 			{
-					sb.Append(prefix).Append("merchantCategoryCode").Append("=").Append(this.merchantCategoryCode).Append("&");
+					sb.Append(prefix).Append("merchantCategoryCode").Append("=").Append(Convert.ToString(this.merchantCategoryCode, DefaultCulture)).Append("&");
 			}
 			if (this.doingBusinessAs != null)
 			{
@@ -6633,7 +6928,7 @@ namespace PayPal.AdaptiveAccounts.Model
 			}
 			if (this.percentageRevenueFromOnline != null)
 			{
-					sb.Append(prefix).Append("percentageRevenueFromOnline").Append("=").Append(this.percentageRevenueFromOnline).Append("&");
+					sb.Append(prefix).Append("percentageRevenueFromOnline").Append("=").Append(Convert.ToString(this.percentageRevenueFromOnline, DefaultCulture)).Append("&");
 			}
 			for (int i = 0; i < this.salesVenue.Count; i++)
 			{
@@ -6971,6 +7266,23 @@ namespace PayPal.AdaptiveAccounts.Model
 		
 
 		/// <summary>
+		/// 
+		/// </summary>
+		private string businessTypeField;
+		public string businessType
+		{
+			get
+			{
+				return this.businessTypeField;
+			}
+			set
+			{
+				this.businessTypeField = value;
+			}
+		}
+		
+
+		/// <summary>
 		/// Default Constructor
 	 	/// </summary>
 	 	public UserInfoType()
@@ -7035,6 +7347,12 @@ namespace PayPal.AdaptiveAccounts.Model
 			{
 				userInfoType = (userInfoType == null) ? new UserInfoType() : userInfoType;
 				userInfoType.businessName = map[key];
+			}
+			key = prefix + "businessType";
+			if (map.ContainsKey(key))
+			{
+				userInfoType = (userInfoType == null) ? new UserInfoType() : userInfoType;
+				userInfoType.businessType = map[key];
 			}
 			return userInfoType;
 		}
@@ -7217,11 +7535,11 @@ namespace PayPal.AdaptiveAccounts.Model
 			StringBuilder sb = new StringBuilder();
 			if (this.month != null)
 			{
-					sb.Append(prefix).Append("month").Append("=").Append(this.month).Append("&");
+					sb.Append(prefix).Append("month").Append("=").Append(Convert.ToString(this.month, DefaultCulture)).Append("&");
 			}
 			if (this.year != null)
 			{
-					sb.Append(prefix).Append("year").Append("=").Append(this.year).Append("&");
+					sb.Append(prefix).Append("year").Append("=").Append(Convert.ToString(this.year, DefaultCulture)).Append("&");
 			}
 			return sb.ToString();
 		}
@@ -8249,6 +8567,104 @@ namespace PayPal.AdaptiveAccounts.Model
 			if (this.policyVersion != null)
 			{
 					sb.Append(prefix).Append("policyVersion").Append("=").Append(HttpUtility.UrlEncode(this.policyVersion, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			return sb.ToString();
+		}
+	}
+
+
+
+
+	/// <summary>
+	/// Account Holder's profession, values such as: Accountant,
+	/// Actuary, Advocate, Architect, Business Owner, Doctor,
+	/// Dentist, Engineer, Financial Analyst, Lawyer, Librarian,
+	/// Nurse, Pilot, Pharmacist, Physician, Physicial Therapist,
+	/// Professor, Psychologist, Scientist, Teacher, Webmaster,
+	/// Writer, Student, Other 
+    /// </summary>
+	public partial class AccountInfoForUpdate	{
+		
+		// Default US culture info
+		private static CultureInfo DefaultCulture = new CultureInfo("en-US");
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private string professionField;
+		public string profession
+		{
+			get
+			{
+				return this.professionField;
+			}
+			set
+			{
+				this.professionField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private string purposeOfAccountField;
+		public string purposeOfAccount
+		{
+			get
+			{
+				return this.purposeOfAccountField;
+			}
+			set
+			{
+				this.purposeOfAccountField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// 
+		/// </summary>
+		private List<BusinessStakeholderType> businessStakeholderField = new List<BusinessStakeholderType>();
+		public List<BusinessStakeholderType> businessStakeholder
+		{
+			get
+			{
+				return this.businessStakeholderField;
+			}
+			set
+			{
+				this.businessStakeholderField = value;
+			}
+		}
+		
+
+		/// <summary>
+		/// Default Constructor
+	 	/// </summary>
+	 	public AccountInfoForUpdate()
+	 	{
+		}
+
+
+		public string ToNVPString(string prefix)
+		{
+			StringBuilder sb = new StringBuilder();
+			if (this.profession != null)
+			{
+					sb.Append(prefix).Append("profession").Append("=").Append(HttpUtility.UrlEncode(this.profession, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			if (this.purposeOfAccount != null)
+			{
+					sb.Append(prefix).Append("purposeOfAccount").Append("=").Append(HttpUtility.UrlEncode(this.purposeOfAccount, BaseConstants.ENCODING_FORMAT)).Append("&");
+			}
+			for (int i = 0; i < this.businessStakeholder.Count; i++)
+			{
+				if (this.businessStakeholder[i] != null)
+				{
+					string newPrefix = prefix + "businessStakeholder" + "(" + i + ").";
+					sb.Append(this.businessStakeholder[i].ToNVPString(newPrefix));
+				}
 			}
 			return sb.ToString();
 		}
