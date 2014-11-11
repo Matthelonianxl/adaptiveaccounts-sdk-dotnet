@@ -1,106 +1,78 @@
-Version 2.6.109 - November 07, 2013
- 
-	- Updated stubs
-	- Updated new version of core SDK.
+v2.6.110 - November 11, 2014
+  
+  - Updated Core SDK dependency
+  
+v2.6.109 - November 07, 2013
+
+  - Updated stubs
+  - Updated new version of core SDK
 	
-You can see source code of this release in github under https://github.com/paypal/adaptiveaccounts-sdk-dotnet/tree/v2.6.109.
---------------------------------------------------------------------------------------------------
-Version 2.5.106 - August 22, 2013
+v2.5.106 - August 22, 2013
  
-	- Updated samples to showcase dynamic configuration.
+  - Updated samples to showcase dynamic configuration.
 	
-You can see source code of this release in github under https://github.com/paypal/adaptiveaccounts-sdk-dotnet/tree/v2.5.106.
---------------------------------------------------------------------------------------------------
-Version 2.4.102 - May 23, 2013
+v2.4.102 - May 23, 2013
  
-	- Updated sdk version.
+  - Updated sdk version.
 	
-You can see source code of this release in github under https://github.com/paypal/adaptiveaccounts-sdk-dotnet/tree/v2.4.102.
---------------------------------------------------------------------------------------------------
-Version 2.4.101 - April 30, 2013
+v2.4.101 - April 30, 2013
  
-	- Updated core dll.
+  - Updated core dll.
 	
-You can see source code of this release in github under https://github.com/paypal/adaptiveaccounts-sdk-dotnet/tree/v2.4.101.
---------------------------------------------------------------------------------------------------
-Version 2.4.100 - March 27, 2013
+v2.4.100 - March 27, 2013
  
-	- Updated stubs for 100 release
-	- Added dynamic configuration support by passing configuration parameters using hash map.
-	- Added intellisense support.
-	
-You can see source code of this release in github under https://github.com/paypal/adaptiveaccounts-sdk-dotnet/tree/v2.4.100.
---------------------------------------------------------------------------------------------------
-Version 2.3.98 - February 12, 2013
+  - Updated stubs for 100 release
+  - Added dynamic configuration support by passing configuration parameters using hash map.
+  - Added intellisense support.
+
+v2.3.98 - February 12, 2013
+
+  - Updated IPN Listener in samples for IPN core class fix.
+
+v2.2.98 - February 05, 2013
+
+  - Updated stubs for 98 release.
+  - Added Nuget support.
+
+v2.1.96 - December 14, 2012
  
-	- Updated IPN Listener in samples for IPN core class fix.
-	
-You can see source code of this release in github under https://github.com/paypal/adaptiveaccounts-sdk-dotnet/tree/v2.3.98.
---------------------------------------------------------------------------------------------------
-Version 2.2.98 - February 05, 2013
+  - Added support for Instant Payment Notification (Refer IPN-README.md for more details)
+  - Added new feature for supporting multiple endpoints based on portname for using different sdks together.
+  - Fixes for serialization issue (https://github.com/paypal/merchant-sdk-java/issues/1)
+
+v2.0.96 - November 28, 2012
  
-	- Updated stubs for 98 release.
-	- Added Nuget support.
-	
-You can see source code of this release in github under https://github.com/paypal/adaptiveaccounts-sdk-dotnet/tree/v2.2.98.
---------------------------------------------------------------------------------------------------
-Version 2.1.96 - December 14, 2012
+  - SDK refreshed to Release 96
+  - Added support for passing in credentials dynamically for Authentication, now the call wrappers have an argument for passing credentials
+  - New type ThirdPartyAuthorization has been added to support Subject and Token based Authorizations. The earlier setAccessToken and setTokenSecret have been deprecated. You can set an instance of ThirdPartyAuthorization to an ICredntial and pass ICredential as a parameter to  API call
+  - DOTNET code Refactoring bug fixed (refer : https://github.com/paypal/SDKs/issues/34)
+
+v1.2.95 - September 28, 2012
  
-	- Added support for Instant Payment Notification (Refer IPN-README.md for more details)
-	- Added new feature for supporting multiple endpoints based on portname for using different sdks together.
-	- Fixes for serialization issue (https://github.com/paypal/merchant-sdk-java/issues/1)
-	
-You can see source code of this release in github under https://github.com/paypal/adaptiveaccounts-sdk-dotnet/tree/v2.1.96.
---------------------------------------------------------------------------------------------------
+  - Updated SDK sample
+  - Assembly files are updated with assembly versions.(https://github.com/paypal/SDKs/issues/18)
 
-Version 2.0.96 - November 28, 2012
+v1.1.93 - August 13, 2012
  
-	- SDK refreshed to Release 96
-    - Added support for passing in credentials dynamically for Authentication, now the call 
-      wrappers have an argument for passing credentials
-    - New type ThirdPartyAuthorization has been added to support Subject and Token based Authorizations. The earlier
-      setAccessToken and setTokenSecret have been deprecated. You can set an instance of ThirdPartyAuthorization to an 
-      ICredntial and pass ICredential as a parameter to  API call
-    - DOTNET code Refactoring bug fixed (refer : https://github.com/paypal/SDKs/issues/34)
---------------------------------------------------------------------------------------------------
+  - SDK Core - Deserialization Logic Change
 
+v1.0.92 - July 30, 2012
 
-Version 1.2.95 - September 28, 2012
- 
-	- Updated SDK sample
-	- Assembly files are updated with assembly versions.(https://github.com/paypal/SDKs/issues/18)
---------------------------------------------------------------------------------------------------
+  - Stable release
 
+v0.7.92 - July 17, 2012 
 
-Version 1.1.93 - August 13, 2012
- 
-	- SDK Core - Deserialization Logic Change
---------------------------------------------------------------------------------------------------
+  - wsdl update version 0.7.92
 
+v0.7.86 - July 11, 2012
 
-Version 1.0.92 - July 30, 2012
- 
-	- Stable release
---------------------------------------------------------------------------------------------------
+  - Nant script added for SDK automation.
 
-
-Version 0.7.92 - July 17, 2012 
-    - wsdl update version 0.7.92
-------------------------------------------
-	
-
-Version 0.7.86 - July 11, 2012
-    - Nant script added for SDK automation.
-    
--------------------------------------------    
 Release Date - 11-Apr-2012
   
-   - Wsdl update version 88
-   - Fix for incorrect Permissions header (X-PP-AUTHORIZATION)
+  - Wsdl update version 88
+  - Fix for incorrect Permissions header (X-PP-AUTHORIZATION)
 
+v0.6.86 - 27-Feb-2012
 
-PayPal Adaptive Accounts C# SDK - 0.6.86
-----------------------------------------
-Release Date - 27-Feb-2012
-
-	- Initial release
+  - Initial release
