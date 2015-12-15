@@ -1,6 +1,10 @@
-v2.8.110 - December 14, 2015
+v2.9.110 - December 14, 2015
 
   - Updated Core SDK dependency
+
+v2.8.110 - October 7, 2015
+
+  - Remove support for 3 APIs (AddPartnerFinancialProduct, UpdateComplianceStatus, ActivateProduct)
 
 v2.7.110 - April 22, 2015
   

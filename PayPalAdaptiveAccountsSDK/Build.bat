@@ -8,6 +8,7 @@ IF "%VSTOOLS%"=="" GOTO :VS_NOT_FOUND
 
 SET IDE_DIR=%VSTOOLS%\..\IDE
 SET DEVENV="%IDE_DIR%\devenv.com"
+%DEVENV% PayPalAdaptiveAccountsSDK.sln /clean Release
 %DEVENV% PayPalAdaptiveAccountsSDK.sln /build Release
 GOTO :END
 
